@@ -1,0 +1,17 @@
+.navbarHideable {
+  transition: transform var(--ifm-transition-fast) ease;
+}
+
+.navbarHidden {
+  transform: translate3d(0, calc(-100% - 2px), 0);
+}
+/*
+ */
+.navbarStyle {
+  border-bottom: 1px solid rgb(226, 232, 240) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .navbarStyle {
+  border-bottom: 1px solid rgb(29, 40, 58) !important;
+}

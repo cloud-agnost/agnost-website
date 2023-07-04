@@ -1,0 +1,130 @@
+.illustration {
+  height: auto;
+  margin-top: 2.75rem;
+  margin-bottom: 4.25rem;
+  border-radius: 8px !important;
+}
+
+.illustration__main {
+  height: auto;
+  margin-top: 2.75rem;
+  margin-bottom: 0.25rem;
+  border-radius: 8px !important;
+}
+
+.how-it-works-icons {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.illustration__styled {
+  height: auto;
+  margin-top: 2.75rem;
+  margin-bottom: 2rem;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 30px -5px rgb(0 0 0 / 10%);
+  max-width: 635px;
+}
+.illustration__noBorder {
+  height: auto;
+}
+
+.illustration__styledRight {
+  height: auto;
+  transform: scale(1.1);
+
+  margin-top: 2.75rem;
+  margin-bottom: 2rem;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 30px -5px rgb(0 0 0 / 10%);
+}
+
+.illustration__designed {
+  height: auto;
+  margin-top: 2.75rem;
+  margin-bottom: 4.25rem;
+}
+
+.illustration__hero {
+  height: auto;
+  margin-bottom: 4.25rem;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 30px -5px rgb(0 0 0 / 10%);
+}
+
+.illustration__heroHome {
+  height: auto;
+  margin-bottom: 0.25rem;
+}
+.model__illustration {
+  height: auto;
+  margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
+}
+
+.illustration__md {
+  /*/FIXME :  BrowserWindow full-width-to-center/*/
+  /* width: 100%; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 996px) {
+  .illustration {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 8px !important;
+  }
+  .illustration__main {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+    border-radius: 8px !important;
+  }
+  .illustration__styled {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px !important;
+    max-width: auto !important;
+    width: 100%;
+  }
+  .illustration__noBorder {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px !important;
+  }
+  .illustration__styledRight {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 8px !important;
+  }
+  .illustration__heroHome {
+    max-height: auto;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .illustration__designed {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 8px !important;
+  }
+  .illustration__hero {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 8px !important;
+  }
+  .model__illustration {
+    max-height: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}

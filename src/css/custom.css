@@ -1,0 +1,207 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --ifm-font-family-base: Inter, "Inter";
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-background-color: #030711;
+  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #1976d2;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --palette-charade: #030711;
+  /* Alternative background color to fill with 13243a */
+  --palette-charade-ex: #52556b;
+  --palette-gray: #32343e;
+  --palette-green: #66bb6a;
+  --palette-midnight: #141725;
+  --palette-pale-blue: #b1b5d3;
+  --palette-pink: #1976d2;
+  --palette-pink-bak: #1976d2;
+  --palette-red: #d50000;
+  --palette-pink-darker: #1976d2;
+  --palette-rock: var(--palette-rock-raw);
+  --palette-rock-raw: #030711;
+  --palette-sky: #1976d2;
+  --palette-darky: #0f172a;
+  --palette-text: #fff;
+  --palette-turquoise: #1976d2;
+  --palette-black-10: rgba(0, 0, 0, 0.1);
+  --palette-white: #fff;
+  --palette-white-03: rgba(255, 255, 255, 0.03);
+  --palette-white-05: rgba(255, 255, 255, 0.05);
+  --palette-white-10: rgba(255, 255, 255, 0.1);
+  --palette-white-20: rgba(255, 255, 255, 0.2);
+  --palette-white-30: rgba(255, 255, 255, 0.3);
+  --palette-white-40: rgba(255, 255, 255, 0.4);
+  --palette-white-60: rgba(255, 255, 255, 0.6);
+  --palette-white-darker: #d9d9d9;
+  --palette-yellow: #ffd54f;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --theme-section-odd-bg-color: var(--palette-rock);
+  --theme-button-primary-background-color: var(--palette-pink);
+  --theme-button-primary-text-color: var(--palette-white);
+  --theme-button-primary-hover-background-color: var(--palette-pink-darker);
+  --ifm-global-border-radius: 8px;
+
+  --theme-button-secondary-background-color: var(--palette-white);
+  --theme-button-secondary-text-color: var(--palette-charade);
+  --theme-button-secondary-hover-background-color: var(--palette-white-darker);
+
+  --theme-button-tertiary-background-color: var(--palette-white-10);
+  --theme-button-tertiary-text-color: var(--palette-white);
+  --theme-button-tertiary-hover-background-color: var(--palette-white-20);
+
+  --transition-bezier: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  --transition-fastest: 100ms;
+
+  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, Cantarell, Helvetica, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Android Emoji", EmojiSymbols, "EmojiOne Mozilla",
+    "Twemoji Mozilla", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --font-size-xs: 14px;
+  --font-size-small: 17px;
+  --font-size-normal: 16px;
+  --font-size-large: 18px;
+  --font-size-big-1: 20px;
+  --font-size-big-2: 24px;
+  --font-size-big-3: 38px;
+  --font-size-big-4: 48px;
+  --font-size-big-5: 60px;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-navbar-background-color: #030711;
+  --ifm-background-color: #030711 !important;
+  --ifm-color-emphasis-300: var(--palette-pale-blue);
+  --ifm-menu-link-sublist-icon: url("/img/infima/arrow.svg");
+  --palette-pink: #00a9f9;
+  --palette-pink-bak: #1976d2;
+  --palette-rock: #030711;
+  --palette-rock-raw: #030711;
+  --palette-red: #d50000;
+  --palette-pink-darker: #488acb;
+  --palette-rock: var(--palette-rock-raw);
+  --palette-rock-raw: #030711;
+  --palette-sky: #00a9f9;
+  --palette-darky: #f8fafc;
+  --palette-text: #000;
+  --palette-turquoise: #00a9f9;
+  --ifm-color-primary: #00a9f9;
+  --ifm-color-primary-dark: #00a9f9;
+  --ifm-color-primary-darker: #00a9f9;
+  --ifm-color-primary-darkest: #00a9f9;
+  --ifm-color-primary-light: #00a9f9;
+  --ifm-color-primary-lighter: #00a9f9;
+  --ifm-color-primary-lightest: #00a9f9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+[data-theme="light"] {
+  --palette-pale-blue: #64748b;
+  --palette-rock: #030711;
+  --palette-gray: #4b4e5d;
+  --theme-section-odd-bg-color: #f8fafc;
+
+  --palette-dark-03: rgba(0, 0, 0, 0.03);
+  --palette-dark-05: rgba(0, 0, 0, 0.05);
+  --palette-dark-10: rgba(0, 0, 0, 0.1);
+  --palette-dark-20: rgba(0, 0, 0, 0.2);
+  --palette-dark-30: rgba(0, 0, 0, 0.3);
+  --palette-dark-40: rgba(0, 0, 0, 0.4);
+  --palette-dark-40: rgba(0, 0, 0, 0.4);
+  --palette-dark-80: rgba(0, 0, 0, 0.8);
+
+  --palette-white-darker: #d9d9d9;
+  --palette-yellow: #ffd54f;
+  --theme-button-primary-background-color: var(--palette-pink);
+  --theme-button-primary-text-color: var(--palette-white);
+  --theme-button-primary-hover-background-color: var(--palette-pink-darker);
+
+  --theme-button-secondary-background-color: var(--palette-dark-10);
+  --theme-button-secondary-text-color: var(--palette-charade);
+  --theme-button-secondary-hover-background-color: var(--palette-dark-30);
+
+  --theme-button-tertiary-background-color: var(--palette-dark-30);
+  --theme-button-tertiary-text-color: var(--palette-white);
+  --theme-button-tertiary-hover-background-color: var(--palette-dark-40);
+}
+
+.detail-response {
+  background-color: #ecf4f9;
+  margin: 0.25rem 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+html[data-theme="dark"] .detail-response {
+  background-color: #32343e;
+  color: var(--ra-admonition-color);
+  margin: 0.25rem 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+.detail-response h5 {
+  color: #21222c;
+}
+
+html[data-theme="dark"] .detail-response h5 {
+  color: #fff;
+}
+
+.detail-response summary {
+  cursor: pointer;
+  color: #21222c;
+}
+
+html[data-theme="dark"] .detail-response summary {
+  cursor: pointer;
+  color: var(--ra-admonition-color);
+}
+
+.detail-response summary h5 {
+  display: inline;
+}
+
+.detail-response h5 {
+  margin-bottom: 0;
+  color: #21222c;
+  margin-bottom: calc(var(--ifm-paragraph-margin-bottom) / 2);
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(126, 134, 156, 0.265);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+/* If you have a different syntax highlighting theme for dark mode. */
+html[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+}
+
+.blog-wrapper header h2 a {
+  --ifm-link-color: var(--palette-white-darker);
+  --ifm-link-hover-color: var(--palette-white-darker);
+}
+
+html[data-theme="light"] .blog-wrapper header h2 a {
+  color: var(--ifm-font-color-base);
+}

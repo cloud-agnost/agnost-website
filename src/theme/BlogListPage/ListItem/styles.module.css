@@ -1,0 +1,104 @@
+.root {
+  --author-color: var(--palette-turquoise);
+  --content-padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  background: var(--ifm-background-color);
+  border-width: 1px !important;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--ifm-global-border-radius);
+}
+
+html[data-theme="dark"] .root {
+  background: rgba(120, 147, 222, 0.081);
+  border: 1px solid rgba(229, 229, 229, 0.182);
+}
+
+.root:hover {
+  text-decoration: none;
+  background: var(--theme-card-bg-color-hover);
+  text-decoration: none;
+  -webkit-box-shadow: 0 15px 30px -5px rgb(0 0 0 / 10%);
+  box-shadow: 0 15px 30px -5px rgb(0 0 0 / 10%);
+}
+
+.imageBox {
+  position: relative;
+  margin-bottom: 1.5rem;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+html[data-theme="dark"] .imageBox:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image {
+  display: block;
+  height: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.externalPost {
+  position: absolute;
+  bottom: 5%;
+  right: 2%;
+}
+
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 var(--content-padding);
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  height: 110px;
+  overflow: hidden;
+  color: var(--theme-text-color);
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0 var(--content-padding) 1rem;
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+  .title {
+    font-size: 1.2rem;
+  }
+}
+
+.title a {
+  color: var(--theme-card-title-color);
+}
+
+.author {
+  margin-top: auto;
+  padding: 0 var(--content-padding) var(--content-padding);
+  color: var(--palette-charade-ex);
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+}
+
+.author_box {
+  display: flex;
+}
+.author_img {
+  margin-right: 2px;
+}

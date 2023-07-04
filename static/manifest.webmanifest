@@ -1,0 +1,26 @@
+{
+  "name": "Agnost - Open-source Kubernetes Development Platform",
+  "short_name": "Agnost",
+  "description": "Your kubernetes based cloud native application platform. Agnost is a platform that helps you to deploy your applications on kubernetes with ease.",
+  "start_url": "/",
+  "background_color": "#21222c",
+  "display": "minimal-ui",
+  "theme_color": "#1976d2",
+  "icons": [
+    {
+      "src": "/img/icons/icon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon-64x64.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
