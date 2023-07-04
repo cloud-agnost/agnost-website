@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /__unused/
-Sitemap: https://www.agnost.pages.dev/sitemap.xml
+Sitemap: https://agnost.dev/sitemap.xml

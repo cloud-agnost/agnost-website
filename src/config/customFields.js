@@ -28,7 +28,7 @@ module.exports = {
 
   // Agnost fields
 
-  productionUrl: "https://agnost.pages.dev",
+  productionUrl: "https://agnost.dev",
   tagLine:
     "Your kubernetes based cloud native application platform. Agnost is a platform that helps you to deploy your applications on kubernetes with ease.",
   title: "Agnost - Open-source Kubernetes Development Platform",
