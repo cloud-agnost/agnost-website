@@ -596,8 +596,8 @@ const DevelopmentEnvironment = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            Fully-customizable Development
-            <br /> Environment in Minutes
+            Fully-customizable Environments
+            <br /> in Minutes
             {/* <em key="slogans-withEase" className={seCss.section__title__em}>
               Development
             </em>{" "} */}

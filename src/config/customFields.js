@@ -34,5 +34,5 @@ module.exports = {
   title: "Agnost - Open-source Kubernetes Development Platform",
   organizationName: "agnost",
   projectName: "agnost",
-  copyright: `Copyright © ${new Date().getFullYear()} Agnost, Inc. | All rights reserved`,
+  copyright: `Copyright © ${new Date().getFullYear()} Agnost | All rights reserved`,
 }

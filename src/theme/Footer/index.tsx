@@ -128,8 +128,7 @@ const Footer = () => {
       </div>
       <div className={footerStyles.footer__bottom}>
         <p className={footerStyles.footer__copyright}>
-          Copyright © {new Date().getFullYear()} Agnost, Inc. | All rights
-          reserved
+          Copyright © {new Date().getFullYear()} Agnost | All rights reserved
         </p>
       </div>
     </footer>
