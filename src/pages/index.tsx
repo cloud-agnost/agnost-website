@@ -96,7 +96,6 @@ const Hero = () => {
                 width="100%"
                 height="100%"
               >
-                <img src="../img/pages/index/hero.gif" alt="Hero GIF" />
                 <source src="/hero.webm" type="video/webm" />
                 <source src="/hero.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -321,9 +320,7 @@ const AllInOneBackend = () => {
               </g>
             </svg>
             <h3 className={feCss.help__header}>Message Queue</h3>
-            <p className={feCss.feature__content}>
-              Support for RabbitMQ and Kafka.
-            </p>
+            <p className={feCss.feature__content}>RabbitMQ and Kafka.</p>
           </motion.div>
           <motion.div
             ref={ref}

@@ -81,10 +81,8 @@ const Form = () => {
                 Thanks!,
                 <br />
                 <br />
-                We&apos;ll do our best to get you a reply in short order. We
-                will also just automatically sent you copy of your message, so
-                you will have that to refer back to, if needed. Thank you for
-                writing us. <br />
+                We&apos;ll be in touch soon. Have a great day!
+                <br />
                 <br />
               </p>
             }
