@@ -1,14 +1,13 @@
 import clsx from "clsx"
 import useBaseUrl from "@docusaurus/useBaseUrl"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import useMetadataContext from "@theme/useMetadataContext"
 import SvgImage from "../../components/SvgImage"
 import GithubLogo from "../../assets/icons/circle-so-invert.svg"
 
 import sectionCss from "../../css/section.module.css"
 import footerStyles from "./styles.module.css"
-const nodeFetch = require("node-fetch")
 
 type Props = Readonly<{
   href?: string
@@ -43,12 +42,6 @@ const FooterLink = ({ to, href, label, when, release, ...props }: Props) => {
   )
 }
 
-const fetchLatestRelease = async () => {
-  const response = await nodeFetch(`https://registry.npmjs.org/agnost/latest`)
-  const data = await response.json()
-  return data.version
-}
-
 const Footer = () => {
   const { siteConfig } = useDocusaurusContext()
   const metadataContext = useMetadataContext()
@@ -57,18 +50,6 @@ const Footer = () => {
       footer: { links },
     },
   } = siteConfig
-
-  const [release, setRelease] = useState()
-
-  useEffect(() => {
-    async function fetchRelease() {
-      const release = await fetchLatestRelease()
-      setRelease(release)
-    }
-    if (!release) {
-      fetchRelease()
-    }
-  }, [])
 
   return (
     <footer
@@ -137,7 +118,7 @@ const Footer = () => {
                     className={footerStyles.footer__item}
                     key={item.href ?? item.to}
                   >
-                    <FooterLink release={release} {...item} />
+                    <FooterLink {...item} />
                   </li>
                 ))}
               </ul>
