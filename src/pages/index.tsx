@@ -93,6 +93,7 @@ const Hero = () => {
                 muted
                 playsInline
                 src="../img/pages/index/hero.webm"
+                poster="../img/pages/index/hero.gif"
                 width="100%"
                 height="100%"
               >
@@ -370,7 +371,7 @@ const AllInOneBackend = () => {
             </svg>
             <h3 className={feCss.help__header}>Authentication</h3>
             <p className={feCss.feature__content}>
-              Authentication and authorization OOTB.
+              Single-sign On, LDAP and Active Directory, and Social Login
             </p>
           </motion.div>
           <motion.div
