@@ -521,9 +521,9 @@ const Realtime = () => {
             )}
             style={{ marginTop: "1rem" }}
           >
-            Near-realtime app development platform for Express routes and
-            middlewares. Whatever changes you made in your code deployed to your
-            application servers in seconds. Export your application in a
+            Near-realtime app development platform for Node.js Express routes
+            and middlewares. Whatever changes you made in your code deployed to
+            your application servers in seconds. Export your application in a
             standardized format and import it at any other Agnost Kubernetes
             cluster.
           </motion.p>
