@@ -56,8 +56,7 @@ function BlogListPage(props: Props): JSX.Element {
                 "text--center",
               )}
             >
-              Blogs and community{" "}
-              <em className={seCss.section__title__em}> resources</em>
+              Blogs and community resources
               <br />
             </h1>
 
@@ -71,7 +70,8 @@ function BlogListPage(props: Props): JSX.Element {
               )}
             >
               Content from the Agnost team and community contributors for
-              learning and sharing knowledge about Agnost.
+              learning and sharing knowledge about Agnost and application
+              development.
             </p>
             <br />
             {/*  <div className={clsx('text--center')}>

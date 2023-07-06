@@ -158,10 +158,6 @@ const config = {
                 label: "Twitter",
                 href: "https://twitter.com/AgnostDev",
               },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/agnostdev",
-              },
             ],
           },
         ],
