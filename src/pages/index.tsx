@@ -694,9 +694,15 @@ const DevelopmentEnvironment = () => {
   })
 
   return (
-    <section className={(clsx(seCss.section), seCss["section--odd"])}>
+    <section
+      className={
+        (clsx(seCss.section),
+        seCss["section--slim--accent"],
+        seCss["section--odd"])
+      }
+    >
       <div
-        className={clsx(seCss["section--inner"], seCss["section--center"])}
+        className={clsx(seCss["section--sinner"], seCss["section--center"])}
         ref={ref}
       >
         <motion.div
