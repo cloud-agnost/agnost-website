@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import clsx from "clsx"
 
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
-import { AnimatePresence, motion, useAnimation } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import caCss from "../css/card.module.css"
 import seCss from "../css/section.module.css"
 import juCss from "../css/jumbotron.module.css"
 import feCss from "../css/feature.module.css"
 import Form from "../components/Form/Form"
+import SvgImage from "../components/SvgImage"
+import GithubLogo from "../assets/icons/circle-so-invert.svg"
+import Button from "../components/Button"
 
 const Hero = () => {
   /* const words = ["Kubernetes", "Javascript"]
@@ -534,10 +537,45 @@ const Realtime = () => {
 }
 
 const CTA = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  const fadeInVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
   return (
-    <section className={clsx(seCss["section--slim--accent"])}>
+    <motion.section
+      className={clsx(seCss["section--slim--accent"])}
+      initial="hidden"
+      animate={controls}
+      variants={fadeInVariants}
+    >
       <div className={juCss.jumbotron}>
-        <h1
+        <motion.h1
+          ref={ref}
           className={clsx(
             seCss.section__title,
             caCss["card__title--important"],
@@ -547,9 +585,10 @@ const CTA = () => {
           )}
         >
           Coming soon
-        </h1>
+        </motion.h1>
 
-        <p
+        <motion.p
+          ref={ref}
           className={clsx(
             seCss.section__subtitle,
             seCss["section__subtitle--jumbotron"],
@@ -560,10 +599,91 @@ const CTA = () => {
         >
           If you want to be an early adopter, or maintainer, join the mailing
           list.
-        </p>
+        </motion.p>
         <Form />
       </div>
-    </section>
+    </motion.section>
+  )
+}
+
+const Shaping = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  const fadeInVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  return (
+    <motion.section
+      className={clsx(seCss["section--slim--accent"], seCss["section--odd"])}
+      initial="hidden"
+      animate={controls}
+      variants={fadeInVariants}
+    >
+      <div className={juCss.jumbotron}>
+        <motion.h1
+          ref={ref}
+          className={clsx(
+            seCss.section__title,
+            caCss["card__title--important"],
+            seCss["section__title--jumbotron"],
+            seCss["section__title--accent"],
+            "text--center",
+          )}
+        >
+          Be the part of shaping the future of Agnost
+        </motion.h1>
+
+        <motion.p
+          ref={ref}
+          className={clsx(
+            seCss.section__subtitle,
+            seCss["section__subtitle--jumbotron"],
+            seCss["section__subtitle--accent"],
+            "text--center",
+          )}
+          style={{ marginTop: "1rem" }}
+        >
+          Guide us to build the best developer experience for you. Visit our
+          GitHub repository and create an issue or feature request.
+        </motion.p>
+        <div className={juCss.social__cta}>
+          <Button
+            uppercase={false}
+            size="xsmall"
+            icon={<SvgImage image={<GithubLogo width="20" />} title="Github" />}
+            variant="primary"
+            className={clsx(juCss.social__link)}
+            href="https://github.com/cloud-agnost"
+          >
+            Github
+          </Button>
+        </div>
+      </div>
+    </motion.section>
   )
 }
 
@@ -850,6 +970,7 @@ export default function Home(): JSX.Element {
       <Realtime />
       <DevelopmentEnvironment />
       <CTA />
+      <Shaping />
     </Layout>
   )
 }
