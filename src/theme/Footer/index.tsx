@@ -5,6 +5,7 @@ import React from "react"
 import useMetadataContext from "@theme/useMetadataContext"
 import SvgImage from "../../components/SvgImage"
 import GithubLogo from "../../assets/icons/circle-so-invert.svg"
+import TwitterLogo from "../../assets/icons/twitter-logo.svg"
 
 import sectionCss from "../../css/section.module.css"
 import footerStyles from "./styles.module.css"
@@ -92,6 +93,15 @@ const Footer = () => {
                   rel="noreferrer"
                 >
                   <SvgImage image={<GithubLogo />} title="Github" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/AgnostDev"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <SvgImage image={<TwitterLogo />} title="Twitter" />
                 </a>
               </li>
             </ul>
