@@ -668,7 +668,7 @@ const Shaping = () => {
           style={{ marginTop: "1rem" }}
         >
           Guide us to build the best developer experience for you. Visit our
-          GitHub repository and create an issue or feature request.
+          GitHub repository and create a feature request.
         </motion.p>
         <div className={juCss.social__cta}>
           <Button

@@ -26,7 +26,7 @@
   max-width: var(--ifm-container-width);
   height: 100vh;
   width: 100%;
-  padding: 3rem 1rem 1rem 1rem;
+  padding: 3rem 1rem 2rem 1rem;
   margin: 0 auto;
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
@@ -39,7 +39,7 @@
   display: flex;
   max-width: var(--ifm-container-width);
   width: 100%;
-  padding: 3rem 1rem 1rem 1rem;
+  padding: 3rem 1rem 2rem 1rem;
   margin: 0 auto;
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
@@ -73,7 +73,7 @@
   display: flex;
   max-width: var(--ifm-container-width);
   width: 100%;
-  padding: 3rem 1rem 3rem 1rem;
+  padding: 3rem 1rem 2rem 1rem;
   margin: 0 auto;
 }
 

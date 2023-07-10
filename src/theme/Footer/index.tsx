@@ -6,7 +6,7 @@ import useMetadataContext from "@theme/useMetadataContext"
 import SvgImage from "../../components/SvgImage"
 import GithubLogo from "../../assets/icons/circle-so-invert.svg"
 import TwitterLogo from "../../assets/icons/twitter-logo.svg"
-import ThreadsLogo from "../../assets/icons/threads.svg"
+/* import ThreadsLogo from "../../assets/icons/threads.svg" */
 
 import sectionCss from "../../css/section.module.css"
 import footerStyles from "./styles.module.css"
@@ -81,7 +81,7 @@ const Footer = () => {
           />
           <p className={footerStyles.footer__tagline}>
             Agnost is an <strong>open-source kubernetes </strong>
-            development platform for building backend applications easily and at
+            development platform for building backend applications easily at
             scale.
           </p>
           <div className="widget">
@@ -96,7 +96,7 @@ const Footer = () => {
                   <SvgImage image={<GithubLogo />} title="Github" />
                 </a>
               </li>
-              <li>
+              {/*               <li>
                 <a
                   href="https://www.threads.net/@agnostdev"
                   target="_blank"
@@ -104,7 +104,7 @@ const Footer = () => {
                 >
                   <SvgImage image={<ThreadsLogo />} title="Threads" />
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="https://twitter.com/AgnostDev"
