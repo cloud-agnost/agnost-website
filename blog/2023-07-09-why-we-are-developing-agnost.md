@@ -44,7 +44,18 @@ cron-jobs, and real-time capabilities. Furthermore, Agnost incorporates a
 low-code endpoint designer that enables developers to create and deploy APIs
 with ease.
 
-### Personal Insights
+#### Birth of Agnost
+
+As the founders of Agnost, we wanted to create a reliable platform that would
+revolutionize the way developers build applications on Kubernetes clusters. The
+inspiration came from the challenges our clients faced while deploying and
+switching applications to various cloud providers such as AWS EKS, Azure AKS,
+GCP GKE, and even private Kubernetes clusters. We realized that developers
+needed a unified solution that simplifies the deployment process across
+different cloud platforms. This realization laid the foundation for Agnost,
+**the agnostic cloud platform**.
+
+#### Personal Insights
 
 As a developer, I want to share a personal insight into why we embarked on this
 journey to develop such a powerful development platform. Throughout my
