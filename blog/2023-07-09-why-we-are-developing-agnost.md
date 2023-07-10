@@ -22,7 +22,9 @@ import Banner from "@site/src/components/Banner"
 import BrowserWindow from "@site/src/components/BrowserWindow"
 
 <head>
-  <title>Why We Are Developing Agnost?</title>
+  <title>Why We are Developing Agnost?</title>
+  <meta property="og:title" content="Why We are Developing Agnost?" />
+  <meta name="twitter:title" content="Why We are Developing Agnost?" />
 </head>
 
 In today's fast-paced software development landscape, developers face numerous
