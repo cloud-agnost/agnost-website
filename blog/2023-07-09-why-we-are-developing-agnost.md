@@ -35,8 +35,8 @@ caching, automating scheduled tasks, and ensuring real-time updates. These tasks
 can be time-consuming and complex, leading to reduced productivity and delayed
 project timelines.
 
-To address these challenges, we introduce Agnost—an open-source Kubernetes
-development platform that equips developers with the tools and technologies to
+To address these challenges, we introduce **Agnost — an open-source Kubernetes
+development platform** that equips developers with the tools and technologies to
 build robust backend applications efficiently. Agnost aims to streamline the
 development process by providing a comprehensive suite of features, including an
 application server, database integration, authentication, queues, caching,
@@ -54,7 +54,7 @@ Developers often had to rely on multiple frameworks, libraries, and services,
 resulting in complex and fragmented architectures.
 
 Driven by the desire to simplify and streamline backend development, we set out
-to create Agnost - Open-source Kubernetes Development Platform. Our mission is
+to create Agnost — Open-source Kubernetes Development Platform. Our mission is
 to empower developers with a unified platform that not only addresses their
 technical requirements but also enhances their productivity and enjoyment in the
 development process with mitigating the vendor lock-in risk.
@@ -156,11 +156,14 @@ with ease at scale.
 > Streamlining Data Management
 
 Agnost simplifies data management by seamlessly **integrating with popular
-databases** such as MongoDB, PostgreSQL, MySQL, MSSQL, and more. It provides a
-unified interface and abstraction layer, allowing developers to interact with
-different database systems using a consistent API. Agnost's database integration
-enables efficient data storage, retrieval, and querying, saving developers
-valuable time and effort.
+databases** such as MongoDB, PostgreSQL, MySQL, MSSQL, and more. You have the
+**flexibility to connect Agnost with your existing database or create a new
+one** based on your project requirements. Agnost's unified interface and
+abstraction layer allow developers to interact with different database systems
+using a consistent API, regardless of whether they connect to an existing
+database or create a new one. This versatility enables developers to seamlessly
+handle data storage, retrieval, and querying, regardless of their chosen
+database setup.
 
 ### Authentication
 
@@ -180,17 +183,23 @@ can easily secure their applications and protect user data.
 Many backend applications require efficient processing of asynchronous tasks and
 message queues. Agnost integrates with message queue systems like RabbitMQ and
 Kafka, enabling developers to handle background tasks, event-driven workflows,
-and distributed processing seamlessly. By leveraging Agnost's queue
-capabilities, developers can improve application performance and scalability.
+and distributed processing seamlessly. Agnost **provides developers with the
+flexibility to either create a new queue or connect to an existing one** based
+on their specific needs. By leveraging Agnost's queue capabilities, developers
+can improve application performance and scalability.
 
 ### Storage
 
 > Simplifying File Storage
 
-Agnost provides seamless integration with popular cloud storage providers like
-S3 and Azure Blob Storage, enabling developers to store and retrieve files with
-ease. Agnost's storage capabilities simplify file management and reduce the need
-for manual configuration, saving developers valuable time and effort.
+Agnost provides seamless **integration with popular cloud storage providers**
+like S3, Azure Blob Storage, and Google Cloud Storage, enabling developers to
+store and retrieve files with ease. Additionally, developers can take advantage
+of Agnost's own storage solution powered by min.io. This gives developers the
+option to use Agnost's built-in storage capabilities, providing a flexible and
+convenient file storage solution within the Agnost ecosystem. Agnost's storage
+capabilities simplify file management and reduce the need for manual
+configuration, saving developers valuable time and effort.
 
 ### Cache
 
@@ -199,9 +208,8 @@ for manual configuration, saving developers valuable time and effort.
 Caching plays a crucial role in improving application performance and reducing
 load on databases. Agnost provides caching features that allow developers to
 store frequently accessed data in memory. It supports popular caching systems
-like Redis and Memcached, enabling faster data retrieval and reducing response
-times. Agnost's caching capabilities enhance application performance and
-scalability.
+like Redis, enabling faster data retrieval and reducing response times. Agnost's
+caching capabilities enhance application performance and scalability.
 
 ### Cron-Jobs
 
@@ -255,6 +263,18 @@ prototyping and iteration. With Agnost's low-code endpoint designer and unified
 platform, developers can quickly create prototypes, test ideas, and gather
 feedback from stakeholders. The visual interface allows for easy modification
 and iteration, reducing development cycles and accelerating time-to-market.
+
+What sets Agnost apart is its efficient code-push approach. **Instead of
+creating new Docker images for each code change, Agnost adopts a code-push
+approach.** This means that whatever changes you make in your code are deployed
+to your application servers in seconds. This streamlined process eliminates the
+need for time-consuming image building and deployment steps, allowing for faster
+development cycles and immediate application updates. Agnost's code-push
+approach enhances agility and productivity, enabling developers to make
+on-the-fly code changes and see the results immediately.
+
+It facilitates faster experimentation, bug fixing, and feature development,
+empowering developers to iterate and improve their applications with ease.
 
 > **Enhancing Team Collaboration**
 
@@ -395,6 +415,18 @@ collaboration is enhanced through a unified platform, facilitating seamless code
 sharing, version control, and concurrent development. Agnost's streamlined
 deployment and scaling capabilities, combined with its customization options,
 eliminate tedious manual tasks and improve overall development efficiency.
+
+> **No Vendor Lock-in with Agnost's Open-Source Approach**
+
+Agnost revolutionizes backend development not only with its powerful features
+and capabilities but also with its open-source nature. As an open-source
+platform, Agnost promotes transparency, collaboration, and community-driven
+innovation. Developers can **access the source code, contribute to its
+development, and customize it to suit their specific needs.** This open approach
+ensures that developers are not locked into a proprietary system and have the
+freedom to adapt Agnost to their requirements. With Agnost, you have the
+assurance of a vibrant and supportive community, avoiding vendor lock-in and
+fostering a sustainable and evolving ecosystem of backend development.
 
 > **Join the Agnost Community**
 
