@@ -185,7 +185,7 @@ html[data-theme="dark"] .contact__form__input {
   color: var(--palette-white);
 }
 html[data-theme="dark"] .contact__form__input {
-  border-bottom: 1px solid rgb(29, 40, 58);
+  border: 1px solid rgb(29, 40, 58);
 }
 
 html[data-theme="dark"] input[type="text"] {
