@@ -74,7 +74,7 @@ export const ListItem = ({ forcedTag, content }: Props) => {
               />
             </div>
           </div>
-          {content.metadata.formattedDate}
+          <div className={styles.date}>{content.metadata.formattedDate}</div>
         </div>
       </div>
     </div>

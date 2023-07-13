@@ -92,6 +92,10 @@ html[data-theme="dark"] .description {
   padding: 0 var(--content-padding) 1rem;
 }
 
+.date {
+  font-size: 0.9rem;
+}
+
 @media screen and (min-width: 500px) and (max-width: 1000px) {
   .title {
     font-size: 1.2rem;
