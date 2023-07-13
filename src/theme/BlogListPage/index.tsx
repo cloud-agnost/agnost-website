@@ -73,13 +73,6 @@ function BlogListPage(props: Props): JSX.Element {
               learning and sharing knowledge about Agnost and application
               development.
             </p>
-            <br />
-            {/*  <div className={clsx('text--center')}>
-              <Chips
-                activeChip={(metadata as unknown as Tag).permalink}
-                items={prioritizedTags}
-              />
-            </div> */}
           </div>
         </section>
 
