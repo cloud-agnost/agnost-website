@@ -283,7 +283,7 @@ app.post("/message", async (req, res) => {
   res.status(201).send(result)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ### Collaborative Tools
@@ -440,10 +440,10 @@ development, wrapped in an intuitive and user-friendly interface.
 
 Much like how a painter uses a palette of colors to create art, as a developer,
 you use Agnost to craft applications. From the application server to the
-database, from authentication to queues, cache, and cron-jobs, from realtime
-capabilities to the low-code endpoint designer, each component of Agnost is a
-unique color on your palette. Mix and match, combine and contrast, the artwork
-you create is entirely up to you.
+database, from authentication to queues, storage, cache, and cron-jobs, from
+realtime capabilities to the low-code endpoint designer, each component of
+Agnost is a unique color on your palette. Mix and match, combine and contrast,
+the artwork you create is entirely up to you.
 
 Do you need to build a state-of-the-art web application? Agnost is at your
 service. Or maybe a CRM application that can handle vast amounts of data? Agnost
