@@ -56,31 +56,25 @@ export const ListItem = ({ forcedTag, content }: Props) => {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.tags}>
-          <Chip
-            label={tag.label}
-            permalink={tag.permalink}
-            skin="secondary"
-            size="small"
-            color={tag.color}
-            backgroundColor={tag.backgroundColor}
-          />
-        </div>
-
         <h3 className={styles.title}>
           <a href={postUrl}>{content.metadata.title}</a>
         </h3>
+        <p className={styles.description}>{content.metadata.description}</p>
+
         <div className={styles.author}>
           <div className={styles.author_box}>
-            <img
-              src={frontMatter.author_image_url}
-              width="25px"
-              height="25px"
-              style={{ borderRadius: "25px", marginRight: "8px" }}
-            />{" "}
-            {author}
+            <div className={styles.tags}>
+              <Chip
+                label={tag.label}
+                permalink={tag.permalink}
+                skin="secondary"
+                size="small"
+                color={tag.color}
+                backgroundColor={tag.backgroundColor}
+              />
+            </div>
           </div>
-          {content.metadata.formattedDate}
+          <div className={styles.date}>{content.metadata.formattedDate}</div>
         </div>
       </div>
     </div>

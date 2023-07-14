@@ -8,14 +8,13 @@ author_image_url: https://github.com/zinedkaloc.png
 description:
   We are developing Agnost to empower developers with a unified platform that
   not only addresses their technical requirements but also enhances their
-  productivity and enjoyment in the development process with mitigating the
-  vendor lock-in risk.
+  productivity and enjoyment.
 keywords:
-  - kubernetes
+  - general
   - deployment
   - docker
 image: /img/blog/2023-07-09/banner.png
-tags: [general]
+tags: [general, deployment, digital transformation]
 ---
 
 import Banner from "@site/src/components/Banner"
