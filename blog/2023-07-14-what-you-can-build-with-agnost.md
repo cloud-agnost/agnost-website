@@ -41,9 +41,9 @@ tight timeline. But, what if there was a better way?
 
 ## Introducing Agnost
 
-Welcome to the world of Agnost, an open-source Kubernetes development platform
-that has been transforming the tech industry. It is a developer's paradise; a
-playground where ideas come alive and transform into reality in mere minutes.
+Welcome to the world of Agnost, an open-source Kubernetes development platform.
+It is a developer's paradise; a playground where ideas come alive and transform
+into reality in mere minutes.
 
 This comprehensive guide is designed to take you on a journey through the
 wonderland of Agnost. Whether you're a seasoned developer or just starting, our
@@ -56,8 +56,8 @@ To whet your appetite, here's a snippet of what lies ahead:
 
 1. We will first familiarize you with Agnost, exploring its potential, and
    diving deep into its core.
-2. Then, we will unveil the incredible variety of applications that you can
-   build using Agnost - from web apps to AI-powered apps, and beyond.
+2. Then, we will unveil the variety of applications that you can build using
+   Agnost - from web apps to AI-powered apps, and beyond.
 3. Lastly, we will leave you marveling at the endless possibilities offered by
    Agnost's custom node.js express routes and middlewares.
 
@@ -73,9 +73,9 @@ Let's get started!
 ### A Brief Overview
 
 Agnost, in its simplest form, is a powerhouse disguised as an open-source
-Kubernetes development platform. A masterpiece that seamlessly integrates an
-application server, database, authentication, queues, storage, cache, cron-jobs,
-and realtime capabilities into one comprehensible package.
+Kubernetes development platform. A platform that seamlessly integrates an
+serverless functions, database, authentication, queues, storage, cache,
+cron-jobs, and realtime capabilities into one comprehensible package.
 
 The magic of Agnost doesn't stop there. It also offers a low-code endpoint
 designer that permits developers to create and deploy APIs like a breeze. But,
@@ -112,9 +112,9 @@ At the heart of Agnost, we find several core components, each playing a crucial
 role in simplifying and streamlining the development process. Let's dissect
 Agnost and explore these core components:
 
-**Application Server:** Agnost provides a robust application server environment
-where your applications can live and thrive. With it, you can manage and scale
-your applications with the precision and efficiency of a Swiss watchmaker.
+**API Server:** Agnost provides a robust API server where your applications can
+live and thrive. With it, you can manage and scale your applications with the
+precision and efficiency of a Swiss watchmaker.
 
 **Database:** Agnost offers an integrated database component, eliminating the
 need for external dependencies. It allows for a seamless interaction between
@@ -143,10 +143,10 @@ coding, thereby accelerating the development process.
 
 ## Understanding the Architecture of Agnost
 
-Agnost’s architectural brilliance lies in its seamless integration of multiple
-technologies. Its modularity, scalability, and flexibility are akin to the
-interconnected blocks of LEGO - each piece serves a purpose, and together, they
-form a powerful ensemble capable of creating anything you can imagine.
+Agnost’s architecture lies in its seamless integration of multiple technologies.
+Its modularity, scalability, and flexibility are akin to the interconnected
+blocks of LEGO - each piece serves a purpose, and together, they form a powerful
+ensemble capable of creating anything you can imagine.
 
 Consider for a moment the beauty of a well-constructed LEGO structure. Isn't it
 amazing how each piece comes together to form a bigger picture, each component
@@ -313,77 +313,7 @@ In essence, regardless of the type of application or service you're building,
 Agnost provides the flexibility, scalability, and robustness you need to bring
 your vision to life.
 
-## The Endless Possibilities
-
-> with Custom Node.js Express Routes and Middlewares
-
-Beyond these core capabilities, Agnost's flexibility is further enhanced by the
-support for custom Node.js Express routes and middlewares. This capability
-allows developers to tailor and extend Agnost to suit their unique needs.
-
-### The Power of Custom Routes
-
-Custom routes allow you to define your own endpoints and handle HTTP requests in
-a way that fits your application's requirements. This is similar to how a city's
-road network can be customized to best serve its inhabitants.
-
-Take the example of creating a custom route to handle a unique requirement in
-your application:
-
-```javascript
-// Using Agnost to create a custom route
-const express = require("express")
-const app = express()
-const Agnost = require("agnost")
-
-app.get("/custom", async (req, res) => {
-  // Handle the GET request in a custom way
-  const result = await customFunction(req.query)
-
-  res.status(200).send(result)
-})
-
-agnost.listen(app)
-```
-
-Just like how a city planner has the flexibility to design a road network, as a
-developer, you have the flexibility to design your application's endpoint
-structure with custom routes.
-
-### The Power of Custom Middlewares
-
-In Express, a middleware is a function that has access to the request object,
-the response object, and the next function in the application’s request-response
-cycle. Middlewares can execute any code, transform the request and the response
-objects, or end the request-response cycle. If the current middleware function
-does not end the request-response cycle, it must call `next()` to pass control
-to the next middleware function.
-
-Agnost embraces this philosophy and allows developers to use custom middlewares,
-enabling you to add custom logic to your application's request-response cycle.
-
-Consider a custom middleware that logs the time of every request to your
-application:
-
-```javascript
-// Using Agnost to create a custom middleware
-const express = require("express")
-const app = express()
-const Agnost = require("agnost")
-
-app.use((req, res, next) => {
-  console.log(`Request received at ${new Date().toISOString()}`)
-  next()
-})
-
-agnost.listen(app)
-```
-
 ## Final Thoughts
-
-This custom middleware logs the time of the request before passing control to
-the next middleware in the chain. This is similar to how a security guard checks
-everyone entering a building and then passes them on to their destination.
 
 Having explored the vast landscape of possibilities that Agnost offers, let's
 circle back to the essence of Agnost. It is an open-source Kubernetes
@@ -415,7 +345,7 @@ your ideas, and a launching pad for your ambitions.
 And remember, every masterpiece begins with a single stroke. So, why not make
 Agnost the first stroke in your next masterpiece?
 
-### Try Agnost Today!
+### Join the Community!
 
 Are you ready to embark on your journey with Agnost? Begin your adventure today
 and join the ranks of developers who have discovered the joy of creating with
