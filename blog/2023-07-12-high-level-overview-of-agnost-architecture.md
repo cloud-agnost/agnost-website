@@ -15,7 +15,7 @@ keywords:
   - backend
   - architecture
 image: /img/blog/2023-07-12/banner.png
-tags: [kubernetes, architecture, open-source]
+tags: [architecture, kubernetes, backend]
 ---
 
 import Banner from "@site/src/components/Banner"
@@ -45,19 +45,11 @@ overview of Agnost architecture and our plans for its future.
 
 There are several different technologies and components in an Agnost cluster.
 First, the Agnost platform runs on [**Kubernetes**](https://kubernetes.io/)
-clusters and is created using a **Helm chart**. We tried to keep the system
+clusters and is created using a [**Helm chart**](https://helm.sh/docs/topics/charts/). We tried to keep the system
 resource requirements for the Kubernetes cluster as low as possible. As of this
 writing, 4 CPUs and 8 GB of memory are the minimum resources needed for an
 up-and-running Agnost cluster. Below are the descriptions of crucial
 technologies and cluster components.
-
-There are several different technologies and components in an Agnost cluster.
-First of all Agnost platform will be running on clusters and it will be created
-using a [**Helm chart**](https://helm.sh/docs/topics/charts/). We tried to keep
-the system resource requirements for the Kubernetes cluster as low as possible.
-As of this writing, 4 CPUs and 8 GB memory is the minimum resource need to have
-an up and running Agnost cluster. Below are the descriptions of key technolgies
-and cluster components.
 
 There are three logical groups in an Agnost cluster: **Platform**, **Engine**,
 and **Cluster Resources**. The platform modules (e.g., Platform-Core,
@@ -66,7 +58,7 @@ application design and development. These modules manage developed application
 data and allow developers to create their apps through Agnost-Studio, the
 platform's front-end. Whereas the Engine modules (Engine-Worker, Engine-Monitor,
 Engine-Scheduler, Engine-Realtime, and API Servers) manage application
-deployment and execution of the apps. The developed applications are deployed
+deployment and execution. The developed applications are deployed
 through the Agnost cluster Engine modules, and requests to an application
 endpoint are handled. Finally, the Cluster resources (e.g., Platform-Database,
 Platform-Cache, Platform-Message Broker, Cloud Storage, and Knative) are the
@@ -112,7 +104,7 @@ backend applications.
   cluster.
 - **Knative**: In Agnost, an application can have multiple versions. You can
   think of versions as branches in Git. Each version also has its API Server
-  deployed as a [Knative](https://knative.dev/) server. This approach ensures
+  deployed as a [Knative](https://knative.dev/) service. This approach ensures
   that developers working on different versions of an app each have their own
   development environments. We use the serverless infrastructure of Knative to
   effectively utilize cluster resources so that application versions that are
@@ -174,8 +166,7 @@ backend applications.
   the cron job.
 - **Engine-Realtime**: This is the socket.io server of the apps that utilize
   realtime features of the platform. Through this module, applications can
-  manage realtime channels (e.g., topics) and send messages to connected message
-  members.
+  manage realtime channels (e.g., topics) and send messages to connected clients.
 - **API Server**: As briefly mentioned above, each version of an app developed
   in Agnost Cluster has its API Server. API Servers are created as a Knative
   service, a.k.a serverless function. The API servers are responsible for
