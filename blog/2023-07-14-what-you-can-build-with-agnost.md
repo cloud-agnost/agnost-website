@@ -176,13 +176,13 @@ example of how to create an endpoint for a blog post:
 // Using Agnost to create a new blog post endpoint
 const express = require("express")
 const app = express()
-const Agnost = require("agnost")
+const agnost = require("agnost")
 
 app.post("/blog", async (req, res) => {
   const blogPost = req.body
 
   // Save the blog post using Agnost's integrated database component
-  const result = await Agnost.database.save("BlogPosts", blogPost)
+  const result = await agnost.db.save("BlogPosts", blogPost)
 
   res.status(201).send(result)
 })
@@ -205,15 +205,15 @@ like this:
 // Using Agnost to create a real-time lead update feature
 const express = require("express")
 const app = express()
-const Agnost = require("agnost")
+const agnost = require("agnost")
 
 // Listen for updates in the 'Leads' collection
-Agnost.database.collection("Leads").onChange((change) => {
+agnost.db.collection("leads").onChange((change) => {
   // Notify the sales representatives about the lead update in real-time
-  Agnost.realtime.broadcast("leadUpdate", change)
+  agnost.realtime.broadcast("leadUpdate", change)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ### Social Networking Applications
@@ -230,18 +230,18 @@ using Agnost would look like this:
 // Using Agnost to create a new user in a social networking application
 const express = require("express")
 const app = express()
-const Agnost = require("agnost")
+const agnost = require("agnost")
 
 app.post("/users", async (req, res) => {
   const user = req.body
 
   // Create a new user using Agnost's integrated authentication system
-  const result = await Agnost.auth.createUser(user)
+  const result = await agnost.auth.createUser(user)
 
   res.status(201).send(result)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ### Chat Applications
@@ -257,16 +257,16 @@ Agnost, the implementation might look like this:
 // Using Agnost to create a new chat message endpoint
 const express = require("express")
 const app = express()
-const Agnost = require("agnost")
+const agnost = require("agnost")
 
 app.post("/message", async (req, res) => {
   const message = req.body
 
   // Save the message using Agnost's integrated database component
-  const result = await Agnost.database.save("Messages", message)
+  const result = await agnost.db.save("messages", message)
 
   // Broadcast the message in real-time
-  Agnost.realtime.broadcast("newMessage", result)
+  agnost.realtime.broadcast("newMessage", result)
 
   res.status(201).send(result)
 })
@@ -287,15 +287,15 @@ using Agnost could look something like this:
 // Using Agnost to create a real-time document editing feature
 const express = require("express")
 const app = express()
-const Agnost = require("agnost")
+const agnost = require("agnost")
 
 // Listen for updates in the 'Documents' collection
-Agnost.database.collection("Documents").onChange((change) => {
+agnost.db.collection("documents").onChange((change) => {
   // Broadcast the document update in real-time
-  Agnost.realtime.broadcast("documentUpdate", change)
+  agnost.realtime.broadcast("documentUpdate", change)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ### AI-Powered Applications
@@ -319,7 +319,7 @@ const aiTask = async (data) => {
 }
 
 // Add the AI task to Agnost's queue for background processing
-Agnost.queue.add(aiTask, { data: "your-data" })
+agnost.queue.add(aiTask, { data: "your-data" })
 ```
 
 ### E-commerce Applications
@@ -341,12 +341,12 @@ app.post("/cart", async (req, res) => {
   const cart = req.body
 
   // Save the shopping cart using Agnost's integrated database component
-  const result = await Agnost.database.save("Carts", cart)
+  const result = await agnost.db.save("carts", cart)
 
   res.status(201).send(result)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ## The Endless Possibilities
@@ -379,7 +379,7 @@ app.get("/custom", async (req, res) => {
   res.status(200).send(result)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 Just like how a city planner has the flexibility to design a road network, as a
@@ -412,7 +412,7 @@ app.use((req, res, next) => {
   next()
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ## Final Thoughts
