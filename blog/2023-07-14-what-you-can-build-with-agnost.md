@@ -74,8 +74,8 @@ Let's get started!
 
 Agnost, in its simplest form, is a powerhouse disguised as an open-source
 Kubernetes development platform. A masterpiece that seamlessly integrates an
-application server, database, authentication, queues, cache, cron-jobs, and
-realtime capabilities into one comprehensible package.
+application server, database, authentication, queues, storage, cache, cron-jobs,
+and realtime capabilities into one comprehensible package.
 
 The magic of Agnost doesn't stop there. It also offers a low-code endpoint
 designer that permits developers to create and deploy APIs like a breeze. But,
@@ -124,6 +124,10 @@ your application and your data, thereby making data management a breeze.
 Agnost addresses this by providing a built-in authentication mechanism. This
 allows you to secure your application without having to reinvent the wheel.
 
+**Storage:** Agnost's integrated storage component allows you to store and
+retrieve files with ease. Whether it's images, videos, or documents, Agnost help
+you manage your files with minimal effort.
+
 **Queues, Cache, and Cron-Jobs:** These auxiliary features in Agnost help
 optimize your application's performance. Whether it's handling tasks
 asynchronously with queues, speeding up response time with caching, or
@@ -153,6 +157,14 @@ software development.
 means that with Agnost, you have the power to build, manage, and scale your
 applications with unprecedented ease. You have the ability to shape your
 development process as you see fit, just like a master LEGO builder.
+
+:::tip
+
+For a more in-depth look at Agnost's architecture, check out our
+[Architecture Overview](/blog/high-level-overview-of-agnost-architecture) blog
+post.
+
+:::
 
 ## The Applications You Can Build With Agnost
 
