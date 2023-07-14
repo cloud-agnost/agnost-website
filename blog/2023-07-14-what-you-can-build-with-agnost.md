@@ -199,7 +199,7 @@ app.post("/blog", async (req, res) => {
   res.status(201).send(result)
 })
 
-Agnost.listen(app)
+agnost.listen(app)
 ```
 
 ### CRM Applications
