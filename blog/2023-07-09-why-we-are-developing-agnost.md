@@ -15,7 +15,7 @@ keywords:
   - deployment
   - docker
 image: /img/blog/2023-07-09/banner.png
-tags: [kubernetes, deployment, digital transformation]
+tags: [general]
 ---
 
 import Banner from "@site/src/components/Banner"

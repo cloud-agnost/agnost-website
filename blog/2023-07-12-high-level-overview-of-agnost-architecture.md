@@ -14,7 +14,7 @@ keywords:
   - backend
   - architecture
 image: /img/blog/2023-07-09/banner.png
-tags: [kubernetes, architecture, open-source]
+tags: [architecture]
 ---
 
 import Banner from "@site/src/components/Banner"
