@@ -71,8 +71,8 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Powerful and Scalable Application Development Environment
-                running in a Kubernetes Clusters. Efficiently build robust
+                Powerful and Scalable Application Development Platform
+                running in Kubernetes Clusters. Efficiently build robust
                 Node.js Express applications.
               </motion.p>
               <motion.div

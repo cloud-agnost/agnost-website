@@ -32,53 +32,24 @@ authentication to cron-jobs, realtime, and more. It's not just a dream, it's
 reality, it's Agnost.
 
 Let's paint an image for a moment: You're a software developer, you’ve just been
-given a new project to create a web application that will revolutionize the way
+given a new project to create a web application that will change the way
 businesses operate. This application will need to handle thousands of users
 concurrently, it will need a robust database, secure authentication and it has
 to be ready in record time. How do you start? With the traditional approach,
 you'd probably start pulling your hair out over the immense workload and the
 tight timeline. But, what if there was a better way?
 
-## Introducing Agnost
-
-Welcome to the world of Agnost, an open-source Kubernetes development platform.
-It is a developer's paradise; a playground where ideas come alive and transform
-into reality in mere minutes.
-
-This comprehensive guide is designed to take you on a journey through the
-wonderland of Agnost. Whether you're a seasoned developer or just starting, our
-aim is to make you say, "I can't believe it's so simple and powerful!" by the
-time you're done reading.
-
-So why wait? Dive in and explore the world of possibilities with Agnost!
-
-To whet your appetite, here's a snippet of what lies ahead:
-
-1. We will first familiarize you with Agnost, exploring its potential, and
-   diving deep into its core.
-2. Then, we will unveil the variety of applications that you can build using
-   Agnost - from web apps to AI-powered apps, and beyond.
-3. Lastly, we will leave you marveling at the endless possibilities offered by
-   Agnost's custom node.js express routes and middlewares.
-
-"Is it possible to get all these with a single tool?", you might be wondering.
-Yes, indeed, it is. And by the end of this guide, you will not just believe it,
-but you will be ready to harness it. So, are you ready to embark on this
-exciting journey?
-
-Let's get started!
-
 ## What is Agnost?
 
 ### A Brief Overview
 
 Agnost, in its simplest form, is a powerhouse disguised as an open-source
-Kubernetes development platform. A platform that seamlessly integrates an
+Kubernetes development platform. A platform that seamlessly integrates a
 serverless functions, database, authentication, queues, storage, cache,
 cron-jobs, and realtime capabilities into one comprehensible package.
 
 The magic of Agnost doesn't stop there. It also offers a low-code endpoint
-designer that permits developers to create and deploy APIs like a breeze. But,
+designer that allows developers to quickly create and deploy APIs. But,
 how does it achieve this wizardry? The answer is simple: Agnost enables you to
 build and manage your own custom node.js express routes and middlewares. Think
 of it as your magic wand, ready to wave and make development challenges
@@ -116,9 +87,7 @@ Agnost and explore these core components:
 live and thrive. With it, you can manage and scale your applications with the
 precision and efficiency of a Swiss watchmaker.
 
-**Database:** Agnost offers an integrated database component, eliminating the
-need for external dependencies. It allows for a seamless interaction between
-your application and your data, thereby making data management a breeze.
+**Database:** Agnost offers an integrated database component and allows you to connect to your existing/legacy databases. It allows for a seamless interaction between your application and your data, thereby making data management a breeze.
 
 **Authentication:** Security is a primary concern in today's digital landscape.
 Agnost addresses this by providing a built-in authentication mechanism. This
@@ -341,20 +310,3 @@ So, what can you build with Agnost? The answer is - anything. With its powerful
 components, flexible architecture, and supportive community, Agnost is not just
 a development platform; it's a canvas for your imagination, a playground for
 your ideas, and a launching pad for your ambitions.
-
-And remember, every masterpiece begins with a single stroke. So, why not make
-Agnost the first stroke in your next masterpiece?
-
-### Join the Community!
-
-Are you ready to embark on your journey with Agnost? Begin your adventure today
-and join the ranks of developers who have discovered the joy of creating with
-Agnost. Let's build the future together, one line of code at a time!
-
-Remember, as Leonardo da Vinci once said, "Simplicity is the ultimate
-sophistication." With Agnost, we provide the simplicity, and you bring the
-sophistication. Let's simplify development and sophisticate the world of
-applications together. Ready, set, Agnost!
-
-So, what are you waiting for? Grab a cup of your favorite brew, fire up your
-code editor, and let's start building with Agnost!

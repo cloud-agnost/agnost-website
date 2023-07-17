@@ -137,6 +137,7 @@ backend applications.
   realtime feedback about the changes made by other developers or notified about
   important system messages (e.g., data model deployment to the database
   failed).
+- **Platform-Studio**: This React app is the platform's front-end, where you manage settings, resources, and users of your Agnost cluster and create and deploy new applications.
 
 ### Agnost Engine Modules
 
@@ -201,6 +202,3 @@ provides the core functionalities (e.g., database, application server, storage,
 security, authentication) that are needed in almost every backend application
 out of the box. Hence, it significantly simplifies application development and
 reduces infrastructure set-up and management time.
-
-**Start exploring Agnost today and experience the transformative power it brings
-to your backend development endeavors.**
