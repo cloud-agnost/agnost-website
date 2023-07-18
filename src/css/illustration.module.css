@@ -48,10 +48,6 @@
 
 .illustration__hero {
   height: auto;
-  margin-bottom: 4.25rem;
-  border-radius: 8px !important;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 15px 30px -5px rgb(0 0 0 / 10%);
 }
 
 .illustration__heroHome {

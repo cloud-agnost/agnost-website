@@ -9,10 +9,12 @@ import caCss from "../css/card.module.css"
 import seCss from "../css/section.module.css"
 import juCss from "../css/jumbotron.module.css"
 import feCss from "../css/feature.module.css"
+import ilCss from "../css/illustration.module.css"
 import Form from "../components/Form/Form"
 import SvgImage from "../components/SvgImage"
 import GithubLogo from "../assets/icons/circle-so-invert.svg"
 import Button from "../components/Button"
+import ImageSwitcher from "../theme/ImageSwitcher"
 
 const Hero = () => {
   /* const words = ["Kubernetes", "Javascript"]
@@ -71,9 +73,9 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Powerful and Scalable Application Development Platform
-                running in Kubernetes Clusters. Efficiently build robust
-                Node.js Express applications.
+                Powerful and Scalable Application Development Platform running
+                in Kubernetes Clusters. Efficiently build robust Node.js Express
+                applications.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -491,7 +493,7 @@ const Realtime = () => {
   }
 
   return (
-    <section className={clsx(seCss.section)}>
+    <section className={(clsx(seCss.section), seCss["section--odd"])}>
       <div className={clsx(seCss["section--help"], seCss["section--center"])}>
         <div className={juCss.jumbotron}>
           <motion.h1
@@ -536,6 +538,99 @@ const Realtime = () => {
   )
 }
 
+const PrimaryAndReplica = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  const fadeInVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  return (
+    <section className={clsx(seCss.section)}>
+      <div className={clsx(seCss["section--help"], seCss["section--center"])}>
+        <div className={juCss.jumbotron}>
+          <motion.h1
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__title,
+              caCss["card__title--important"],
+              seCss["section__title--jumbotron"],
+              seCss["section__title--accent"],
+              "text--center",
+            )}
+          >
+            Scale Your Database, Cache, and Message Queues
+          </motion.h1>
+
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(seCss["section--img"])}
+          >
+            <ImageSwitcher
+              lightImageSrc="/img/pages/replicas.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/replicas.png?text=Read replicas and Primary"
+              className={ilCss.illustration__hero}
+              width={1340}
+              height={800}
+              alt="Read replicas and Primary"
+              loading="eager"
+            />
+          </motion.div>
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__subtitle,
+              seCss["section__subtitle--jumbotron"],
+              seCss["section__subtitle--accent"],
+              seCss["section__subtitle--narrow"],
+              "text--center",
+            )}
+            style={{ marginTop: "1rem" }}
+          >
+            Agnost takes replication to the next level. Effortlessly create
+            replicas for databases, cache, and message queues. Seamlessly scale
+            and distribute your critical data and messages across multiple
+            instances, ensuring enhanced performance and availability. Don’t
+            stuck with single instances, Agnost is for serious workloads.
+          </motion.p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 const CTA = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
@@ -568,7 +663,7 @@ const CTA = () => {
 
   return (
     <motion.section
-      className={clsx(seCss["section--slim--accent"])}
+      className={clsx(seCss["section--slim--accent"], seCss["section--odd"])}
       initial="hidden"
       animate={controls}
       variants={fadeInVariants}
@@ -694,13 +789,7 @@ const DevelopmentEnvironment = () => {
   })
 
   return (
-    <section
-      className={
-        (clsx(seCss.section),
-        seCss["section--slim--accent"],
-        seCss["section--odd"])
-      }
-    >
+    <section className={(clsx(seCss.section), seCss["section--slim--accent"])}>
       <div
         className={clsx(seCss["section--sinner"], seCss["section--center"])}
         ref={ref}
@@ -973,6 +1062,7 @@ export default function Home(): JSX.Element {
       {/* <HomepageHeader /> */}
       <Hero />
       <AllInOneBackend />
+      <PrimaryAndReplica />
       <Realtime />
       <DevelopmentEnvironment />
       <CTA />

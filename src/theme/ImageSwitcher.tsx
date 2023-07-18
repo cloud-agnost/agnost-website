@@ -8,6 +8,7 @@ type Props = {
   width?: number
   lightImageSrc: string
   darkImageSrc: string
+  loading: "lazy" | "eager" | undefined
 }
 const ImageSwitcher = ({
   lightImageSrc,
@@ -16,12 +17,13 @@ const ImageSwitcher = ({
   alt,
   width,
   height,
+  loading,
 }: Props) => {
   const { isDarkTheme } = useColorMode()
 
   return (
     <img
-      loading="lazy"
+      loading={loading ? loading : "lazy"}
       src={isDarkTheme ? darkImageSrc : lightImageSrc}
       alt={alt}
       className={clsx(className)}
