@@ -114,8 +114,8 @@
   }
   .illustration__hero {
     max-height: auto;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
     border-radius: 8px !important;
   }
   .model__illustration {

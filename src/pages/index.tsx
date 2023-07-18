@@ -511,6 +511,23 @@ const Realtime = () => {
           >
             Realtime Application Development
           </motion.h1>
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(seCss["section--img"])}
+          >
+            <ImageSwitcher
+              lightImageSrc="/img/pages/index/code11.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/index/code11.png?text=Read replicas and Primary"
+              className={ilCss.illustration__hero}
+              width={650}
+              height={800}
+              alt="Read replicas and Primary"
+              loading="eager"
+            />
+          </motion.div>
 
           <motion.p
             ref={ref}
@@ -526,11 +543,10 @@ const Realtime = () => {
             )}
             style={{ marginTop: "1rem" }}
           >
-            Near-realtime app development platform for Node.js Express routes
-            and middlewares. Whatever changes you made in your code deployed to
-            your application servers in seconds. Export your application in a
-            standardized format and import it at any other Agnost Kubernetes
-            cluster.
+            Whatever changes you made in your code are deployed to your
+            application servers in seconds. Agnost enables you to save
+            significant time by eliminating the need for dockerization; instead,
+            Agnost can push code updates in realtime.
           </motion.p>
         </div>
       </div>

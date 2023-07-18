@@ -83,7 +83,6 @@
   --ifm-pre-padding: 1rem 1.5rem;
   display: flex;
   max-width: 1320px;
-  width: 100%;
   padding: 1rem 1rem;
   margin: 0 auto;
 }
