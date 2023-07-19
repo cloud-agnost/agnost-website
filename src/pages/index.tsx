@@ -1,20 +1,22 @@
-import React, { useEffect } from "react"
 import clsx from "clsx"
+import React, { useEffect } from "react"
 
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import caCss from "../css/card.module.css"
-import seCss from "../css/section.module.css"
-import juCss from "../css/jumbotron.module.css"
-import feCss from "../css/feature.module.css"
-import ilCss from "../css/illustration.module.css"
-import Form from "../components/Form/Form"
-import SvgImage from "../components/SvgImage"
 import GithubLogo from "../assets/icons/circle-so-invert.svg"
 import Button from "../components/Button"
+import Form from "../components/Form/Form"
+import SvgImage from "../components/SvgImage"
+import caCss from "../css/card.module.css"
+import feCss from "../css/feature.module.css"
+import ilCss from "../css/illustration.module.css"
+import shCss from "../css/showcase.module.css"
+import juCss from "../css/jumbotron.module.css"
+import seCss from "../css/section.module.css"
 import ImageSwitcher from "../theme/ImageSwitcher"
+import { Terminal } from "../components/Terminal"
 
 const Hero = () => {
   /* const words = ["Kubernetes", "Javascript"]
@@ -462,6 +464,98 @@ const AllInOneBackend = () => {
   )
 }
 
+const Serverless = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  const fadeInVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  return (
+    <section className={clsx(seCss.section)}>
+      <div className={clsx(seCss["section--help"], seCss["section--center"])}>
+        <div className={juCss.jumbotron}>
+          <motion.h1
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__title,
+              caCss["card__title--important"],
+              seCss["section__title--jumbotron"],
+              seCss["section__title--accent"],
+              "text--center",
+            )}
+          >
+            Revolutionize app deployment with Customizable Serverless Functions
+          </motion.h1>
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(seCss["section--img"])}
+          >
+            <ImageSwitcher
+              lightImageSrc="/img/pages/knative2.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/knative2.png?text=Read replicas and Primary"
+              className={ilCss.illustration__hero}
+              width={1114}
+              height={431}
+              alt="Read replicas and Primary"
+              loading="eager"
+            />
+          </motion.div>
+
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__subtitle,
+              seCss["section__subtitle--jumbotron"],
+              seCss["section__subtitle--accent"],
+              seCss["section__subtitle--narrow"],
+              "text--center",
+            )}
+            style={{ marginTop: "1rem" }}
+          >
+            Agnost deploys your application server(Aka API Server) as fully
+            customizable KNative serverless functions, enabling auto-scaling to
+            meet increased demand but also effectively conserving capacity by
+            scaling down to zero pods.
+          </motion.p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 const Realtime = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
@@ -554,7 +648,7 @@ const Realtime = () => {
   )
 }
 
-const PrimaryAndReplica = () => {
+const SelfHosted = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -601,6 +695,108 @@ const PrimaryAndReplica = () => {
               "text--center",
             )}
           >
+            Effortlessly Self-host Agnost using its Helm Chart in minutes
+          </motion.h1>
+
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(seCss["section--img"])}
+          >
+            <div className={`${shCss.browserWindow} mobileOnly`}>
+              <div className={shCss.browserWindowHeader}>
+                <div className={shCss.buttons}>
+                  <span
+                    className={shCss.dot}
+                    style={{ background: "#f25f58" }}
+                  />
+                  <span
+                    className={shCss.dot}
+                    style={{ background: "#fbbe3c" }}
+                  />
+                  <span
+                    className={shCss.dot}
+                    style={{ background: "#58cb42" }}
+                  />
+                </div>
+              </div>
+              <Terminal />
+            </div>
+          </motion.div>
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__subtitle,
+              seCss["section__subtitle--jumbotron"],
+              seCss["section__subtitle--accent"],
+              seCss["section__subtitle--narrow"],
+              "text--center",
+            )}
+            style={{ marginTop: "1rem" }}
+          >
+            Gain full control over your infrastructure, allowing you to
+            customize and tailor Agnost platform to your specific needs. Ensure
+            seamless integration into existing environments, increased security
+            and freedom to adapt and scale the platform.
+          </motion.p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const PrimaryAndReplica = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  const fadeInVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  return (
+    <section className={(clsx(seCss.section), seCss["section--odd"])}>
+      <div className={clsx(seCss["section--help"], seCss["section--center"])}>
+        <div className={juCss.jumbotron}>
+          <motion.h1
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__title,
+              caCss["card__title--important"],
+              seCss["section__title--jumbotron"],
+              seCss["section__title--accent"],
+              "text--center",
+            )}
+          >
             Scale Your Database, Cache, and Message Queues
           </motion.h1>
 
@@ -612,11 +808,11 @@ const PrimaryAndReplica = () => {
             className={clsx(seCss["section--img"])}
           >
             <ImageSwitcher
-              lightImageSrc="/img/pages/replicas.png?text=Read replicas and Primary"
-              darkImageSrc="/img/pages/replicas.png?text=Read replicas and Primary"
+              lightImageSrc="/img/pages/repl.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/repl.png?text=Read replicas and Primary"
               className={ilCss.illustration__hero}
-              width={1340}
-              height={800}
+              width={1359}
+              height={530}
               alt="Read replicas and Primary"
               loading="eager"
             />
@@ -647,7 +843,7 @@ const PrimaryAndReplica = () => {
   )
 }
 
-const CTA = () => {
+/* const CTA = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -711,11 +907,11 @@ const CTA = () => {
           If you want to be an early adopter, or maintainer, join the mailing
           list.
         </motion.p>
-        <Form />
+
       </div>
     </motion.section>
   )
-}
+} */
 
 const Shaping = () => {
   const controls = useAnimation()
@@ -781,17 +977,9 @@ const Shaping = () => {
           Guide us to build the best developer experience for you. Visit our
           GitHub repository and create a feature request.
         </motion.p>
+
         <div className={juCss.social__cta}>
-          <Button
-            uppercase={false}
-            size="xsmall"
-            icon={<SvgImage image={<GithubLogo width="20" />} title="Github" />}
-            variant="primary"
-            className={clsx(juCss.social__link)}
-            href="https://github.com/cloud-agnost"
-          >
-            Github
-          </Button>
+          <Form />
         </div>
       </div>
     </motion.section>
@@ -1078,10 +1266,12 @@ export default function Home(): JSX.Element {
       {/* <HomepageHeader /> */}
       <Hero />
       <AllInOneBackend />
+      <SelfHosted />
       <PrimaryAndReplica />
+      <Serverless />
       <Realtime />
       <DevelopmentEnvironment />
-      <CTA />
+      {/*  <CTA /> */}
       <Shaping />
     </Layout>
   )

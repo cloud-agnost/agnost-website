@@ -19,12 +19,12 @@ const ImageSwitcher = ({
   height,
   loading,
 }: Props) => {
-  const { isDarkTheme } = useColorMode()
+  const dark = useColorMode().colorMode
 
   return (
     <img
       loading={loading ? loading : "lazy"}
-      src={isDarkTheme ? darkImageSrc : lightImageSrc}
+      src={dark ? darkImageSrc : lightImageSrc}
       alt={alt}
       className={clsx(className)}
       width={width}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import styles from "./styles.module.css"
 
 function Underscore() {
@@ -8,9 +8,7 @@ function Underscore() {
   }
 
   useEffect(() => {
-    // subscribe
     const interval = setInterval(underscoreFlash, 400)
-    // unsubscribe
     return () => clearInterval(interval)
   })
 
@@ -21,14 +19,15 @@ function Underscore() {
   )
 }
 
-function TerminalText({ phrase }) {
+function TerminalText({ phrases }) {
+  const [phraseIndex, setPhraseIndex] = useState(0)
   let lettercount = 1
   let reverse = false
   let wait = false
 
   const typeEffect = async () => {
     const text = document.getElementById("text")
-    text.innerHTML = phrase.substring(0, lettercount)
+    text.innerHTML = phrases[phraseIndex].substring(0, lettercount)
     const callable = !reverse ? typeOutWord : backspace
     await handleReverse()
     if (!waiting()) callable()
@@ -37,13 +36,13 @@ function TerminalText({ phrase }) {
   const waiting = () => {
     return (
       wait ||
-      (lettercount === phrase.length + 1 && !reverse) ||
+      (lettercount === phrases[phraseIndex].length + 1 && !reverse) ||
       (lettercount === 0 && reverse)
     )
   }
 
   const typeOutWord = () => {
-    if (lettercount < phrase.length + 1) lettercount++
+    if (lettercount < phrases[phraseIndex].length + 1) lettercount++
   }
 
   const backspace = () => {
@@ -51,7 +50,8 @@ function TerminalText({ phrase }) {
   }
 
   const handleReverse = async () => {
-    if (!reverse && lettercount === phrase.length + 1) await toggleReverse()
+    if (!reverse && lettercount === phrases[phraseIndex].length + 1)
+      await toggleReverse()
     if (reverse && lettercount === 0) await toggleReverse()
   }
 
@@ -63,26 +63,38 @@ function TerminalText({ phrase }) {
       setTimeout(() => {
         wait = false
         resolve()
+        if (reverse) {
+          if (phraseIndex < phrases.length - 1) {
+            setPhraseIndex(phraseIndex + 1)
+            lettercount = 1
+          } else {
+            setPhraseIndex(0)
+            lettercount = 1
+          }
+        }
       }, 3000)
     })
   }
 
   useEffect(() => {
-    // subscribe
     const interval = setInterval(typeEffect, 80)
-    // unsubscribe
     return () => clearInterval(interval)
   })
 
   return <span id="text" />
 }
 
-export function Terminal({ phrase }) {
+export function Terminal() {
   return (
     <div>
       <div className={styles.terminal}>
         <span> &gt;&nbsp;&nbsp;</span>
-        <TerminalText phrase={phrase} />
+        <TerminalText
+          phrases={[
+            "helm repo add cloud-agnost",
+            "helm install agnost cloud-agnost/base",
+          ]}
+        />
         <Underscore />
       </div>
     </div>
