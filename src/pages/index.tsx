@@ -279,7 +279,8 @@ const AllInOneBackend = () => {
             </svg>
             <h3 className={feCss.help__header}>Storage</h3>
             <p className={feCss.feature__content}>
-              Scalable and reliable storage options.
+              Scalable and reliable storage options, AWS S3, GCP Cloud Storage,
+              Azure Blob Storage, and Min.IO.
             </p>
           </motion.div>
 
