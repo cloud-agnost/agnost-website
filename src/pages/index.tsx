@@ -521,8 +521,8 @@ const Serverless = () => {
             className={clsx(seCss["section--img"])}
           >
             <ImageSwitcher
-              lightImageSrc="/img/pages/knative2.png?text=Read replicas and Primary"
-              darkImageSrc="/img/pages/knative2.png?text=Read replicas and Primary"
+              lightImageSrc="/img/pages/knative3.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/knative3.png?text=Read replicas and Primary"
               className={ilCss.illustration__hero}
               width={1114}
               height={431}
