@@ -497,9 +497,8 @@ const Serverless = () => {
   return (
     <section className={clsx(seCss.section)}>
       <div className={clsx(seCss["section--help"], seCss["section--center"])}>
-        <div className={juCss.jumbotron}>
+        <motion.div ref={ref} className={juCss.jumbotron}>
           <motion.h1
-            ref={ref}
             initial="hidden"
             animate={controls}
             variants={fadeInVariants}
@@ -550,7 +549,7 @@ const Serverless = () => {
             meet increased demand but also effectively conserving capacity by
             scaling down to zero pods.
           </motion.p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -589,9 +588,8 @@ const Realtime = () => {
   return (
     <section className={(clsx(seCss.section), seCss["section--odd"])}>
       <div className={clsx(seCss["section--help"], seCss["section--center"])}>
-        <div className={juCss.jumbotron}>
+        <motion.div ref={ref} className={juCss.jumbotron}>
           <motion.h1
-            ref={ref}
             initial="hidden"
             animate={controls}
             variants={fadeInVariants}
@@ -642,7 +640,7 @@ const Realtime = () => {
             significant time by eliminating the need for dockerization; instead,
             Agnost can push code updates in realtime.
           </motion.p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -652,8 +650,13 @@ const SelfHosted = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false,
-    threshold: 0.2,
+    threshold: getThreshold(),
   })
+
+  function getThreshold() {
+    if (typeof window === "undefined") return 0.2
+    return window.innerWidth < 768 ? 0.1 : 0.2
+  }
 
   useEffect(() => {
     if (inView) {
@@ -679,11 +682,12 @@ const SelfHosted = () => {
   }
 
   return (
-    <section className={clsx(seCss.section)}>
-      <div className={clsx(seCss["section--help"], seCss["section--center"])}>
-        <div className={juCss.jumbotron}>
+    <motion.section className={clsx(seCss.section)}>
+      <motion.div
+        className={clsx(seCss["section--help"], seCss["section--center"])}
+      >
+        <motion.div ref={ref} className={juCss.jumbotron}>
           <motion.h1
-            ref={ref}
             initial="hidden"
             animate={controls}
             variants={fadeInVariants}
@@ -745,9 +749,9 @@ const SelfHosted = () => {
             seamless integration into existing environments, increased security
             and freedom to adapt and scale the platform.
           </motion.p>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   )
 }
 
@@ -755,8 +759,13 @@ const PrimaryAndReplica = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false,
-    threshold: 0.2,
+    threshold: getThreshold(),
   })
+
+  function getThreshold() {
+    if (typeof window === "undefined") return 0.2
+    return window.innerWidth < 768 ? 0.1 : 0.2
+  }
 
   useEffect(() => {
     if (inView) {
@@ -783,10 +792,11 @@ const PrimaryAndReplica = () => {
 
   return (
     <section className={(clsx(seCss.section), seCss["section--odd"])}>
-      <div className={clsx(seCss["section--help"], seCss["section--center"])}>
-        <div className={juCss.jumbotron}>
+      <motion.div
+        className={clsx(seCss["section--help"], seCss["section--center"])}
+      >
+        <motion.div ref={ref} className={juCss.jumbotron}>
           <motion.h1
-            ref={ref}
             initial="hidden"
             animate={controls}
             variants={fadeInVariants}
@@ -838,8 +848,8 @@ const PrimaryAndReplica = () => {
             instances, ensuring enhanced performance and availability. Don’t
             stuck with single instances, Agnost is for serious workloads.
           </motion.p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
