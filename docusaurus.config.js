@@ -27,6 +27,7 @@ const config = {
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
+
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -103,6 +104,14 @@ const config = {
     ({
       // Replace with your project's social card
       image: "img/meta.jpg",
+      announcementBar: {
+        id: "support_us",
+        content:
+          'Agnost is being developed and will be launched soon. 🚀 Help us shape the future of Agnost by visiting <a target="_blank" rel="noopener noreferrer" href="https://github.com/orgs/cloud-agnost/discussions">Github</a>.',
+        backgroundColor: "#1976d2",
+        textColor: "#fff",
+        isCloseable: false,
+      },
 
       navbar: {
         logo: {

@@ -521,8 +521,8 @@ const Serverless = () => {
             className={clsx(seCss["section--img"])}
           >
             <ImageSwitcher
-              lightImageSrc="/img/pages/knative3.png?text=Read replicas and Primary"
-              darkImageSrc="/img/pages/knative3.png?text=Read replicas and Primary"
+              lightImageSrc="/img/pages/knative4.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/knative4.png?text=Read replicas and Primary"
               className={ilCss.illustration__hero}
               width={1114}
               height={431}
@@ -695,7 +695,8 @@ const SelfHosted = () => {
               "text--center",
             )}
           >
-            Effortlessly Self-host Agnost using its Helm Chart in minutes
+            Effortlessly Self-host Agnost <br />
+            using its Helm Chart
           </motion.h1>
 
           <motion.div
@@ -1035,7 +1036,7 @@ const DevelopmentEnvironment = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             MySQL, PostgreSQL, MongoDB, and Redis databases. RabbitMQ and Kafka
-            message queues. Cronjobs. Realtime. All in one place.
+            message brokers. Cronjobs. Realtime. All in one place.
           </motion.p>
         </motion.div>
         <div
