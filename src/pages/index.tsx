@@ -955,7 +955,7 @@ const Shaping = () => {
 
   return (
     <motion.section
-      className={clsx(seCss["section--slim--accent"], seCss["section--odd"])}
+      className={clsx(seCss["section--slim--accent"])}
       initial="hidden"
       animate={controls}
       variants={fadeInVariants}
