@@ -1278,7 +1278,7 @@ const DevelopmentEnvironment = () => {
 const WhyAgnost = () => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: getThreshold(),
   })
 
@@ -1322,6 +1322,21 @@ const WhyAgnost = () => {
     visible: {
       opacity: 1,
       x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  }
+
+  const fadeInFromBottomVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.6, -0.05, 0.01, 0.99],
@@ -1461,7 +1476,7 @@ const WhyAgnost = () => {
                 variants={fadeInFromLeftVariants}
                 className={clsx(
                   seCss.section__subtitle,
-                  seCss["section__subtitle--jumbotron"],
+                  seCss["feature__subtitle--jumbotron"],
                 )}
               >
                 Agnost simplifies the process of deploying and managing
@@ -1474,7 +1489,7 @@ const WhyAgnost = () => {
                 ref={ref}
                 initial="hidden"
                 animate={controls}
-                variants={fadeInFromLeftVariants}
+                variants={fadeInFromBottomVariants}
                 className={ouCss.outcome__icon}
               >
                 <svg
@@ -1498,7 +1513,7 @@ const WhyAgnost = () => {
                 ref={ref}
                 initial="hidden"
                 animate={controls}
-                variants={fadeInFromLeftVariants}
+                variants={fadeInFromBottomVariants}
                 className={feCss.feature__header}
               >
                 Accelerate Infrastructure Setup
@@ -1507,14 +1522,14 @@ const WhyAgnost = () => {
                 ref={ref}
                 initial="hidden"
                 animate={controls}
-                variants={fadeInFromLeftVariants}
+                variants={fadeInFromBottomVariants}
                 className={clsx(
                   seCss.section__subtitle,
-                  seCss["section__subtitle--jumbotron"],
+                  seCss["feature__subtitle--jumbotron"],
                 )}
               >
                 Allowing developers to focus on building software rather than
-                managing infrastructure
+                managing infrastructure.
               </motion.p>
             </div>
             <div className={feCss.feature}>
@@ -1583,11 +1598,11 @@ const WhyAgnost = () => {
                 variants={fadeInFromRightVariants}
                 className={clsx(
                   seCss.section__subtitle,
-                  seCss["section__subtitle--jumbotron"],
+                  seCss["feature__subtitle--jumbotron"],
                 )}
               >
                 Providing a consistent and portable platform across different
-                cloud environments
+                cloud environments.
               </motion.p>
             </div>
           </div>
