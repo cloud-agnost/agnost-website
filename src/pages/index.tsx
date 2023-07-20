@@ -280,7 +280,7 @@ const AllInOneBackend = () => {
             <h3 className={feCss.help__header}>Storage</h3>
             <p className={feCss.feature__content}>
               Scalable and reliable storage options, AWS S3, GCP Cloud Storage,
-              Azure Blob Storage, and Min.IO.
+              Azure Blob Storage, and MinIO.
             </p>
           </motion.div>
 
@@ -612,11 +612,11 @@ const Realtime = () => {
             className={clsx(seCss["section--img"])}
           >
             <ImageSwitcher
-              lightImageSrc="/img/pages/index/code11.png?text=Read replicas and Primary"
-              darkImageSrc="/img/pages/index/code11.png?text=Read replicas and Primary"
+              lightImageSrc="/img/pages/codepush.png?text=Read replicas and Primary"
+              darkImageSrc="/img/pages/codepush.png?text=Read replicas and Primary"
               className={ilCss.illustration__hero}
               width={650}
-              height={800}
+              height={280}
               alt="Read replicas and Primary"
               loading="eager"
             />
@@ -973,7 +973,7 @@ const Shaping = () => {
             "text--center",
           )}
         >
-          Be the part of shaping the future of Agnost
+          Take part in shaping the future of Agnost
         </motion.h1>
 
         <motion.p
