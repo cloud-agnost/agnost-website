@@ -225,6 +225,12 @@
   grid-column-gap: 1rem;
 }
 
+.section__why {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+}
+
 .section__footer--console {
   width: 100%;
   margin-top: 9rem;
@@ -360,6 +366,10 @@
   }
 
   .section__footer {
+    display: flex;
+  }
+
+  .section__why {
     display: flex;
   }
 }

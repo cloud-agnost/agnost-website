@@ -33,7 +33,6 @@ const config = {
     locales: ["en"],
   },
   plugins: [
-    require.resolve("./plugins/fetch-latest-release/index"),
     require.resolve("./plugins/optimize/index"),
     require.resolve("./plugins/manifest/index"),
     /* require.resolve("./plugins/webpack-ts/index"), */

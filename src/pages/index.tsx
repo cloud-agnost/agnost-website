@@ -5,16 +5,14 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import GithubLogo from "../assets/icons/circle-so-invert.svg"
-import Button from "../components/Button"
 import Form from "../components/Form/Form"
-import SvgImage from "../components/SvgImage"
 import caCss from "../css/card.module.css"
 import feCss from "../css/feature.module.css"
 import ilCss from "../css/illustration.module.css"
 import shCss from "../css/showcase.module.css"
 import juCss from "../css/jumbotron.module.css"
 import seCss from "../css/section.module.css"
+import ouCss from "../css/outcome.module.css"
 import ImageSwitcher from "../theme/ImageSwitcher"
 import { Terminal } from "../components/Terminal"
 
@@ -177,7 +175,7 @@ const AllInOneBackend = () => {
   }
 
   return (
-    <section className={clsx(seCss.section, seCss["section--odd"])}>
+    <section className={clsx(seCss.section)}>
       <div
         className={clsx(seCss["section--inner"], seCss["section--center"])}
         ref={ref}
@@ -496,7 +494,7 @@ const Serverless = () => {
   }
 
   return (
-    <section className={clsx(seCss.section)}>
+    <section className={(clsx(seCss.section), seCss["section--odd"])}>
       <div className={clsx(seCss["section--help"], seCss["section--center"])}>
         <motion.div ref={ref} className={juCss.jumbotron}>
           <motion.h1
@@ -587,7 +585,7 @@ const Realtime = () => {
   }
 
   return (
-    <section className={(clsx(seCss.section), seCss["section--odd"])}>
+    <section className={clsx(seCss.section)}>
       <div className={clsx(seCss["section--help"], seCss["section--center"])}>
         <motion.div ref={ref} className={juCss.jumbotron}>
           <motion.h1
@@ -683,7 +681,7 @@ const SelfHosted = () => {
   }
 
   return (
-    <motion.section className={clsx(seCss.section)}>
+    <motion.section className={(clsx(seCss.section), seCss["section--odd"])}>
       <motion.div
         className={clsx(seCss["section--help"], seCss["section--center"])}
       >
@@ -792,7 +790,7 @@ const PrimaryAndReplica = () => {
   }
 
   return (
-    <section className={(clsx(seCss.section), seCss["section--odd"])}>
+    <section className={clsx(seCss.section)}>
       <motion.div
         className={clsx(seCss["section--help"], seCss["section--center"])}
       >
@@ -1005,7 +1003,13 @@ const DevelopmentEnvironment = () => {
   })
 
   return (
-    <section className={(clsx(seCss.section), seCss["section--slim--accent"])}>
+    <section
+      className={
+        (clsx(seCss.section),
+        seCss["section--slim--accent"],
+        seCss["section--odd"])
+      }
+    >
       <div
         className={clsx(seCss["section--sinner"], seCss["section--center"])}
         ref={ref}
@@ -1271,12 +1275,335 @@ const DevelopmentEnvironment = () => {
   )
 }
 
+const WhyAgnost = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: getThreshold(),
+  })
+
+  function getThreshold() {
+    if (typeof window === "undefined") return 0.2
+    return window.innerWidth < 768 ? 0.1 : 0.2
+  }
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
+  const fadeInFromRightVariants = {
+    hidden: {
+      opacity: 0,
+      x: 40,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  }
+
+  const fadeInFromLeftVariants = {
+    hidden: {
+      opacity: 0,
+      x: -40,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  }
+
+  return (
+    <motion.section className={(clsx(seCss.section), seCss["section--odd"])}>
+      <motion.div
+        className={clsx(seCss["section--sinner"], seCss["section--center"])}
+      >
+        <motion.div ref={ref} className={juCss.jumbotron}>
+          <motion.h1
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeInVariants}
+            className={clsx(
+              seCss.section__title,
+              seCss["section__title--jumbotron"],
+              seCss["section__title--accent"],
+              "text--center",
+            )}
+          >
+            Why Agnost?
+          </motion.h1>
+
+          <div
+            className={clsx(
+              seCss.section__why,
+              seCss["section__footer--feature-cards"],
+            )}
+          >
+            <div className={feCss.feature}>
+              <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromLeftVariants}
+                className={ouCss.outcome__icon}
+              >
+                <svg
+                  viewBox="0 0 512 512"
+                  height="60"
+                  width="60"
+                  focusable="false"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-12 w-12 fill-current"
+                >
+                  <title>Speedometer icon</title>
+                  <path
+                    fill="currentColor"
+                    d="M326.1 231.9l-47.5 75.5a31 31 0 01-7 7 30.11 30.11 0 01-35-49l75.5-47.5a10.23 10.23 0 0111.7 0 10.06 10.06 0 012.3 14z"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                    d="M256 64C132.3 64 32 164.2 32 287.9a223.18 223.18 0 0056.3 148.5c1.1 1.2 2.1 2.4 3.2 3.5a25.19 25.19 0 0037.1-.1 173.13 173.13 0 01254.8 0 25.19 25.19 0 0037.1.1l3.2-3.5A223.18 223.18 0 00480 287.9C480 164.2 379.7 64 256 64z"
+                  ></path>
+                  <line
+                    x1="256"
+                    x2="256"
+                    y1="128"
+                    y2="160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="32"
+                  ></line>
+                  <line
+                    x1="416"
+                    x2="384"
+                    y1="288"
+                    y2="288"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="32"
+                  ></line>
+                  <line
+                    x1="128"
+                    x2="96"
+                    y1="288"
+                    y2="288"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="32"
+                  ></line>
+                  <line
+                    x1="165.49"
+                    x2="142.86"
+                    y1="197.49"
+                    y2="174.86"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="32"
+                  ></line>
+                  <line
+                    x1="346.51"
+                    x2="369.14"
+                    y1="197.49"
+                    y2="174.86"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-miterlimit="10"
+                    stroke-width="32"
+                  ></line>
+                </svg>
+              </motion.div>
+
+              <motion.h3
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromLeftVariants}
+                className={feCss.feature__header}
+              >
+                Streamline Cloud Application Deployment
+              </motion.h3>
+
+              <motion.p
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromLeftVariants}
+                className={clsx(
+                  seCss.section__subtitle,
+                  seCss["section__subtitle--jumbotron"],
+                )}
+              >
+                Agnost simplifies the process of deploying and managing
+                applications in the cloud.
+              </motion.p>
+            </div>
+
+            <div className={feCss.feature}>
+              <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromLeftVariants}
+                className={ouCss.outcome__icon}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  height="60"
+                  width="60"
+                  focusable="false"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-12 w-12 fill-current"
+                >
+                  <title>Leaf icon</title>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    fill="currentColor"
+                    d="M21 3v2c0 9.627-5.373 14-12 14H5.243A17.056 17.056 0 005 22H3c0-1.363.116-2.6.346-3.732C3.116 16.974 3 15.218 3 13 3 7.477 7.477 3 13 3c2 0 4 1 8 0zm-8 2a8 8 0 00-8 8c0 .362.003.711.01 1.046 1.254-1.978 3.091-3.541 5.494-4.914l.992 1.736C8.641 12.5 6.747 14.354 5.776 17H9c6.015 0 9.871-3.973 9.997-11.612-1.372.133-2.647.048-4.22-.188C13.627 5.027 13.401 5 13 5z"
+                  ></path>
+                </svg>
+              </motion.div>
+              <motion.h3
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromLeftVariants}
+                className={feCss.feature__header}
+              >
+                Accelerate Infrastructure Setup
+              </motion.h3>
+              <motion.p
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromLeftVariants}
+                className={clsx(
+                  seCss.section__subtitle,
+                  seCss["section__subtitle--jumbotron"],
+                )}
+              >
+                Allowing developers to focus on building software rather than
+                managing infrastructure
+              </motion.p>
+            </div>
+            <div className={feCss.feature}>
+              <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromRightVariants}
+                className={ouCss.outcome__icon}
+              >
+                <svg
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  className="h-12 w-12 fill-current"
+                  viewBox="0 0 297 297"
+                >
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          fill="currentColor"
+                          d="M147.655,71.797c-17.947,0-32.548,14.601-32.548,32.548c0,17.947,14.601,32.548,32.548,32.548
+				c17.947,0,32.548-14.601,32.548-32.548C180.203,86.398,165.603,71.797,147.655,71.797z M147.655,121.576
+				c-9.501,0-17.231-7.73-17.231-17.231c0-9.501,7.73-17.231,17.231-17.231c9.501,0,17.231,7.73,17.231,17.231
+				C164.886,113.846,157.156,121.576,147.655,121.576z"
+                        />
+                        <path
+                          fill="currentColor"
+                          d="M245.437,183.301c-9.288-14.255-20.467-20.807-26.304-23.446c3.134-20.065,4.186-40.095,1.127-57.195
+				C209.149,40.542,155.333,3.222,153.048,1.663c-3.253-2.217-7.533-2.217-10.786,0c-2.285,1.558-56.101,38.879-67.211,100.996
+				c-3.096,17.312-1.979,37.627,1.246,57.941c-6.122,3.043-16.221,9.637-24.734,22.7c-16,24.555-18.687,59.459-7.985,103.742
+				c0.74,3.065,2.943,5.569,5.888,6.695c1.107,0.423,2.264,0.63,3.416,0.63c1.916,0,3.815-0.575,5.436-1.692l46.663-32.181
+				c1.24,3.104,2.056,5.039,2.273,5.549c1.502,3.534,4.971,5.828,8.81,5.828h22.018v15.556c0,5.287,4.286,9.573,9.573,9.573
+				s9.573-4.286,9.573-9.573v-15.556h22.018c3.839,0,7.308-2.294,8.81-5.828c0.237-0.558,1.193-2.828,2.637-6.464l47.989,33.096
+				c1.621,1.117,3.521,1.692,5.436,1.692c1.152,0,2.31-0.208,3.416-0.63c2.945-1.126,5.147-3.629,5.888-6.695
+				C264.123,242.76,261.437,207.856,245.437,183.301z M147.655,21.617c6.194,5.032,16.822,14.516,27.123,27.684h-54.246
+				C130.835,36.13,141.464,26.647,147.655,21.617z M59.265,268.765c-10.448-57.725,9.367-80.269,20.823-88.232
+				c5.157,23.501,12.272,45.624,17.937,61.501L59.265,268.765z M172.791,252.725h-15.563V176.86c0-5.287-4.286-9.573-9.573-9.573
+				c-5.287,0-9.573,4.286-9.573,9.573v75.865h-15.567c-8.574-21.734-37.118-99.175-28.618-146.695
+				c2.785-15.569,8.839-29.477,16.051-41.413h75.413c7.212,11.936,13.267,25.844,16.051,41.413
+				C209.901,153.495,181.364,230.978,172.791,252.725z M237.736,268.765l-40.116-27.666c5.688-16.028,12.744-38.143,17.816-61.546
+				C226.546,186.558,248.648,208.471,237.736,268.765z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </motion.div>
+
+              <motion.h3
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromRightVariants}
+                className={feCss.feature__header}
+              >
+                Bypass Vendor Lock-in
+              </motion.h3>
+              <motion.p
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={fadeInFromRightVariants}
+                className={clsx(
+                  seCss.section__subtitle,
+                  seCss["section__subtitle--jumbotron"],
+                )}
+              >
+                Providing a consistent and portable platform across different
+                cloud environments
+              </motion.p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
+  )
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext()
   return (
     <Layout description={siteConfig.tagline}>
       {/* <HomepageHeader /> */}
       <Hero />
+      <WhyAgnost />
       <AllInOneBackend />
       <SelfHosted />
       <PrimaryAndReplica />
