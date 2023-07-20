@@ -108,7 +108,7 @@ const config = {
         id: "support_us",
         content:
           'Agnost is being developed and will be launched soon. 🚀 Help us shape the future of Agnost by visiting <a target="_blank" rel="noopener noreferrer" href="https://github.com/orgs/cloud-agnost/discussions">Github</a>.',
-        backgroundColor: "#21222c",
+        backgroundColor: "#030711",
         textColor: "#fff",
         isCloseable: false,
       },
