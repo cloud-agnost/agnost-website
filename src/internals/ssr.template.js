@@ -24,6 +24,15 @@ module.exports = ({ customFields, favicon, organizationName, url }) => `
     <% it.stylesheets.forEach((stylesheet) => { %>
       <link rel="stylesheet" type="text/css" href="<%= it.baseUrl %><%= stylesheet %>" />
     <% }); %>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGN3S0ET43"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DGN3S0ET43');
+    </script>
   </head>
   <body <%~ it.bodyAttributes %> itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="${customFields.oneLiner}" />
