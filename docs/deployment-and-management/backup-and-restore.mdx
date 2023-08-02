@@ -1,0 +1,48 @@
+---
+sidebar_position: 4
+---
+
+# Backing Up and Restoring Data
+
+Backing up your data regularly and ensuring that you can restore it if required
+should be a part of your application's maintenance routine. Agnost provides
+built-in tools that help you back up and restore your data with ease.
+
+### Backing Up Data
+
+Agnost's built-in backup feature allows you to create backups of your
+application data at regular intervals. This feature can be configured in the
+Agnost Studio under the "Backup" section of your application's settings.
+
+Here's how to set up automatic backups:
+
+1. Navigate to your application's settings in Agnost Studio.
+2. Click on the "Backup" section.
+3. Specify the backup frequency (e.g., daily, weekly, or monthly) and the
+   retention period for the backups.
+4. Choose the destination for the backup data. Agnost supports multiple storage
+   options, including cloud storage services like AWS S3, Google Cloud Storage,
+   and Azure Blob Storage, and local storage within the Kubernetes cluster.
+
+Once configured, Agnost will automatically create backups of your application
+data at the specified intervals and store them at the specified destination.
+
+### Restoring Data
+
+In case of data loss or corruption, you can restore your data from a backup. The
+process of restoring data involves:
+
+1. Navigate to the "Backup" section in the Agnost Studio.
+2. Choose the backup from which you want to restore data. You will see a list of
+   all the backups available for your application, along with their creation
+   dates.
+3. Click on the "Restore" button next to the backup you want to use for
+   restoration.
+
+Agnost will then restore your application's data from the chosen backup. The
+duration of the restoration process will depend on the size of your data and the
+speed of the storage service.
+
+By using Agnost's backup and restore functionality, you can ensure the safety
+and integrity of your application's data. It provides you with peace of mind,
+knowing that your data is safe and can be restored if something goes wrong.

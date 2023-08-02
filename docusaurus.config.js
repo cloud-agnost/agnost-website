@@ -70,7 +70,15 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: false,
+        docs: {
+          /* sidebarPath: require.resolve('./sidebars.js'), */
+          routeBasePath: "/docs", // Serve the docs at the site's root
+          /* other docs plugin options */
+          sidebarPath: require.resolve("./sidebars.js"),
+
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+        },
         blog: {
           blogSidebarTitle: "All posts",
           blogListComponent: "@theme/BlogListPage",
@@ -127,6 +135,12 @@ const config = {
             position: "left",
           },
           { to: "/blog", label: "Blog", position: "left" },
+          /*           {
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "Docs",
+          }, */
           {
             href: "https://github.com/cloud-agnost",
             label: "GitHub",

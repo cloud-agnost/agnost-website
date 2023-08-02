@@ -1,0 +1,281 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
+# Integrating Third-Party Services
+
+Agnost supports integration with various third-party services, enabling
+developers to incorporate different functionalities in their applications
+without the need to build everything from scratch. This guide covers the
+fundamental principles of integrating third-party services into your Agnost
+applications.
+
+### API Integrations
+
+API integrations allow your application to interact with external services.
+These integrations can range from basic data retrieval to complex transactions.
+
+With Agnost, you can implement API integrations at the endpoint level. Agnost
+provides built-in support for HTTP requests, enabling developers to make API
+calls within their application logic effortlessly. You can use any popular HTTP
+client library, such as axios or fetch, to make these requests.
+
+### OAuth Integrations
+
+OAuth integrations allow your application to authenticate users using external
+services, such as Google, Facebook, or GitHub. This eliminates the need for
+users to create a new account specifically for your application, improving the
+user experience.
+
+Agnost supports OAuth integrations through its built-in authentication and
+authorization system. You can specify OAuth providers in your Agnost
+configuration and utilize built-in authentication strategies to authenticate
+users.
+
+### SDK Integrations
+
+Software Development Kits (SDKs) provided by third-party services can offer
+additional functionalities to your application. They can range from cloud
+storage solutions like AWS S3, to analytics tools like Google Analytics, or
+payment solutions like Stripe.
+
+Integrating SDKs into an Agnost application is typically a straightforward
+process. Most services provide Node.js SDKs that you can easily incorporate into
+your Agnost application. The Agnost configuration file can be used to manage SDK
+settings and credentials securely.
+
+### Data Integration
+
+Agnost allows the integration of external data sources into your application.
+This feature is useful when you need to integrate your application with an
+external database or a data warehouse.
+
+With the flexible architecture of Agnost, you can write custom code in your
+application to connect to an external data source and interact with it as
+needed. Agnost's support for multiple database types also simplifies the process
+of connecting to different databases.
+
+In conclusion, integrating third-party services into your Agnost applications is
+a breeze. Agnost's flexibility and extendibility allow for seamless
+integrations, enriching your application with diverse functionalities provided
+by third-party services. Remember, third-party integrations can significantly
+enhance the capabilities of your application, making it more useful and
+appealing to end-users.
+
+## Stripe
+
+<div class="container">
+  <div class="row">
+    <div class="col col--6">
+      <div class="col-demo">
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </div>
+    </div>
+    <div class="col col--6">
+      <div class="col-demo">
+
+
+<Tabs groupId="dev" defaultValue="javascript" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+
+
+<TabItem value="javascript">
+
+
+```js
+let email = "rooby@altogic.com"
+
+// Resends verification email to the user
+const { errors } = await altogic.auth.resendVerificationEmail(email)
+```
+
+</TabItem>
+
+
+<TabItem value="dart">
+
+
+```dart
+final email = "rooby@altogic.com";
+
+// Resends verification email to the user
+final errors  = await altogic.auth.resendVerificationEmail(email);
+```
+
+</TabItem>
+
+
+</Tabs>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+## Mailchimp
+
+<div class="container">
+  <div class="row">
+    <div class="col col--6">
+      <div class="col-demo">
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </div>
+    </div>
+    <div class="col col--6">
+      <div class="col-demo">
+
+
+<Tabs groupId="dev" defaultValue="javascript" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+
+
+<TabItem value="javascript">
+
+
+```js
+let email = "rooby@altogic.com"
+
+// Resends verification email to the user
+const { errors } = await altogic.auth.resendVerificationEmail(email)
+```
+
+</TabItem>
+
+
+<TabItem value="dart">
+
+
+```dart
+final email = "rooby@altogic.com";
+
+// Resends verification email to the user
+final errors  = await altogic.auth.resendVerificationEmail(email);
+```
+
+</TabItem>
+
+
+</Tabs>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+## Sendgrid
+
+<div class="container">
+  <div class="row">
+    <div class="col col--6">
+      <div class="col-demo">
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </div>
+    </div>
+    <div class="col col--6">
+      <div class="col-demo">
+
+
+<Tabs groupId="dev" defaultValue="javascript" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+
+
+<TabItem value="javascript">
+
+
+```js
+let email = "rooby@altogic.com"
+
+// Resends verification email to the user
+const { errors } = await altogic.auth.resendVerificationEmail(email)
+```
+
+</TabItem>
+
+
+<TabItem value="dart">
+
+
+```dart
+final email = "rooby@altogic.com";
+
+// Resends verification email to the user
+final errors  = await altogic.auth.resendVerificationEmail(email);
+```
+
+</TabItem>
+
+
+</Tabs>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+## Twilio
+
+<div class="container">
+  <div class="row">
+    <div class="col col--6">
+      <div class="col-demo">
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </div>
+    </div>
+    <div class="col col--6">
+      <div class="col-demo">
+
+
+<Tabs groupId="dev" defaultValue="javascript" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+
+
+<TabItem value="javascript">
+
+
+```js
+let email = "rooby@altogic.com"
+
+// Resends verification email to the user
+const { errors } = await altogic.auth.resendVerificationEmail(email)
+```
+
+</TabItem>
+
+
+<TabItem value="dart">
+
+
+```dart
+final email = "rooby@altogic.com";
+
+// Resends verification email to the user
+final errors  = await altogic.auth.resendVerificationEmail(email);
+```
+
+</TabItem>
+
+
+</Tabs>
+      </div>
+    </div>
+
+
+  </div>
+</div>

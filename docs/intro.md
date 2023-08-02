@@ -2,46 +2,57 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Welcome
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the official documentation for Agnost, the next-generation platform
+for building, deploying, and managing your cloud-native applications!
+
+Agnost provides a modern and efficient approach to developing applications,
+leveraging the power of microservices, serverless architecture, and Kubernetes.
+By offering a fully integrated development and deployment environment, Agnost
+accelerates the application lifecycle, from development to production, making it
+easier for developers to focus on writing great code and delivering value to
+their users.
+
+In these documentation pages, you will find detailed guides and tutorials on how
+to use Agnost effectively to build, deploy, and manage your applications.
+Whether you are a beginner getting started with cloud-native development or an
+experienced developer looking to leverage the power of Agnost, you will find the
+information you need here.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+If you're new to Agnost, we recommend starting with the
+[Getting Started](/introduction/) guide. This guide will walk you through the
+basic concepts of Agnost and guide you through the process of creating your
+first Agnost application.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Core Concepts
 
-### What you'll need
+For a deeper understanding of Agnost, the [Core Concepts](/core-concepts/)
+section covers key topics like microservices, serverless architecture,
+containerization, and Kubernetes. You'll also learn how to deploy your
+applications to various environments including Amazon Web Services, Microsoft
+Azure, Google Cloud Platform, and on-premise servers.
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Application Development
 
-## Generate a new site
+Ready to build with Agnost? The
+[Application Development](/application-development/) section provides
+comprehensive guides on creating Agnost projects, implementing backend APIs,
+integrating databases, managing user authentication and authorization,
+implementing real-time functionality, and much more.
 
-Generate a new Docusaurus site using the **classic template**.
+## Advanced Features
 
-The classic template will automatically be added to your project after you run the command:
+For developers who want to dive deeper, the
+[Advanced Features](/advanced-features) section covers topics like scaling and
+load balancing, handling security and encryption, internationalization and
+localization, integrating third-party services, performance optimization
+techniques, and monitoring and logging.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+This documentation is a work in progress, and we're constantly working to
+improve and expand it. If you have any questions, feedback, or suggestions,
+please feel free to reach out to us.
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Let's start building great things with Agnost!
