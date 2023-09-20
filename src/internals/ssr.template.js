@@ -1,4 +1,4 @@
-module.exports = ({ customFields, favicon, organizationName, url }) => `
+module.exports = ({ customFields, favicon, organizationName, url, }) => `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +38,7 @@ module.exports = ({ customFields, favicon, organizationName, url }) => `
     <meta itemprop="name" content="${customFields.oneLiner}" />
     <meta itemprop="description" content="${customFields.description}" />
     <meta itemprop="url" content="${url}" />
-    <meta itemprop="logo" content="${url}${favicon}" />
+    <meta itemprop="logo" content="${url}/${customFields.logoUrl}" />
     <meta itemprop="sameAs" content="${customFields.twitterUrl}" />
     <meta itemprop="sameAs" content="${customFields.linkedInUrl}" />
     <meta itemprop="sameAs" content="${customFields.crunchbaseUrl}" />

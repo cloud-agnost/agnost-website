@@ -39,6 +39,7 @@ declare module "@docusaurus/useDocusaurusContext" {
         twitterUrl: string
         version: string
         videosUrl: string
+        logoUrl: string
       }
       themeConfig: {
         colorMode: { disableSwitch: boolean }

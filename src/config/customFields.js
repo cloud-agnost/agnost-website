@@ -25,6 +25,7 @@ module.exports = {
   deployLink: process.env.DEPLOY_LINK,
   productHuntUrl: "https://www.producthunt.com/posts/agnost",
   repoUrl: "https://github.com/agnost",
+  logoUrl: "img/logo.svg",
 
   // Agnost fields
 
