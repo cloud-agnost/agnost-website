@@ -195,5 +195,4 @@ npm run dev
 
 Congratulations! You have now successfully set up Agnost Studio and your local
 development environment, allowing you to develop and deploy applications with
-ease. For more detailed information, continue with the
-[Getting Started](/docs/introduction/getting-started.md) guide.
+ease.
