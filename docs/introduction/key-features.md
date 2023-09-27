@@ -4,6 +4,11 @@ sidebar_position: 2
 
 # Key Features
 
+Agnost is a Kubernetes development platform that simplifies the process of
+building and deploying applications. Agnost offers a wide range of features that
+enable developers to build, deploy, and manage applications with ease. This
+section explores the key features of Agnost and how they benefit developers.
+
 ## Database
 
 Agnost offers a versatile database support system, accommodating various

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Database Integration
+# Resource Definition
 
 Databases are integral parts of almost all applications, providing a way to
 persist data across sessions and share data between users. With Agnost, you can

@@ -4,19 +4,19 @@ sidebar_position: 1
 
 # About Agnost
 
-Agnost is a comprehensive and powerful platform that simplifies backend
-development tasks, allowing you to focus on crafting exceptional software
+**Agnost is a comprehensive and powerful platform that simplifies backend
+development tasks**, allowing you to focus on crafting exceptional software
 without the complexities of managing infrastructure. With Agnost, you can
-seamlessly deploy and manage applications in the cloud, regardless of your
+seamlessly **deploy and manage applications in the cloud**, regardless of your
 preferred cloud provider.
 
 ## Why Choose Agnost?
 
-Agnost simplifies the process of developing and deploying backend applications
-in a cloud-native environment. It provides a comprehensive ecosystem with
+Agnost **simplifies the process of developing and deploying backend applications
+in a cloud-native environment**. It provides a comprehensive ecosystem with
 essential tools and technologies, offering everything you need to manage
-databases, storage, cache, message queues, authentication, cronjobs, and
-real-time features – all in one place.
+_databases, storage, cache, message queues, authentication, cronjobs, and
+real-time features_ – all in one place.
 
 Agnost offers a plethora of benefits that cater specifically to developers and
 software architects:

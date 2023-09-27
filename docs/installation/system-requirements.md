@@ -18,9 +18,10 @@ following minimum requirements:
 - **Operating System:** Any modern operating system that can run Docker,
   Kubernetes, and Helm is supported, including but not limited to:
 
-  - Linux (Ubuntu 18.04 or later, CentOS 7 or later)
-  - macOS (10.14 Mojave or later)
-  - Windows (Windows 10 Pro or Enterprise 64-bit, with version 1607 or later)
+  - **Linux** (Ubuntu 18.04 or later, CentOS 7 or later)
+  - **macOS** (10.14 Mojave or later)
+  - **Windows** (Windows 10 Pro or Enterprise 64-bit, with version 1607 or
+    later)
 
 - **Docker:** Docker 20.10 or later. Docker is used to build and manage your
   application containers. You can download Docker

@@ -19,7 +19,7 @@ const ImageSwitcher = ({
   height,
   loading,
 }: Props) => {
-  const dark = useColorMode().colorMode
+  const dark = useColorMode().colorMode === "dark"
 
   return (
     <img

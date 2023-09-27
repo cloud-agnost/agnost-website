@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Installing Agnost
+# Installing Agnost Studio
 
 Agnost offers a simplified installation process that can be executed with a few
 commands. Before proceeding with the installation, ensure your system fulfills
@@ -79,3 +79,35 @@ Congratulations, you've installed Agnost and set up your first application
 structure. In the following sections, we will walk you through deploying your
 first application and exploring Agnost's advanced features for scaling,
 monitoring, and securing your applications.
+
+## Step 3: Deploy Your First Application
+
+With Agnost installed and configured, you're now ready to deploy your first
+application.
+
+- **Create a Resource:** This is a visual representation of your application,
+  its components (like databases, queues, etc.), and its configuration.
+
+- **Deploy the Application:** Use the `helm deploy` command in your terminal,
+  followed by the name you want to give to your application and the path to your
+  application manifest file, to deploy your application.
+
+```shell
+helm deploy <my-app> ./<my-app-chart-path>
+```
+
+## Step 4: Monitor Your Application
+
+Once your application is deployed, use Agnost's built-in monitoring tools to
+keep track of your application's performance and status. You can find more
+information in the 'Application Monitoring' section of the Agnost documentation.
+
+## Step 5: Scale and Modify Your Application
+
+As your application grows, Agnost helps you scale your databases, caches, and
+queues. Agnost also offers a flexible and intuitive interface to modify your
+application's configuration as required.
+
+Congratulations! You are now set up with Agnost, ready to build scalable, secure
+backend applications. For more detailed information, consult the official Agnost
+documentation. Happy developing!
