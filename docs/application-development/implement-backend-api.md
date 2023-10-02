@@ -2,48 +2,192 @@
 sidebar_position: 3
 ---
 
+import ImageSwitcher from "@theme/ImageSwitcher"
+import ilCss from "../../src/css/illustration.module.css"
+
 # Implementing Backend APIs
 
-Implementing backend APIs is a critical part of any application development
-process. In Agnost, the task is made simpler with the visual interface, and it
-allows for code-based modifications as well. Here are the steps you can follow
-to implement backend APIs in your Agnost project:
+In Agnost, implementing backend APIs is a crucial step in building your
+application's functionality. This section will guide you through the process of
+creating and configuring backend APIs using Agnost's user-friendly interface.
 
-1. **Access Application Version:** Navigate to your application in the Agnost
-   Studio and select the version where you want to implement the backend API.
+Here are the steps you can follow to implement backend APIs in your Agnost
+project:
 
-2. **Create a New Endpoint:** Click on the 'New Endpoint' button. You'll need to
-   enter the endpoint name, path, and select the HTTP method (GET, POST, PUT,
-   DELETE, etc.).
+## Creating a Backend API
 
-3. **Define Request Parameters:** If your endpoint requires any request
-   parameters, you can add them by clicking the 'Add Parameter' button. For each
-   parameter, you need to specify the name, type, and whether it is required.
+To implement a backend API in Agnost, follow these steps:
 
-4. **Define Response Schema:** Next, define the response schema for your
-   endpoint. This is what the API will return when it is called. Agnost supports
-   a variety of data types, including strings, numbers, booleans, arrays, and
-   objects.
+### 1. Access the Endpoint Creation Page
 
-5. **Write the Handler Code:** This is where you provide the logic for your
-   endpoint. The handler code is written in JavaScript. It takes a request
-   object as an argument, processes the request based on the logic you define,
-   and returns a response. The request object contains the request parameters,
-   body, headers, etc. You can use various libraries and services provided by
-   Agnost in your handler code, such as database operations, caching, queuing,
-   etc.
+In the Agnost Studio, click on the **+** icon located in the header to access
+the options menu.
 
-6. **Test the API Endpoint:** Once you have written your handler code, you can
-   test your API endpoint directly from Agnost Studio. Click on the 'Test'
-   button and provide any necessary input data. You will see the API response
-   displayed in the response window.
+- From the dropdown menu, select **Endpoint** to navigate to the Endpoint
+  section.
 
-7. **Deploy the API Endpoint:** After you have tested and are satisfied with
-   your API endpoint, you can deploy it by clicking on the 'Deploy' button. The
-   API endpoint will then be available for use by the frontend of your
-   application or by other services that might need to consume it.
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/new-endpoint-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/new-endpoint.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
-Agnost ensures a seamless experience in implementing backend APIs by providing a
-visual interface for defining the request and response schemas, writing handler
-code, testing, and deploying the API. This way, you can focus more on developing
-your application logic, while Agnost takes care of the rest.
+### 2. Create a New Endpoint
+
+In the Endpoint section, you'll have the option to **+ Create endpoint** to
+define a new API endpoint.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/create-endpoint-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-endpoint.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+A dialog box will appear, asking you to provide the following details for your
+new API endpoint:
+
+- **Endpoint Name:** Enter a descriptive name for your API endpoint. This name
+  should reflect the functionality or purpose of the endpoint within your
+  application.
+
+- **Timeout:** Specify the timeout duration for the endpoint, which determines
+  how long the server will wait for a response from the API before timing out.
+
+- **Method:** Choose the HTTP method for the API endpoint (e.g., GET, POST, PUT,
+  DELETE) to specify the type of request it will handle.
+
+- **Path:** Define the endpoint's URL path, indicating where the API will be
+  accessible (e.g., "/api/users").
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/example-endpoint-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/example-endpoint.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+### 3. Configure Endpoint Options
+
+Agnost provides several options that you can configure for your API endpoint to
+customize its behavior. Here are some of the available options:
+
+#### API Key Required
+
+- **Require a valid API key to call this endpoint:** Enable this option if you
+  want to restrict access to the endpoint only to clients that provide a valid
+  API key in their requests. This enhances security and access control.
+
+#### Session Required
+
+- **Require a valid session token in "Session" header of the request:** Enable
+  this option if your API requires users to be authenticated with a valid
+  session token. This ensures that only authenticated users can access the
+  endpoint.
+
+#### Log Execution
+
+- **Log endpoint request, response, status, and execution duration:** Enabling
+  this option will log detailed information about each request made to the
+  endpoint, including request and response data, HTTP status codes, and
+  execution duration. This can be useful for monitoring and debugging.
+
+### 4. Adding Rate Limiter
+
+To add rate limiting to your endpoint, scroll down to the **RATE LIMITERS**
+section.
+
+- Click the **+ Add Rate Limiter** button to configure rate limiting for your
+  API endpoint. Define the rate limiting settings to control the number of
+  requests allowed within a specified time frame.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/rate-limiter-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/rate-limiter.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+### 5. Adding Middleware
+
+Agnost allows you to enhance the functionality of your API endpoints by adding
+middleware. Middleware are components that can process requests and responses
+before they reach the endpoint's core logic.
+
+To add middleware to your API, navigate to the **MIDDLEWARES** section.
+
+- Click the **+ Add Middleware** button to add middleware components that
+  perform specific tasks, such as authentication, request validation, or data
+  transformation. You can choose from a list of available middleware or create
+  custom middleware to suit your requirements.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/middleware-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/middleware.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+### 6. Write the Handler Code
+
+This is where you provide the logic for your endpoint. Click on the **Edit**
+button or the name of the endpoint to open the code editor and write the handler
+code for your endpoint.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/endpoint-list-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/endpoint-list.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+The handler code is written in JavaScript. It takes a request object as an
+argument, processes the request based on the logic you define, and returns a
+response. The request object contains the request parameters, body, headers,
+etc. You can use various libraries and services provided by Agnost in your
+handler code, such as database operations, caching, queuing, etc.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/endpoint-handler-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/endpoint-handler.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+Here's an example of a handler code that adds a new movie to the "movies"
+database:
+
+```js
+const endpointHandler = async (req, res) => {
+  const movieData = req.body()
+  const movie = await agnost.db("movies").model("movie").createOne(movieData)
+  res.json(movie)
+}
+
+export default endpointHandler
+```
+
+### 7. Test the Endpoint
+
+Once you've written the handler code for your endpoint, you can test it to
+ensure that it works as expected. Agnost provides a built-in testing tool that
+allows you to test your API endpoints with ease. To test your endpoint, click
+the **Test** button located in the header of the code editor. This will open the
+testing tool, where you can provide the necessary request parameters and test
+the endpoint.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/test-endpoint-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/test-endpoint.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+Agnost Studio ensures a seamless experience in implementing backend APIs by
+providing a visual interface for defining the endpoints, middlewares,
+rate-limiters, writing handler code, testing, and deploying the API. This way,
+you can focus more on developing your application logic, while Agnost takes care
+of the rest.
+
+Happy API development with Agnost!
