@@ -76,7 +76,7 @@ const result = await agnost.auth.signUpWithEmail(email, password, {
 :::note
 
 By default email verification is **enabled** in your **App settings** →
-**Authentication** view of **Designer**.
+**Authentication** view of **Studio**.
 
 - Once you call this method, a verification email will be sent to the user with
   a link to click and this method returns the **user** data with a **null**
@@ -87,7 +87,7 @@ By default email verification is **enabled** in your **App settings** →
   yet, an error message will be returned asking for email verification.
 
 If you would like to change this, you can disable "**Confirm** email addresses"
-in your **App settings** → **Authentication** view of Designer.
+in your **App settings** → **Authentication** view of Studio.
 
 If `emailVerified` field is set to true and passed in the last parameter of this
 method in a user JSON object, then the email verification step is bypassed even
@@ -105,7 +105,7 @@ redirects the user to the **Redirect URL** with an `access_token`.
 :::tip
 
 You can define the **Redirect URL** in your **App settings** →
-**Authentication** view of Designer. Additionally you can override this value in
+**Authentication** view of Studio. Additionally you can override this value in
 your Environment details view for each environment.
 
 :::
@@ -502,7 +502,7 @@ id** and **client secret** to use this method.
 
 Additionally, you need to add these **client id** and **client secret** values
 to your app's authentication settings using the **App settings** →
-**Authentication** → **Authentication Provider** view of the Designer.
+**Authentication** → **Authentication Provider** view of the Studio.
 
 :::
 
