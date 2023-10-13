@@ -1,74 +1,108 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 ---
+
+import ImageSwitcher from "@theme/ImageSwitcher"
+import ilCss from "../../src/css/illustration.module.css"
 
 # Implementing Cronjobs
 
-Cron jobs are tasks that run automatically at specified intervals. These can be
-useful in many scenarios, such as executing cleanup scripts, sending out email
-notifications, and generating reports, among other tasks.
+Cron jobs are essential for automating recurring tasks and maintenance
+activities in your application. In Agnost, you can easily set up and manage cron
+jobs to execute specific tasks at scheduled intervals. This section will guide
+you through the process of creating and configuring cron jobs in Agnost,
+including defining the job and coding the task handler.
 
-Agnost makes it easy to define and manage cron jobs for your application.
+## Creating a Cron Job
 
-## Defining Cron Jobs
+To create a cron job in Agnost, follow these steps:
 
-Defining a cron job in Agnost Studio is similar to defining a message queue.
-Here's how you can define a cron job:
+### 1. Access the Cron Job Tab
 
-1. Go to Agnost Studio: From your Agnost Studio dashboard, navigate to the
-   application you want to work on.
-2. Navigate to Cronjobs: On the application's left sidebar, click on 'Cronjobs'.
-3. Create a New Cronjob: Click on 'New Cronjob' at the top right corner of the
-   screen.
-4. Specify Cronjob Details: In the new dialog box, specify the name for your
-   cron job and select the handler function from the drop-down list. You also
-   need to define the schedule for your cron job in the cron syntax.
-5. Save the Cronjob: Click on 'Save' to create the cron job.
+In the Agnost Studio, click on the **'+'** icon located in the header to access
+the options menu.
 
-Here is an example of how a cron job can look like in your application design:
+- From the dropdown menu, select **Cron Jobs** to navigate to the Cron Jobs
+  section.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/cronjob-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/cronjob.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+### 2. Create a New Cron Job
+
+In the Cron Jobs section, you'll have the option to **'+ Create Job'** to define
+a new cron job.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/new-cronjob-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/new-cronjob.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+- A dialog box will appear, asking you to provide the following details for your
+  new cron job:
+
+  - **Job Name:** Enter a descriptive name for your cron job. This name should
+    reflect the purpose or functionality of the job within your application.
+
+  - **Log Execution (On/Off):** You can choose to log the execution of the cron
+    job. Enabling this option will log detailed information about job execution,
+    including start and end times, status, and execution duration.
+
+  - **Enter Cron Syntax:** Specify the cron syntax that defines the schedule for
+    your cron job. The cron syntax consists of fields that represent the minute,
+    hour, day of the month, month, and day of the week when the job should run.
+    You can use standard cron notation to set the schedule.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/create-cronjob-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-cronjob.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+### 3. Coding the Task Handler
+
+After defining your cron job's configuration, you'll need to code the task
+handler. The task handler is responsible for executing the specific actions or
+tasks associated with the cron job. You can use the JavaScript programming
+language to implement the task handler.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/cronjob-handler-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/cronjob-handler.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+After defining your cron job and coding the task handler, remember to save your
+changes within Agnost Studio.
+
+#### Example Task Handler in JavaScript
 
 ```javascript
-//  TO-BE-UPDATED
-let schedule = "0 0 * * *"
-```
-
-In the example above, we've defined a cron job named `reportGenerator` that runs
-at midnight every day. We've also assigned `handlers.reportGenerator` as the
-handler function for this cron job.
-
-## Creating Handler Functions for Cron Jobs
-
-Just like queues, a handler function is needed to process a cron job. This
-function is triggered as per the defined schedule. These handler functions need
-to be predefined in your application's code.
-
-```javascript
-// handlers/reportGenerator.js
-
-module.exports = async () => {
-  // Generate the report
-  console.log("Generating report...")
-
-  // Perform any necessary tasks
-  // ...
-
-  console.log("Report generation complete.")
+const cronJobHandler = async () => {
+  // Implement your task logic here
+  console.log("Cron job executed at:", new Date().toISOString())
 }
+
+export default cronJobHandler
 ```
 
-In the example above, we've created a handler function named `reportGenerator`
-that logs the beginning and completion of the report generation process.
+In this example, we're using Javascript to create a simple cron job that runs
+every day at 5:00 AM. The task handler logs the execution time of the cron job
+to the console.
 
-## Cron Job Schedules
+:::note
 
-Cron job schedules are defined using the cron syntax. The schedule `0 0 * * *`
-in the example above tells the system to run the job every day at midnight.
+Setting up and managing cron jobs in Agnost is a straightforward process that
+allows developers to automate recurring tasks within their applications. By
+following the steps outlined above, you can create and configure cron jobs with
+specific schedules and implement task handlers to perform the necessary actions.
 
-Here is a basic overview of the cron syntax:
-
-- `* * * * *` - Each field from left to right represents minute (0 - 59), hour
-  (0 - 23), day of the month (1 - 31), month (1 - 12), and day of the week (0 -
-  7, where both 0 and 7 represent Sunday).
-
-In the next section, we will explore how to set up environment variables in your
-Agnost applications.
+:::

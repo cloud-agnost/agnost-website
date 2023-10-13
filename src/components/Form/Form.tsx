@@ -46,7 +46,7 @@ const Form = () => {
     // eslint-disable-next-line no-console
     setModal(true)
     const response = await fetch(
-      "https://c4-na.altogic.com/e:6474a0b6b19ad9247245c34d/lead",
+      "https://c4-na.agnost.dev/e:6474a0b6b19ad9247245c34d/lead",
       {
         method: "POST",
         body: JSON.stringify(data),

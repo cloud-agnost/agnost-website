@@ -63,6 +63,38 @@ const config = {
         ],
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "client",
+        path: "client",
+        routeBasePath: "client",
+        breadcrumbs: true,
+        sidebarPath: require.resolve("./sidebarsClient.js"),
+        versions: {
+          current: {
+            label: "Client API",
+            path: "/",
+          },
+        },
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "server",
+        path: "server",
+        routeBasePath: "server",
+        breadcrumbs: true,
+        sidebarPath: require.resolve("./sidebarsServer.js"),
+        versions: {
+          current: {
+            label: "Server API",
+            path: "/",
+          },
+        },
+      },
+    ],
   ],
 
   presets: [
@@ -73,12 +105,10 @@ const config = {
         docs: {
           /* sidebarPath: require.resolve('./sidebars.js'), */
           routeBasePath: "/docs", // Serve the docs at the site's root
-          /* other docs plugin options */
-          sidebarPath: require.resolve("./sidebars.js"),
 
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          sidebarPath: require.resolve("./sidebars.js"),
         },
+
         blog: {
           blogSidebarTitle: "All posts",
           blogListComponent: "@theme/BlogListPage",
@@ -129,18 +159,36 @@ const config = {
           height: 50,
         },
         items: [
-          {
+          /*           {
             to: "https://github.com/orgs/cloud-agnost/discussions",
             label: "⚡️ Feature Requests",
             position: "left",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          /*           {
+          }, */
+          {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Docs",
-          }, */
+            label: "Product Guide",
+          },
+          {
+            type: "docsVersionDropdown",
+            id: "client",
+            path: "/client",
+            routeBasePath: "client",
+            include: ["**/*.md"],
+            docsPluginId: "client",
+            position: "left",
+            label: "Client",
+          },
+          {
+            type: "docsVersionDropdown",
+            id: "server",
+            docsPluginId: "server",
+            position: "left",
+            label: "Server",
+          },
+          { to: "/blog", label: "Blog", position: "left" },
+
           {
             href: "https://github.com/cloud-agnost",
             label: "GitHub",
@@ -193,6 +241,10 @@ const config = {
         plugins: ["line-numbers", "show-language"],
       },
     }),
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
 }
 module.exports = {
   ...config,

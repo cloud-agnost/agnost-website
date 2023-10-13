@@ -11,6 +11,10 @@ import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar';
 import type {Props} from '@theme/Navbar/Layout';
 
 import styles from './styles.module.css';
+import { useLocation } from '@docusaurus/router';
+
+
+
 
 function NavbarBackdrop(props: ComponentProps<'div'>) {
   return (
@@ -27,7 +31,12 @@ export default function NavbarLayout({children}: Props): JSX.Element {
     navbar: {hideOnScroll, style},
   } = useThemeConfig();
   const mobileSidebar = useNavbarMobileSidebar();
-  const {navbarRef, isNavbarVisible} = useHideableNavbar(hideOnScroll);
+  const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll);
+
+
+
+
+
   return (
     <nav
       ref={navbarRef}

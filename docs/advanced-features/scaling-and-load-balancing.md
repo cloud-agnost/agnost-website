@@ -6,9 +6,7 @@ sidebar_position: 1
 
 One of the key benefits of using Agnost and Kubernetes is the ability to
 automatically scale your application based on traffic patterns and load. This
-scaling can occur both horizontally (increasing or decreasing the number of
-pods) and vertically (increasing or decreasing resources like CPU or memory for
-existing pods).
+scaling can occur horizontally (increasing or decreasing the number of pods).
 
 ### Horizontal Pod Autoscaler (HPA)
 
@@ -20,16 +18,6 @@ support, on some other application-provided metrics).
 When creating an application within the Agnost platform, the HPA is configured
 automatically for your applications, making sure that your applications can
 handle peak traffic loads without any manual intervention.
-
-### Vertical Pod Autoscaler (VPA)
-
-Vertical Pod Autoscaler (VPA) is a Kubernetes feature that automatically adjusts
-the amount of CPU and memory allocated to pods in a replication controller,
-deployment, replica set, or stateful set. This allows your pods to have the
-resources they need to operate optimally without wasting resources.
-
-Again, Agnost automates the configuration of VPA for your applications, ensuring
-efficient resource utilization across your cluster.
 
 ### Load Balancing
 

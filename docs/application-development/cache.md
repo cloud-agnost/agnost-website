@@ -1,101 +1,160 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
+
+import ImageSwitcher from "@theme/ImageSwitcher"
+import ilCss from "../../src/css/illustration.module.css"
 
 # Caching Strategies
 
-Caching can drastically improve the performance and scalability of your
-applications. It reduces the load on your database, decreases latency, and
-improves the overall user experience. In Agnost, you can leverage caching to
-optimize your applications easily.
+Caching is a powerful technique to improve the performance and responsiveness of
+your applications. In Agnost, you can easily set up and manage cache servers to
+optimize data retrieval and storage. This section will guide you through the
+process of creating and configuring cache servers in Agnost, from creating cache
+instances to using them within your applications.
 
-### Why Use Caching?
+## Why Use Caching?
 
 Consider an e-commerce app where product details are fetched frequently.
 Repeatedly querying the database for the same data can be resource-intensive and
 slow. By implementing a caching strategy, you can store frequently accessed data
 in memory for quicker retrieval.
 
-### Redis Integration
+## Creating Cache Servers
 
-Agnost uses Redis, a high-performance in-memory data structure store, for
-caching. It supports different types of abstract data structures, such as
-strings, lists, maps, sets, sorted sets, and more.
+To create cache servers in Agnost, follow these steps:
 
-### Configuring Redis in Agnost
+## 1. Access the Cache Creation Page
 
-Configuring Redis for your Agnost application can be done with ease using Agnost
-Studio. The studio allows you to manage your resources, including your caching
-layer. You don't need to manually create a YAML file or run any commands. The
-Studio takes care of these operations for you.
+In the Agnost UI, click on the **'+ '** icon located in the header to access the
+options menu.
 
-To configure Redis:
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/cache-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/cache.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
-1. Open Agnost Studio and navigate to your project.
-2. Go to the 'Resources' section and click on 'Add Resource'.
-3. Select 'Redis' from the list of resources.
-4. Fill out the necessary configuration details and click 'Add'.
-5. Once the resource has been added, it's ready to be used in your application.
+- From the dropdown menu, select **Cache** to navigate to the Cache section.
 
-### Caching Data
+## 2. Create a New Cache Instance
 
-Once you have your Redis client set up, you can use it to cache your data.
-Here's an example:
+In the Cache section, you'll have the option to **'+ Create Cache'** to define a
+new cache server.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/create-cache-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-cache.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+A dialog box will appear, prompting you to provide the following details for
+your new cache instance:
+
+- **Cache Name:** Enter a descriptive name for your cache server. This name
+  should reflect the purpose or functionality of the cache within your
+  application.
+
+- **Assign Unique Name (On/Off):** Optionally, you can enable the "Assign Unique
+  Name" option. This allows you to give a unique name to the cache server during
+  creation, aiding in easy identification and management.
+
+- **Select Resource:** Choose the appropriate resource from the available
+  options. The resource you select should match the caching technology or
+  service you want to use, such as Redis or Memcached.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/cache-details-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/cache-details.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={620}
+/>
+
+- Click the **'Create'** button to create the cache instance.
+
+### 3. Managing Cache Servers
+
+Once you've created your cache instance, you will see a list of cache servers
+available in your Agnost environment. You can manage these cache servers by
+clicking on their names.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/cache-list-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/cache-list.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+## Using Cache in Your Applications
+
+To use cache servers within your applications in Agnost, you can leverage the
+Agnost Server Side Library. This library provides a set of APIs and methods for
+interacting with cache servers seamlessly.
+
+### Example Code (JavaScript)
 
 ```javascript
-app.get("/products/:id", (req, res) => {
-  const { id } = req.params
+const agnost = require("agnost")
 
-  // Try fetching the result from Redis first
-  agnost.cache.get(`product:${id}`, (err, result) => {
-    if (result) {
-      // If the result exists in cache, return it
-      return res.send(result)
-    } else {
-      // Otherwise, fetch the result from the database
-      const product = fetchProductFromDatabase(id)
+// Initialize Agnost with your API key
+agnost.init({ api_key: "YOUR_API_KEY" })
 
-      // And store it in cache for future access
-      agnost.cache.setex(`product:${id}`, 3600, JSON.stringify(product))
+// Use the cache API to set and get data in the cache
+const cache = agnost.cache()
 
-      return res.send(product)
-    }
+// Set a value in the cache with a specified key and expiration time (in seconds)
+cache
+  .set("my_key", "my_value", { expire: 3600 })
+  .then(() => {
+    console.log("Value set in the cache")
+
+    // Get a value from the cache
+    cache
+      .get("my_key")
+      .then((value) => {
+        console.log("Value retrieved from the cache:", value)
+
+        // Check if a key exists in the cache
+        cache
+          .exists("my_key")
+          .then((exists) => {
+            if (exists) {
+              console.log("Key exists in the cache")
+            } else {
+              console.log("Key does not exist in the cache")
+            }
+
+            // Delete a key from the cache
+            cache
+              .delete("my_key")
+              .then(() => {
+                console.log("Key deleted from the cache")
+              })
+              .catch((error) => {
+                console.error("Error deleting key from the cache:", error)
+              })
+          })
+          .catch((error) => {
+            console.error("Error checking key existence in the cache:", error)
+          })
+      })
+      .catch((error) => {
+        console.error("Error retrieving value from the cache:", error)
+      })
   })
-})
+  .catch((error) => {
+    console.error("Error setting value in the cache:", error)
+  })
 ```
 
-This simple strategy checks if the requested data exists in the cache. If it
-does, the cached data is returned, bypassing the database. If not, the data is
-fetched from the database, returned to the user, and stored in the cache for
-future requests.
+In this example, we're using JavaScript to interact with the cache server using
+Agnost's Server Side Library. You can perform operations such as setting values,
+retrieving values, checking for key existence, and deleting keys in the cache.
 
-### Cache Invalidation
+If you encounter any issues or need further guidance on working with cache in
+Agnost, please refer to our documentation or reach out to our support team for
+assistance.
 
-Cache invalidation can be a tricky aspect of caching. How and when should you
-invalidate your cache? A common strategy is to set a time-to-live (TTL) for each
-cache entry, as demonstrated in the above example (`setex`). After the TTL
-expires, the cached data will be deleted automatically.
-
-Another strategy is to invalidate the cache whenever the data changes. For
-instance, if a product's details are updated, the related cache should be
-invalidated to avoid serving stale data.
-
-```javascript
-app.put("/products/:id", (req, res) => {
-  const { id } = req.params
-
-  // Update the product in the database
-  const updatedProduct = updateProductInDatabase(id, req.body)
-
-  // Invalidate the related cache
-  agnost.cache.del(`product:${id}`)
-
-  return res.send(updatedProduct)
-})
-```
-
-In this approach, every time a product's details are updated, the related cache
-is deleted, ensuring the cache is always fresh.
-
-By leveraging Agnost's built-in support for caching with Redis, you can optimize
-your applications to deliver high performance and excellent user experience.
+Happy caching with Agnost!

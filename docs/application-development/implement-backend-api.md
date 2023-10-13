@@ -178,8 +178,8 @@ testing tool, where you can provide the necessary request parameters and test
 the endpoint.
 
 <ImageSwitcher
-  lightImageSrc="/img/docs/application-development/test-endpoint-l.png?text=LightMode"
-  darkImageSrc="/img/docs/application-development/test-endpoint.png?text=DarkMode"
+  lightImageSrc="/img/docs/application-development/testing-endpoint-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/testing-endpoint.png?text=DarkMode"
   className={ilCss.illustration__md}
   width={820}
 />

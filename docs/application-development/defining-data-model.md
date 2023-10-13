@@ -16,7 +16,7 @@ To define a data model in Agnost, follow these simple steps:
 
 ### 1. Access the Database Section
 
-- Click the **+** icon located in the header of your Agnost dashboard.
+Click the **+** icon located in the header of your Agnost dashboard.
 
 - From the dropdown menu, select **Database** to navigate to the Database
   section.
@@ -30,7 +30,7 @@ To define a data model in Agnost, follow these simple steps:
 
 ### 2. Create a New Database
 
-- In the Database section, you'll have the option to **Create a new database**.
+In the Database section, you'll have the option to **Create a new database**.
 
 - A dialog box will appear, asking you to enter a **database name** for your new
   data model. This name should be descriptive and reflect the purpose of the

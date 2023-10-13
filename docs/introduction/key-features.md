@@ -80,3 +80,17 @@ RabbitMQ and Kafka message brokers, and even implementing cronjobs and real-time
 features, Agnost consolidates all essential components into one unified
 platform. This streamlined approach empowers developers to fine-tune their
 environments and optimize their applications efficiently.
+
+## Automatic Type Definition with Agnost Code Editor
+
+Agnost Code Editor provides seamless automatic type definition, making it easier
+for developers to work with strongly-typed data and maintain code consistency
+throughout their projects. This feature enhances code quality and reduces the
+likelihood of type-related errors.
+
+## Full Control over Serverless Functions
+
+Agnost empowers developers with full control over serverless functions, allowing
+them to efficiently manage and deploy serverless components within their
+applications. With Agnost, you can harness the benefits of serverless
+architecture while maintaining flexibility and customization in your functions.

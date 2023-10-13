@@ -1,6 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
+
+import ImageSwitcher from "@theme/ImageSwitcher"
+import ilCss from "../../src/css/illustration.module.css"
 
 # Storage
 
@@ -15,62 +18,112 @@ application. This could be profile pictures for a social media app, documents
 for a business application, images for an e-commerce app, and so on. Without a
 storage solution, handling and managing these files can be a challenging task.
 
-### Local Storage
-
-For development and testing purposes, you may use your machine's local storage.
-Agnost provides an easy way to configure local storage. It is as simple as
-setting up a local directory as a mount point.
-
-### Cloud Storage
-
-For production environments, you can leverage cloud storage services. Agnost
-supports integration with popular cloud storage services like AWS S3, Google
-Cloud Storage, and Azure Blob Storage. The integration allows you to store and
-retrieve files directly from these services, thus ensuring scalability and
-reliability.
-
-### Configuring Storage in Agnost
+## Configuring Storage in Agnost
 
 Like other resources in Agnost, configuring storage is straightforward through
 the Agnost Studio.
 
 To configure storage:
 
-1. Open Agnost Studio and navigate to your project.
-2. Go to the 'Resources' section and click on 'Add Resource'.
-3. Choose the appropriate storage resource from the list (AWS S3, GCS, Azure
-   Blob, or local storage).
-4. Provide the necessary configuration details and click 'Add'.
-5. Once the resource has been added, it's ready to be used in your application.
+### 1. Access the Storage Creation Tab
 
-### Using Storage
+In the Agnost UI, click on the **'+'** icon located in the header to access the
+options menu.
 
-Once you have your storage resource set up, you can use it to handle file
-uploads and downloads in your application. Here's an example of how to handle
-file uploads in an Express.js application:
+- From the dropdown menu, select **Storage** to navigate to the Storage section.
 
-```javascript
-const express = require("express")
-const multer = require("multer")
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/storage-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/storage.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
-const app = express()
+### 2. Create a New Storage Instance
 
-// Set up multer for file uploads
-const upload = multer({ storage: multer.memoryStorage() })
+In the Storage section, you'll have the option to **'+ Create new Storage'** to
+define a new storage instance.
 
-app.post("/upload", upload.single("file"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send("No file uploaded")
-  }
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/storage-details-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/storage-details.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
-  // Use your storage resource to store the file
-  // This will depend on your specific storage solution
-  // (local storage, AWS S3, GCS, Azure Blob, etc.)
-  const filename = storeFile(req.file)
+A dialog box will appear, prompting you to provide the following details for
+your new storage instance:
 
-  res.status(200).send({ filename })
-})
-```
+- **Storage Name:** Enter a descriptive name for your storage resource. This
+  name should reflect the purpose or functionality of the storage within your
+  application.
 
-This example uses the `multer` middleware to handle file uploads. The file is
-then stored using your configured storage resource.
+- **Select Resource:** Choose the appropriate resource from the available
+  options. The resource you select should match the storage service or
+  technology you want to use, such as AWS S3, GCP Cloud Storage, Azure Blob
+  Storage, or MinIO.
+
+- Click the **'Save'** button to create the storage instance.
+
+### 3. Managing Storage Resources
+
+Once you've created your storage instance, you will see a list of storage
+resources available in your Agnost environment. You can manage these resources
+by clicking on the name of the storage.
+
+- In the navigated page for the storage resource, you can perform various
+  actions, including creating buckets to organize your data.
+
+## Creating Storage Buckets
+
+To create storage buckets within a storage resource in Agnost, follow these
+steps:
+
+### 1. Access the Storage Resource Tab
+
+Click on the name of the storage resource where you want to create a bucket.
+This will take you to the page for that specific storage resource.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/create-bucket-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-bucket.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+### 2. Create a New Storage Bucket
+
+On the storage resource page, you'll have the option to **'Create bucket'** to
+define a new storage bucket.
+
+- A dialog box will appear, prompting you to provide the following details for
+  your new storage bucket:
+
+  - **Bucket Name:** Enter a unique name for your storage bucket. This name
+    should be descriptive and reflect the content or purpose of the bucket.
+
+  - **Tags:** Optionally, you can specify tags to categorize and manage your
+    buckets effectively.
+
+  - **Visibility (On/Off):** You can choose whether the bucket should be
+    publicly visible or private. Public visibility allows public access to the
+    bucket's content, while private visibility restricts access to authorized
+    users.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/bucket-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/bucket.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
+- Click the **'Save'** button to create the storage bucket.
+
+### 3. Managing Storage Buckets
+
+Once you've created your storage bucket, you will see a list of buckets in the
+storage resource page. You can manage these buckets by clicking on the name of
+the bucket.
+
+- In the navigated page for the storage bucket, you can perform various actions,
+  including uploading files, downloading files, and deleting files.

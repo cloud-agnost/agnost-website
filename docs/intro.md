@@ -31,11 +31,11 @@ creating your first Agnost application.
 ## Core Concepts
 
 For a deeper understanding of Agnost, the
-[**Core Concepts**](/docs/category/core-concepts/) section covers key topics
-like microservices, serverless architecture, containerization, and Kubernetes.
-You'll also learn how to deploy your applications to various environments
-including Amazon Web Services, Microsoft Azure, Google Cloud Platform, and
-on-premise servers.
+[**Core Concepts**](/docs/introduction/core-concepts/understanding-kubernetes)
+section covers key topics like microservices, serverless architecture,
+containerization, and Kubernetes. You'll also learn how to deploy your
+applications to various environments including Amazon Web Services, Microsoft
+Azure, Google Cloud Platform, and on-premise servers.
 
 ## Application Development
 

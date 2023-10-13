@@ -34,13 +34,6 @@ These include secure user authentication and authorization, encrypted data
 storage and transmission, and secure connections between your application and
 its backend services.
 
-### How does Agnost integrate with CI/CD pipelines?
-
-Agnost can be easily integrated into your existing CI/CD pipelines to automate
-the process of building, testing, and deploying your applications. You can
-configure Agnost to automatically deploy your application whenever changes are
-pushed to your Git repository.
-
 ### How does Agnost handle updates and versioning?
 
 With Agnost, you can easily manage updates and versioning for your applications.

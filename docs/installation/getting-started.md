@@ -20,8 +20,6 @@ Before you begin, ensure that you have the following software installed:
   command-line tool for managing your Kubernetes cluster.
 - [Helm](https://helm.sh/docs/intro/install/): Helm is a package manager for
   Kubernetes that simplifies the process of deploying and managing applications.
-- [Skaffold](https://skaffold.dev/docs/install/): Skaffold is a command-line
-  tool that facilitates continuous development for Kubernetes applications.
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/): Minikube is a tool that
   enables you to run Kubernetes locally.
 
@@ -142,6 +140,7 @@ helm install agnost cloud-agnost/base
 # 🌍  If you have installed your cluster locally you can access Agnost Studio at http://localhost
 ```
 
+<!--
 ## Step 3: Install Agnost Studio
 
 1. **Clone the Agnost Studio repository:**
@@ -191,7 +190,7 @@ npm run dev
 #   ➜  Network: http://192.168.1.102:4000/
 #   ➜  press h to show help
 
-```
+``` -->
 
 Congratulations! You have now successfully set up Agnost Studio and your local
 development environment, allowing you to develop and deploy applications with
