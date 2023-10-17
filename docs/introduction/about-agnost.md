@@ -6,9 +6,10 @@ sidebar_position: 1
 
 **Agnost is a comprehensive and powerful platform that simplifies backend
 development tasks**, allowing you to focus on crafting exceptional software
-without the complexities of managing infrastructure. With Agnost, you can
+without the complexities of managing infrastructure.With Agnost, you can
 seamlessly **deploy and manage applications in the cloud**, regardless of your
-preferred cloud provider.
+preferred cloud provider, while specifically optimized to work within Kubernetes
+clusters.
 
 ## Why Choose Agnost?
 
@@ -36,7 +37,7 @@ offering the ability to scale and distribute critical data and messages across
 multiple instances. With Agnost, you can handle even the most demanding
 workloads with ease.
 
-**Experience Real-Time Communication:** With support for WebSockets and
+**Experience Realtime Communication:** With support for WebSockets and
 Server-Sent Events, Agnost empowers you to implement real-time communication and
 deliver live updates to your users, enhancing their experience.
 

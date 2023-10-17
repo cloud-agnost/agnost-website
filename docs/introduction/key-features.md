@@ -51,6 +51,15 @@ including Single-sign On, LDAP and Active Directory, and Social Login. These
 authentication options ensure secure and seamless user authentication,
 safeguarding user data and application resources.
 
+:::caution Enterprise Version Exclusive
+
+The LDAP, Active Directory, and Single-sign On (SSO) authentication methods
+mentioned above are exclusively available in the enterprise version of Agnost.
+Please ensure you have the appropriate licensing and access to unlock these
+advanced authentication features for your application.
+
+:::
+
 ## Cronjobs
 
 Automating routine tasks is made simple with Agnost's support for scheduled
@@ -60,17 +69,20 @@ manual intervention.
 
 ## Security
 
-Agnost prioritizes security with essential features like API keys, rate
-limiters, and domain/IP white-listing. These security measures protect
-applications against potential threats and unauthorized access, enhancing data
-integrity and safeguarding sensitive information.
+Agnost prioritizes security, not only through essential features like API keys,
+rate limiters, and domain/IP white-listing but also by providing robust session
+management capabilities. These security measures work in tandem to protect
+applications against potential threats, unauthorized access, and session-related
+vulnerabilities, enhancing data integrity and safeguarding sensitive
+information.
 
 ## Replication
 
 Agnost simplifies scaling with advanced replication capabilities. Developers can
-create read replicas for databases, cache, and message queues, enhancing
-performance and fault tolerance. The ability to scale read replicas and manage
-primary instances allows Agnost to handle serious workloads with ease.
+create read replicas for databases, cache, and message broker clusters,
+enhancing performance and fault tolerance. The ability to scale read replicas
+and manage primary instances allows Agnost to handle serious workloads with
+ease.
 
 ## Portability
 

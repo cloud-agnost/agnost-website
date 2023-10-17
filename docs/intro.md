@@ -24,18 +24,18 @@ information you need here.
 ## Getting Started
 
 If you're new to Agnost, we recommend starting with the
-[**Getting Started**](/docs/installation/getting-started) guide. This guide will
-walk you through the installation process, setting up your environment, and
-creating your first Agnost application.
+[**Getting Started**](/docs/installation/installation-minikube.md) guide. This
+guide will walk you through the installation process, setting up your
+environment, and creating your first Agnost application.
 
-## Core Concepts
+## Architecture Overview
 
 For a deeper understanding of Agnost, the
-[**Core Concepts**](/docs/introduction/core-concepts/understanding-kubernetes)
-section covers key topics like microservices, serverless architecture,
-containerization, and Kubernetes. You'll also learn how to deploy your
-applications to various environments including Amazon Web Services, Microsoft
-Azure, Google Cloud Platform, and on-premise servers.
+[**Architecture Overview**](/docs/introduction/architecture-overview.md) section
+covers key topics like microservices, serverless architecture, containerization,
+and Kubernetes. You'll also learn how to deploy your applications to various
+environments including Amazon Web Services, Microsoft Azure, Google Cloud
+Platform, and on-premise servers.
 
 ## Application Development
 
@@ -44,14 +44,6 @@ Ready to build with Agnost? The
 provides comprehensive guides on creating Agnost projects, implementing backend
 APIs, integrating databases, managing user authentication and authorization,
 implementing real-time functionality, and much more.
-
-## Advanced Features
-
-For developers who want to dive deeper, the
-[**Advanced Features**](/docs/category/advanced-features) section covers topics
-like scaling and load balancing, handling security and encryption,
-internationalization and localization, integrating third-party services,
-performance optimization techniques, and monitoring and logging.
 
 This documentation is a work in progress, and we're constantly working to
 improve and expand it. If you have any questions, feedback, or suggestions,

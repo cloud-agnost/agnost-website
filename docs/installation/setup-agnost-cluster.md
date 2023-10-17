@@ -16,7 +16,7 @@ configure your Agnost environment for application development.
 1. **Visit the Agnost Studio** at the URL or IP address of your Agnost cluster
    on your web browser **(e.g., http(s)://your cluster URL or IP)**. If you have
    installed your cluster locally, you can access the Agnost Studio at
-   [http://localhost:4000](http://localhost:4000).
+   [http://localhost](http://localhost).
 
 2. **To begin**, you need to create your Agnost account. Provide your email
    address, choose a strong password, and enter your name.
@@ -85,6 +85,16 @@ you're developing.
   className={ilCss.illustration__md}
   width={800}
 />
+
+:::caution Enterprise Version Exclusive
+
+Please note that from **Step 4** onwards, the configuration steps and features
+discussed are **exclusively available in the enterprise version of Agnost**. If
+you are using the community version, you may not have access to these advanced
+capabilities. Make sure to check your Agnost subscription to ensure you have
+access to these features.
+
+:::
 
 ### Step 4: Configure SMTP Settings (Optional)
 

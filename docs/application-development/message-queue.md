@@ -1,11 +1,11 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 import ImageSwitcher from "@theme/ImageSwitcher"
 import ilCss from "../../src/css/illustration.module.css"
 
-# Working with Message Queues
+# Message Queues
 
 In many cases, you might want to process tasks asynchronously outside of the
 main application flow. This is especially true for tasks that are
@@ -65,6 +65,17 @@ new message queue:
   processing, you can specify the message delay duration. This can be useful for
   scenarios where messages should not be processed immediately.
 
+  :::caution Message Delay Feature Availability
+
+  Please note that the ability to specify **message delay duration is dependent
+  on the capabilities of the underlying message broker, specifically RabbitMQ.**
+  If your current setup or version of RabbitMQ does not support delaying
+  messages, this feature won't be visible or available for use. Ensure that your
+  RabbitMQ configuration supports message delay if you intend to utilize this
+  feature.
+
+  :::
+
 - **Log Execution (On/Off):** You can choose to log the execution of messages in
   this queue. Enabling this option will log detailed information about message
   processing, including message content, status, and execution duration.
@@ -79,7 +90,7 @@ new message queue:
   lightImageSrc="/img/docs/application-development/mq-details-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/mq-details.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 ## Creating Handler Functions

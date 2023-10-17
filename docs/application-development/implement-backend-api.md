@@ -11,6 +11,20 @@ In Agnost, implementing backend APIs is a crucial step in building your
 application's functionality. This section will guide you through the process of
 creating and configuring backend APIs using Agnost's user-friendly interface.
 
+:::note
+
+Agnost uses the **Node.js Express framework** to handle API requests and
+responses. When working with Agnost's backend APIs, it's essential to understand
+the `req` and `res` objects, which are common terminologies in Express-based
+applications. The `req` object represents the incoming HTTP request, while the
+`res` object represents the HTTP response that your API will send back.
+
+For comprehensive information on working with `req` and `res` objects and
+understanding Express.js, please refer to the
+[Express.js documentation](https://expressjs.com/).
+
+:::
+
 Here are the steps you can follow to implement backend APIs in your Agnost
 project:
 
@@ -160,13 +174,22 @@ database:
 
 ```js
 const endpointHandler = async (req, res) => {
-  const movieData = req.body()
+  const movieData = req.body
   const movie = await agnost.db("movies").model("movie").createOne(movieData)
   res.json(movie)
 }
 
 export default endpointHandler
 ```
+
+:::tip
+
+Maintain code consistency by adhering to the best practice of including a
+mandatory **default export** for every handler function in your codebase. This
+practice enhances code readability and ensures that your functions are easily
+accessible when importing modules.
+
+:::
 
 ### 7. Test the Endpoint
 

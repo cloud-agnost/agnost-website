@@ -67,6 +67,8 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 996px) {

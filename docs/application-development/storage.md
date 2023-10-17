@@ -119,6 +119,18 @@ define a new storage bucket.
 
 - Click the **'Save'** button to create the storage bucket.
 
+:::note
+
+In addition to creating buckets using the Agnost Studio interface, you can also
+create buckets programmatically using the Agnost Server Library. This is
+particularly useful for developers who want to automate bucket creation as part
+of their application's workflow.
+
+To create buckets with the Agnost Server Library, follow the documentation and
+code examples provided in the Agnost Server Library documentation.
+
+:::
+
 ### 3. Managing Storage Buckets
 
 Once you've created your storage bucket, you will see a list of buckets in the

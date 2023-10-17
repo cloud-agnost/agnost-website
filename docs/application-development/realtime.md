@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Real-Time Functionality with Websockets
+# Realtime Functionality with Websockets
 
 Websockets provide a full-duplex communication channel over a single TCP
 connection, enabling the server and the client to send real-time updates. Agnost

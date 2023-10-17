@@ -5,7 +5,7 @@ sidebar_position: 7
 import ImageSwitcher from "@theme/ImageSwitcher"
 import ilCss from "../../src/css/illustration.module.css"
 
-# Caching Strategies
+# Caching Data
 
 Caching is a powerful technique to improve the performance and responsiveness of
 your applications. In Agnost, you can easily set up and manage cache servers to

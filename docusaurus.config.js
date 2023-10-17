@@ -168,7 +168,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Product Guide",
+            label: "Platform Guide",
           },
           {
             type: "docsVersionDropdown",

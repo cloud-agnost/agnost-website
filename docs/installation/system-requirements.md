@@ -27,7 +27,7 @@ following minimum requirements:
   application containers. You can download Docker
   [here](https://docs.docker.com/get-docker/).
 
-- **Kubernetes:** Kubernetes 1.18 or later. Kubernetes is the platform where
+- **Kubernetes:** Kubernetes 1.24 or later. Kubernetes is the platform where
   your applications will be deployed. Instructions for installing Kubernetes can
   be found [here](https://kubernetes.io/docs/setup/).
 

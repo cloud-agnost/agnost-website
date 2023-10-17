@@ -20,31 +20,31 @@ client library to integrate your Agnost backend apps with your frontends.
 There are several modules in our client library that you can use in your
 frontend applications.
 
-- [**Authentication**](/client/guides/authentication/sign-up/) - Handles the
+- [**Authentication**](/client/authentication/sign-up/) - Handles the
   authentication process of your application users. Provides methods to manage
   users, sessions and authentication. You are free to design the way to
   authenticate your users and manage sessions in Agnost through defining your
   custom services. However, by default Agnost provides **email**, **phone
   number** and **3rd party oAuth provider** based authentication to manage user
   accounts through the client library.
-- [**Cloud Storage**](/client/guides/storage/) - Provides the methods to manage
-  your app's cloud storage files. With this module you store your files,
-  documents, images etc. under buckets, which are the basic containers that hold
-  your application data.
-- [**Endpoints**](/client/guides/endpoint/) - Provides the methods to execute
-  your app backend services by making REST API requests to your app endpoints.
-- [**Realtime**](/client/guides/realtime/channels/) - Allows realtime publish
-  and subscribe (pub/sub) messaging through websockets.Realtime makes it
-  possible to open a two-way interactive communication session between the
-  user's device (e.g., browser, smartphone) and a server. With realtime, you can
-  send messages to a server and receive event-driven responses without having to
-  poll the server for a reply.
+- [**Cloud Storage**](/client/storage/) - Provides the methods to manage your
+  app's cloud storage files. With this module you store your files, documents,
+  images etc. under buckets, which are the basic containers that hold your
+  application data.
+- [**Endpoints**](/client/endpoint/) - Provides the methods to execute your app
+  backend services by making REST API requests to your app endpoints.
+- [**Realtime**](/client/realtime/channels/) - Allows realtime publish and
+  subscribe (pub/sub) messaging through websockets.Realtime makes it possible to
+  open a two-way interactive communication session between the user's device
+  (e.g., browser, smartphone) and a server. With realtime, you can send messages
+  to a server and receive event-driven responses without having to poll the
+  server for a reply.
 
 ## Response structure
 
 Ignoring few exceptions (e.g.,
-[auth.getSession](/client/guides/authentication/sessions#get-current-session),
-[auth.getUser](/client/guides/authentication/sessions#get-user-info-from-local-storage)),
+[auth.getSession](/client/authentication/sessions#get-current-session),
+[auth.getUser](/client/authentication/sessions#get-user-info-from-local-storage)),
 the client library method executions return a json object which includes two
 main components, the method **response data** and the **errors**.
 
