@@ -1,8 +1,8 @@
 ---
 sidebar_position: 5
 description:
-  With Altogic, you can define your RESTful endpoints and associte them with
-  your cloud functions.
+  With Agnost, you can define your RESTful endpoints and associte them with your
+  cloud functions.
 ---
 
 import Tabs from "@theme/Tabs"

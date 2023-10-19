@@ -113,7 +113,7 @@ explore the following libraries:
 
 - **Agnost Server Library**: The server-side counterpart for handling Realtime
   features. Access comprehensive documentation and implementation guidelines
-  [here](/server/guides/realtime/channels).
+  [here](/server/realtime).
 
 These libraries will help you explore the full potential of Agnost Realtime in
 your application development.

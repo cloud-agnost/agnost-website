@@ -19,9 +19,9 @@ Buckets are the basic containers that hold your application data (i.e., files).
 ### Create bucket
 
 You can create a bucket by calling the `createBucket` method. It creates a new
-bucket with the specified name. By default if this method is called within the
-context of a user session, it also assigns the `userId` of the session to the
-bucket metadata.
+bucket with the specified name. You can specify additional information to store
+with each bucket using the **`tags`** which is a JSON object (e.g., key-value
+pairs).
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
@@ -95,13 +95,6 @@ Buckets can be specified as **public** or **private**, which defines how the
 
 :::
 
-:::note
-
-If the client library key is set to **enforce session**, an active user session
-is **required** (e.g., user needs to be logged in) to call this method.
-
-:::
-
 ### Get storage details
 
 You can get the storage details by calling the `getStats` method. It returns the
@@ -146,13 +139,6 @@ let result = await agnost.storage(storageName).getStats()
 
 </DetailedResponse>
 
-
-:::note
-
-If the client library key is set to **enforce session**, an active user session
-is **required** (e.g., user needs to be logged in) to call this method.
-
-:::
 
 ### List buckets
 
@@ -247,13 +233,6 @@ Here you can find parameters for the `listBuckets` method.
 configure how buckets will be listed, primarily used to set pagination and
 sorting settings |
 
-:::note
-
-If the client library key is set to **enforce session**, an active user session
-is **required** (e.g., user needs to be logged in) to call this method.
-
-:::
-
 ### List files
 
 You can list files by calling the `listFiles` method. This method performs a
@@ -341,8 +320,8 @@ It returns the list of files matching the search query.
 - This method performs a global search across all the files contained in all the
   buckets.
 
-- If **returnCountInfo=true** in [FileListOptions](./buckets#file-list-options),
-  it returns an object which includes count information and array of matching
+- If **returnCountInfo=true** in [FileListOptions](#file-list-options), it
+  returns an object which includes count information and array of matching
   files.
 
 :::
@@ -351,9 +330,9 @@ It returns the list of files matching the search query.
 
 Here you can find parameters for the `listFiles` method.
 
-| #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p>              | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                                                                         |
-| --- | ---------------------------- | ---------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| 1   | options                      | [FileListOptions](./buckets#file-list-options) | No                               | Options to configure how search result will be listed, primarily used to set pagination and sorting settings |
+| #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p>     | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                                                                         |
+| --- | ---------------------------- | ------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 1   | options                      | [FileListOptions](#file-list-options) | No                               | Options to configure how search result will be listed, primarily used to set pagination and sorting settings |
 
 :::note
 

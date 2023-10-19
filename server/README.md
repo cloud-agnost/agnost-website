@@ -20,30 +20,30 @@ Server library in your Agnost backend apps.
 There are several modules in our server library that you can use in your backend
 applications.
 
-- [**Database**](/server/guides/database/introduction) - Allows you manage your
+- [**Database**](/server/database/introduction) - Allows you manage your
   applications database. With the database module you can create new objects in
   your app database, update or delete existing ones, run queries and paginate
   over large data sets.
-- [**Cloud Storage**](/server/guides/cloud-storage/storage) - Provides the
-  methods to manage your app's cloud storage buckets and files. With this module
-  you store your files, documents, images etc. under buckets, which are the
-  basic containers that hold your application data.
-- [**Endpoints**](/server/guides/endpoint) - Provides the methods to execute
-  your app backend services by making REST API requests to your app endpoints.
-- [**Message Queues**](/server/guides/message-queue) - Allows different parts of
-  your application to communicate and perform activities asynchronously. Message
+- [**Storage**](/server/storage/storage.md) - Provides the methods to manage
+  your app's cloud storage buckets and files. With this module you store your
+  files, documents, images etc. under buckets, which are the basic containers
+  that hold your application data.
+- [**Endpoints**](/server/endpoint) - Provides the methods to execute your app
+  backend services by making REST API requests to your app endpoints.
+- [**Message Queues**](/server/message-queue) - Allows different parts of your
+  application to communicate and perform activities asynchronously. Message
   queue services are triggered when a message is submitted to a queue.
-- [**Scheduled Tasks**](/server/guides/scheduled-task) - Enables you to manually
+- [**Scheduled Tasks**](/server/scheduled-task) - Enables you to manually
   trigger service executions of your scheduled tasks (aka cron jobs) which
   actually ran periodically at fixed times, dates, or intervals
-- [**Realtime**](/server/guides/realtime/connection) - Allows realtime publish
-  and subscribe (pub/sub) messaging through websockets.Realtime makes it
-  possible to open a two-way interactive communication session between the
-  user's device (e.g., browser, smartphone) and a server. With realtime, you can
-  send messages to a server and receive event-driven responses without having to
-  poll the server for a reply.
-- [**Cache**](/server/guides/cache) - Provides simple key-value storage at a
-  high-speed data storage layer (Redis) speeding up data set and get operations.
+- [**Realtime**](/server/realtime) - Allows realtime publish and subscribe
+  (pub/sub) messaging through websockets.Realtime makes it possible to open a
+  two-way interactive communication session between the user's device (e.g.,
+  browser, smartphone) and a server. With realtime, you can send messages to a
+  server and receive event-driven responses without having to poll the server
+  for a reply.
+- [**Cache**](/server/cache) - Provides simple key-value storage at a high-speed
+  data storage layer (Redis) speeding up data set and get operations.
 
 ### Success response
 

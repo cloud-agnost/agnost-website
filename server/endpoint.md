@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 description:
-  With Altogic, you can define your RESTful endpoints and associte them with
-  your cloud functions.
+  With Agnost, you can define your RESTful endpoints and associte them with your
+  cloud functions.
 ---
 
 import Tabs from "@theme/Tabs"
@@ -11,18 +11,13 @@ import BrowserWindow from "@site/src/components/BrowserWindow"
 
 # Endpoints
 
-With Altogic, you can define your RESTful endpoints and associte them with your
-**services**. You can think of **endpoint services as your cloud functions** and
-define no-code services using the [Designer](https://designer.agnost.com) and
-full-code functions using the
-[Altogic CLI](https://www.agnost.com/docs/altogic-cli).
+With Agnost Studio, you can define your RESTful endpoints and develop your
+business logic with using Agnost code editor.
 
 :::info
 
-When the endpoint is called, the associated service (i.e., cloud function) is
-executed. The endpoint manager provides the methods to make **POST**, **PUT**,
-**GET** and **DELETE** requests to your app endpoints to run your cloud
-functions.
+The endpoint manager provides the methods to make **POST**, **PUT**, **GET** and
+**DELETE** requests to your app endpoints to run your cloud functions.
 
 :::
 
@@ -31,7 +26,7 @@ functions.
 You can use the `get` method to make a **GET** request to your endpoint path.
 Optionally, you can provide query string parameters or headers in this request.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
 
 <TabItem value="javascript">
@@ -42,19 +37,6 @@ let orderId = "620949ee991edfba3ee644e7"
 
 // Make a GET request to /orders/{orderId} endpoint
 const { data, errors } = await agnost.endpoint.get(`/orders/${orderId}`)
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-final orderId = "620949ee991edfba3ee644e7";
-
-// Make a GET request to /orders/{orderId} endpoint
-final result = await agnost.endpoint.get("/orders/${orderId}").asMap();
 ```
 
 </TabItem>
@@ -99,7 +81,7 @@ You can use the `post` method to make a **POST** request to your endpoint path.
 Optionally, you can provide body, query string parameters or headers in this
 request.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
 
 <TabItem value="javascript">
@@ -117,26 +99,6 @@ const { data, errors } = await agnost.endpoint.post(
       "Awesome product. Would be better if you could add tagging people in comments.",
   },
 )
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-final postId = "62094b43f7205e7d78082504";
-
-// Make a POST request to /wallposts/{postId}/comments endpoint
-final result = await agnost.endpoint.post(
-  "/wallposts/${postId}/comments",
-  body: {
-    "userId": "620949ee991edfba3ee644e7",
-    "comment":
-      "Awesome product. Would be better if you could add tagging people in comments.",
-  })
-  .asMap();
 ```
 
 </TabItem>
@@ -182,7 +144,7 @@ You can use the `put` method to make a PUT request to your endpoint path.
 Optionally, you can provide body, query string parameters or headers in this
 request.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
 
 <TabItem value="javascript">
@@ -199,27 +161,6 @@ const { data, errors } = await agnost.endpoint.put(`/users/${userId}/address`, {
   state: "IL",
   country: "US",
 })
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-final userId = "62094b734848b88ff50c2ab0";
-
-// Make a PUT request to /users/{userId}/address
-final result = await agnost.endpoint.put(
-  "/users/${userId}/address",
-  body: {
-    "city": "Chicago",
-    "street": "121 W Chestnut",
-    "zipcode": "60610",
-    "state": "IL",
-    "country": "US",
-  });
 ```
 
 </TabItem>
@@ -265,7 +206,7 @@ You can use the `delete` method to make a DELETE request to your endpoint path.
 Optionally, you can provide body, query string parameters or headers in this
 request.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ,{ label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
 
 <TabItem value="javascript">
@@ -279,22 +220,6 @@ let commentId = "62094b66fc475bdd5a2bfa48"
 const { data, errors } = await agnost.endpoint.delete(
   `/wallpost/${postId}/comments/${commentId}`,
 )
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-final postId = "62094b4dfcc106baba52c8ec";
-final commentId = "62094b66fc475bdd5a2bfa48";
-
-// Make a DELETE request to /wallposts/{postId}/comments/{commentId} endpoint
-final result = await agnost.endpoint.delete(
-    "/wallpost/${postId}/comments/${commentId}"
-  ).asMap();
 ```
 
 </TabItem>
