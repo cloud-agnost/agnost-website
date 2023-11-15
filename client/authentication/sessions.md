@@ -32,18 +32,6 @@ Through the Agnost client library, you can **manage sessions of your application
 users.** Below is the list of session management capabilities of Agnost that you
 can use in your service designs.
 
-:::note
-
-You can **enforce sessions** for your app uses through your client library key.
-If sessions are enforced then users need to be signed in to your app and the
-session token needs to be provides in **Session Header** of each method call
-made to your backend app through the client library.
-
-You can enable/disabled session enforcement or your client library keys from
-**App settings** → **Client library keys** view of Designer.
-
-:::
-
 ### Sign out a session
 
 You can sign out a session by calling the `signOut` method.
@@ -57,28 +45,15 @@ identified by the input token.
 
 :::
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
 
 
 ```js
-//Sign out a session
-const { errors } = await agnost.auth.signOut(sessionToken)
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Sign out a session
-final errors = await agnost.auth.signOut(sessionToken);
-
+// Sign out a session
+const { errors } = await agnost.auth.signOut(sessionToken);
 ```
 
 </TabItem>
@@ -115,28 +90,15 @@ data in local storage, and removes the Session header in Fetcher.
 
 :::
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
 
 
 ```js
-//Sign out all sessions
-const { errors } = await agnost.auth.signOutAll()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Sign out all sessions
-final errors = await agnost.auth.signOutAll();
-
+// Sign out all sessions
+const { errors } = await agnost.auth.signOutAll();
 ```
 
 </TabItem>
@@ -158,7 +120,7 @@ You can sign out all session except the current by calling the
 `signOutAllExceptCurrent` method. It signs out users from all their active
 sessions except the current one which makes the API call.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -166,20 +128,7 @@ sessions except the current one which makes the API call.
 
 ```js
 //Sign out all sessions except current
-const { errors } = await agnost.auth.signOutAllExceptCurrent()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Sign out all sessions except current
-final errors = await agnost.auth.signOutAllExceptCurrent();
-
+const { errors } = await agnost.auth.signOutAllExceptCurrent();
 ```
 
 </TabItem>
@@ -201,28 +150,15 @@ You can get the current session by calling the `getSession` method. This method
 is used to get the current session of the user and returns the currently active
 session data from local storage.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
 
 
 ```js
-//Get current session
-const session = agnost.auth.getSession()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Get current session
-final session = await agnost.auth.getSession();
-
+// Get current session
+const session = agnost.auth.getSession();
 ```
 
 </TabItem>
@@ -238,16 +174,31 @@ final session = await agnost.auth.getSession();
 {
   "userId": "6233247fb46a9b5bb144e797",
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IhJmslSKnS2H7kpX...",
-  "creationDtm": "2022-03-17T13:17:50.903Z",
+  "creationDtm": "2022-03-16T19:36:27.739Z",
   "userAgent": {
-    "family": "Chrome",
-    "major": "99",
-    "minor": "0",
-    "patch": "4844",
-    "device": { "family": "Other", "major": "0", "minor": "0", "patch": "0" },
-    "os": { "family": "Mac OS X", "major": "10", "minor": "15", "patch": "7" }
-  },
-  "accessGroupKeys": []
+    "ua": "",
+    "browser": {
+        "name": "",
+        "version": "",
+        "major": "" 
+    },
+    "engine": {
+        "name": "",
+        "version": ""
+    },
+    "os": {
+        "name": "",
+        "version": ""
+    },
+    "device": {
+        "model": "",
+        "type": "",
+        "vendor": ""
+    },
+    "cpu": {
+        "architecture": ""
+    }
+  }
 }
 ```
 
@@ -259,7 +210,7 @@ final session = await agnost.auth.getSession();
 You can get the user info by calling the `getUser` method. This method is used
 to get the user info of the user and returns the user data from local storage.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }, { label: "Dart", value: "dart" } ]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -267,20 +218,7 @@ to get the user info of the user and returns the user data from local storage.
 
 ```js
 //Get current session
-const user = agnost.auth.getUser()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Get current session
-final user = await agnost.auth.getUser();
-// TODO:
+const user = agnost.auth.getUser();
 ```
 
 </TabItem>
@@ -313,7 +251,7 @@ final user = await agnost.auth.getUser();
 You can get the user info of the user associated with the active session from
 the database by calling the `getUserFromDB` method.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -321,20 +259,7 @@ the database by calling the `getUserFromDB` method.
 
 ```js
 //Get current session
-const result = await agnost.auth.getUserFromDB()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Get current session
-final result = await agnost.auth.getUserFromDB();
-
+const result = await agnost.auth.getUserFromDB();
 ```
 
 </TabItem>
@@ -376,7 +301,7 @@ this method.
 
 You can get all active sessions by calling the `getAllSessions` method.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }, { label: "Dart", value: "dart" } ]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -384,20 +309,7 @@ You can get all active sessions by calling the `getAllSessions` method.
 
 ```js
 //Get all sessions of the user (active or not)
-const result = await agnost.auth.getAllSessions()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Get all sessions of the user (active or not)
-final result = await agnost.auth.getAllSessions();
-
+const result = await agnost.auth.getAllSessions();
 ```
 
 </TabItem>
@@ -417,48 +329,56 @@ final result = await agnost.auth.getAllSessions();
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
       "creationDtm": "2022-03-17T13:17:50.903Z",
       "userAgent": {
-        "family": "Chrome",
-        "major": "99",
-        "minor": "0",
-        "patch": "4844",
-        "device": {
-          "family": "Other",
-          "major": "0",
-          "minor": "0",
-          "patch": "0"
+        "ua": "",
+        "browser": {
+            "name": "",
+            "version": "",
+            "major": "" 
+        },
+        "engine": {
+            "name": "",
+            "version": ""
         },
         "os": {
-          "family": "Mac OS X",
-          "major": "10",
-          "minor": "15",
-          "patch": "7"
+            "name": "",
+            "version": ""
+        },
+        "device": {
+            "model": "",
+            "type": "",
+            "vendor": ""
+        },
+        "cpu": {
+            "architecture": ""
         }
-      },
-      "accessGroupKeys": []
     },
     {
       "userId": "6233247fb46a9b5bb144e797",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX...",
       "creationDtm": "2022-03-17T13:23:52.882Z",
       "userAgent": {
-        "family": "Chrome",
-        "major": "99",
-        "minor": "0",
-        "patch": "4844",
-        "device": {
-          "family": "Other",
-          "major": "0",
-          "minor": "0",
-          "patch": "0"
+        "ua": "",
+        "browser": {
+            "name": "",
+            "version": "",
+            "major": "" 
+        },
+        "engine": {
+            "name": "",
+            "version": ""
         },
         "os": {
-          "family": "Mac OS X",
-          "major": "10",
-          "minor": "15",
-          "patch": "7"
+            "name": "",
+            "version": ""
+        },
+        "device": {
+            "model": "",
+            "type": "",
+            "vendor": ""
+        },
+        "cpu": {
+            "architecture": ""
         }
-      },
-      "accessGroupKeys": []
     }
   ],
   "errors": null
@@ -480,9 +400,9 @@ this method.
 You can invalidate a session by calling the `invalidateSession` method. It
 invalidates the current user session, removes local session data, and clears
 **Session** token request header in Fetcher. It is useful when the user logs out
-from the client.
+from the client. 
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -490,24 +410,10 @@ from the client.
 
 ```js
 //Invalidates user session and clears local session data
-agnost.auth.invalidateSession()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Invalidates user session and clears local session data
 agnost.auth.invalidateSession();
-
 ```
 
 </TabItem>
-
 
 </Tabs>
 
@@ -529,7 +435,7 @@ This method clears the locally saved session and user data. In contrast to
 `invalidateSession`, this method does not clear Session token request header in
 Fetcher and does not redirect to a sign in page.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }, { label: "Dart", value: "dart" } ]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -537,20 +443,7 @@ Fetcher and does not redirect to a sign in page.
 
 ```js
 //Deletes locally saved session and user data
-agnost.auth.clearLocalData()
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Deletes locally saved session and user data
-awwit agnost.auth.clearLocalData();
-
+agnost.auth.clearLocalData();
 ```
 
 </TabItem>
@@ -577,7 +470,7 @@ cases. In those situations, this method becomes handy to update the session data
 of logged-in users so that the _Fetcher_ can update its default headers to pass
 the correct session token in its RESTful API calls.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }, { label: "Dart", value: "dart" } ]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -585,20 +478,7 @@ the correct session token in its RESTful API calls.
 
 ```js
 //Sets the active user session
-agnost.auth.setSession(session)
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Sets the active user session
-await agnost.auth.setSession(session);
-
+agnost.auth.setSession(session);
 ```
 
 </TabItem>
@@ -613,7 +493,7 @@ Here you can find parameters for the `setSession` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                                                                                                        |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | session                      | Session                           | No                               | A session of the user is an object that contains the following properties: _userId_, _token_, _creationDtm_, _userAgent_, _accessGroupKey_. |
+| 1   | session                      | Session                           | No                               | A session of the user is an object that contains the following properties: _userId_, _token_, _creationDtm_, _userAgent_. |
 
 :::tip
 
@@ -632,7 +512,7 @@ the user data, since the client library automatically manages user data.
 However, if you have not used the signUp or signIn methods of this client
 library, this method enables you to update locally stored user data.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } , { label: "Dart", value: "dart" }]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -640,24 +520,10 @@ library, this method enables you to update locally stored user data.
 
 ```js
 //Saves the user data to local storage
-agnost.auth.setUser(user)
+agnost.auth.setUser(user);
 ```
 
 </TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//Saves the user data to local storage
-await agnost.auth.setUser(user);
-
-```
-
-</TabItem>
-
 
 </Tabs>
 
@@ -679,7 +545,7 @@ This method returns the authorization grants of a user using the specified input
 You can use the `access_token` token to get authentication grants, namely the
 user data and a new session object by calling the `getAuthGrant` method.
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }, { label: "Dart", value: "dart" } ]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -687,20 +553,7 @@ user data and a new session object by calling the `getAuthGrant` method.
 
 ```js
 //...You can get user and session data using the accessToken
-const result = await agnost.auth.getAuthGrant(accessToken)
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-
-//...You can get user and session data using the accessToken
-final result = await agnost.auth.getAuthGrant(accessToken);
-
+const result = await agnost.auth.getAuthGrant(accessToken);
 ```
 
 </TabItem>
@@ -727,25 +580,31 @@ final result = await agnost.auth.getAuthGrant(accessToken);
   "session": {
     "userId": "6235e0eb25de47092f4d5300",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnZJZCI6I...",
+    "creationDtm": "2022-03-16T19:36:27.739Z",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": {
-        "family": "Other",
-        "major": "0",
-        "minor": "0",
-        "patch": "0"
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
       },
       "os": {
-        "family": "Mac OS X",
-        "major": "10",
-        "minor": "15",
-        "patch": "7"
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
       }
-    },
-    "accessGroupKeys": []
+    }
   },
   "errors": null
 }

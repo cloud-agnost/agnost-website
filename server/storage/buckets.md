@@ -14,10 +14,9 @@ import DetailedResponse from "@site/src/components/DetailedResponse"
 Buckets are primarily used to manage your files and its contents (e.g., files,
 documents, images).
 
-### Upload
+### Upload a file
 
-The `upload` method allows you to upload a file to an existing bucket in
-Agnost's storage. You can upload a file from a readable stream or from a locally
+The `upload` method allows you to upload a file to an existing bucket of your storage. You can upload a file from a readable stream or from a locally
 stored file on the disk.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
@@ -27,12 +26,16 @@ stored file on the disk.
 
 
 ```javascript
+import fs from "fs";
+
+const readableStream = fs.createReadStream("path/to/your/file.png");
+
 // Define the file to upload
 const file = {
-  path: "path/to/my/file/filename.jpg",
+  path: "images/avatar/ice.jpg", // This is the name of the file and you can specify the name of your file as a path
   mimeType: "image/png",
   size: 1024, // File size in bytes
-  stream: /* Readable stream of file contents */,
+  stream: readableStream, // Readable stream of file contents
 };
 
 // Define upload options
@@ -45,12 +48,15 @@ const options = {
   },
   userId: "61fbf6ceeeed063ab062ac05",
 };
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 try {
-  const uploadedFileInfo = await agnost.storage(storageName).bucket(bucketName).upload(file, options);
-  console.log("File uploaded:", uploadedFileInfo);
+  const uploadedFileInfo = await agnost
+    .storage(storageName)
+    .bucket(bucketName)
+    .upload(file, options);
+  console.log(uploadedFileInfo);
 } catch (error) {
   console.error("Error uploading file:", error);
 }
@@ -67,21 +73,21 @@ try {
 
 ```json
 {
-  "data": {
-    "_id": "62373fbb0b72592107523d7d",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "ice.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/623323/0ba1c889a/62373bae1/6132d",
-    "isPublic": true,
-    "uploadedAt": "2022-03-20T14:52:43.213Z",
-    "updatedAt": "2022-03-20T14:52:43.213Z",
-    "userId": "611a45f9f3e7ec001950175f",
-    "tags": []
+  "id": "fl-f234fdss34fd",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "images/avatar/ice.jpg",
+  "size": 53951,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T14:52:43.213Z",
+  "updatedAt": "2022-03-20T14:52:43.213Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "category": "images",
+    "author": "John Doe",
   },
-  "errors": null
+  "userId": "61fbf6ceeeed063ab062ac05"
 }
 ```
 
@@ -100,8 +106,8 @@ Here are the parameters for the `upload` method:
 ### List files in bucket
 
 The `listFiles` method allows you to retrieve the list of files stored in a
-specific bucket within Agnost's storage. You can use various options, such as
-search, pagination, and sorting, to filter and organize the list of files.
+specific bucket within your storage. You can use various options, such as
+search, pagination, and sorting, to filter and retrieve the list of files.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
@@ -110,14 +116,14 @@ search, pagination, and sorting, to filter and organize the list of files.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Define list options
 const options = {
-  search: "document", // Search for files with "document" in their names
+  search: "document", // Search for files with "document" in their path name
   page: 1, // Page number (starting from 1)
-  limit: 10, // Maximum number of files to return per page
+  limit: 100, // Maximum number of files to return per page
   sort: {
     field: "createdAt", // Field for sorting (e.g., "createdAt")
     direction: "asc", // Sort direction ("asc" or "desc")
@@ -125,15 +131,12 @@ const options = {
   returnCountInfo: true, // Return count and pagination information
 }
 
-try {
-  const fileList = await agnost
-    .storage(storageName)
-    .bucket(bucketName)
-    .listFiles(options)
-  console.log("List of files:", fileList)
-} catch (error) {
-  console.error("Error listing files:", error)
-}
+const fileList = await agnost
+  .storage(storageName)
+  .bucket(bucketName)
+  .listFiles(options);
+
+console.log(fileList);
 ```
 
 </TabItem>
@@ -147,87 +150,89 @@ try {
 
 ```json
 {
-  "data": {
-    "info": {
-      "count": 5,
-      "totalPages": 1,
-      "currentPage": 1,
-      "pageSize": 100
-    },
-    "data": [
-      {
-        "_id": "623741d545aba7a695579a18",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Booby.png",
-        "size": 212233,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/623741d545aba7a695579a18",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:01:41.993Z",
-        "updatedAt": "2022-03-20T15:01:41.993Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["large"]
-      },
-      {
-        "_id": "623741ac161326736e4ffde4",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Rooby.png",
-        "size": 53951,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/623741ac161326736e4ffde4",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:01:00.916Z",
-        "updatedAt": "2022-03-20T15:01:00.916Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["small"]
-      },
-      {
-        "_id": "623741a8158fe88838fff085",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Fluufy.png",
-        "size": 53951,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/623741a8158fe88838fff085",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:00:56.614Z",
-        "updatedAt": "2022-03-20T15:00:56.614Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["small"]
-      },
-      {
-        "_id": "623741a545aba7a695579a17",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Teddy.png",
-        "size": 53951,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/623741a545aba7a695579a17",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:00:53.747Z",
-        "updatedAt": "2022-03-20T15:00:53.747Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["small"]
-      },
-      {
-        "_id": "6237419e161326736e4ffde3",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Winnie.png",
-        "size": 53951,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/6237419e161326736e4ffde3",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:00:46.275Z",
-        "updatedAt": "2022-03-20T15:00:46.275Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["small"]
-      }
-    ]
+  "info": {
+    "count": 5,
+    "totalPages": 1,
+    "currentPage": 1,
+    "pageSize": 100
   },
-  "errors": null
+  "data": [
+    {
+      "id": "fl-234e3rwrwr",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Booby.png",
+      "size": 212233,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:01:41.993Z",
+      "updatedAt": "2022-03-20T15:01:41.993Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {
+        "size": "large"
+      }
+    },
+    {
+      "id": "fl-565ertertd",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Rooby.png",
+      "size": 53951,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:01:00.916Z",
+      "updatedAt": "2022-03-20T15:01:00.916Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {
+        "size": "small"
+      }
+    },
+    {
+      "id": "fl-6756rtwedfs",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Fluufy.png",
+      "size": 53951,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:00:56.614Z",
+      "updatedAt": "2022-03-20T15:00:56.614Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {
+        "size": "small"
+      }
+    },
+    {
+      "id": "fl-fdg3423fwe",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Teddy.png",
+      "size": 53951,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:00:53.747Z",
+      "updatedAt": "2022-03-20T15:00:53.747Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {
+        "size": "small"
+      }
+    },
+    {
+      "id": "fl-345efsdf23",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Winnie.png",
+      "size": 53951,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:00:46.275Z",
+      "updatedAt": "2022-03-20T15:00:46.275Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {
+        "size": "medium"
+      }
+    }
+  ]
 }
 ```
 
@@ -240,7 +245,7 @@ Here are the parameters for the `listFiles` method:
 
 | #   | Name    | Data Type       | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --- | ------- | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | options | FileListOptions | No       | Optional options for searching, pagination, and sorting the list of files in the bucket. These include:<br/>- `search`: The search string parameter for file names.<br/>- `page`: A positive integer specifying the page number for pagination (starting from 1).<br/>- `limit`: A positive integer specifying the maximum number of files to return per page.<br/>- `sort`: Specifies the field name and sort direction (asc | desc) for sorting returned files in a JSON object.<br/>- `returnCountInfo`: A flag to specify whether to return count and pagination information such as the total number of files, page number, and page size. |
+| 1   | options | FileListOptions | No       | Optional options for searching, pagination, and sorting the list of files in the bucket. These include:<br/>- `search`: The search string parameter for file path names.<br/>- `page`: A positive integer specifying the page number for pagination (starting from 1).<br/>- `limit`: A positive integer specifying the maximum number of files to return per page.<br/>- `sort`: Specifies the field name and sort direction (asc | desc) for sorting returned files in a JSON object.<br/>- `returnCountInfo`: A flag to specify whether to return count and pagination information such as the total number of files, page number, and page size. |
 
 ### Get bucket info
 
@@ -253,14 +258,14 @@ You can get information about the bucket by calling the `getInfo` method.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Returns the information about the bucket `profile-images`.
 const result = await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .getInfo(true)
+  .getInfo(true);
 ```
 
 </TabItem>
@@ -274,23 +279,21 @@ const result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62373bae161326736e4ffde2",
-    "name": "profile-images",
-    "isPublic": true,
-    "createdAt": "2022-03-20T14:35:26.814Z",
-    "updatedAt": "2022-03-20T14:35:26.814Z",
-    "tags": [],
-    "userId": "62c14524cf074016b1045366",
-    "stats": {
-      "objectsCount": 5,
-      "totalStorageSize": 428037,
-      "averageObjectSize": 85607,
-      "minObjectSize": 53951,
-      "maxObjectSize": 212233
-    }
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "profile-images",
+  "isPublic": true,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {},
+  "userId": "62c14524cf074016b1045366",
+  "stats": {
+    "objectsCount": 5,
+    "totalStorageSize": 428037,
+    "averageObjectSize": 85607,
+    "minObjectSize": 53951,
+    "maxObjectSize": 212233
+  }
 }
 ```
 
@@ -326,11 +329,11 @@ If the bucket exists, it returns **true**, otherwise **false**.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Checks the `profile-images` bucket whether it exists or not
-const result = await agnost.storage(storageName).bucket(bucketName).exists()
+const result = await agnost.storage(storageName).bucket(bucketName).exists();
 ```
 
 </TabItem>
@@ -338,18 +341,6 @@ const result = await agnost.storage(storageName).bucket(bucketName).exists()
 
 </Tabs>
 
-
-<DetailedResponse title="Example response">
-
-
-```json
-{
-  "data": true,
-  "errors": null
-}
-```
-
-</DetailedResponse>
 
 
 ### Make bucket public
@@ -373,14 +364,14 @@ specifying **includeFiles=true**.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Makes the `profile-images` bucket and contents public.
 const result = await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .makePublic(true)
+  .makePublic(true);
 ```
 
 </TabItem>
@@ -394,16 +385,14 @@ const result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62373bae161326736e4ffde2",
-    "name": "profile-images",
-    "isPublic": true,
-    "createdAt": "2022-03-20T14:35:26.814Z",
-    "updatedAt": "2022-03-20T16:13:20.206Z",
-    "tags": [],
-    "userId": "62c14524cf074016b1045366"
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "profile-images",
+  "isPublic": true,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {},
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 
@@ -439,10 +428,14 @@ You may also choose to make the contents of the bucket private by specifying
 
 
 ```js
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Makes the `profile-images` bucket and contents private.
-const result = await agnost.storage.bucket(bucketName).makePrivate(true)
+const result = await agnost
+  .storage(storageName)
+  .bucket(bucketName)
+  .makePrivate(false);
 ```
 
 </TabItem>
@@ -456,16 +449,14 @@ const result = await agnost.storage.bucket(bucketName).makePrivate(true)
 
 ```json
 {
-  "data": {
-    "_id": "62373bae161326736e4ffde2",
-    "name": "profile-images",
-    "isPublic": false,
-    "createdAt": "2022-03-20T14:35:26.814Z",
-    "updatedAt": "2022-03-20T16:14:29.332Z",
-    "tags": [],
-    "userId": "62c14524cf074016b1045366"
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "profile-images",
+  "isPublic": false,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {},
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 
@@ -483,7 +474,7 @@ Here you can find parameters for the `makePrivate` method.
 ### Delete files
 
 You can delete file(s) from the bucket by calling the `deleteFiles` method. It
-deletes single or multiple files identified either by their paths.
+deletes single or multiple files identified by their paths.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
@@ -492,16 +483,15 @@ deletes single or multiple files identified either by their paths.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Deletes the `profile-image-1.jpg` and `profile-image-2.jpg`
 // paths of the files from the `profile-images` bucket.
-
-const { errors } = await agnost
+await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .deleteFiles(["profile-image-1.jpg", "profile-image-2.jpg"])
+  .deleteFiles(["profile-image-1.jpg", "profile-image-2.jpg"]);
 ```
 
 </TabItem>
@@ -529,12 +519,15 @@ You can rename the bucket name by calling the `rename` method.
 
 
 ```js
-let storageName = "c1-na"
-let newName = "device-images"
-let oldName = "asset-images"
+const storageName = "default";
+const newName = "device-images";
+const oldName = "asset-images";
 
 // Renames the `asset-images` bucket to `device-images`.
-const result = await agnost.storage(storageName).bucket(oldName).rename(newName)
+const result = await agnost
+  .storage(storageName)
+  .bucket(oldName)
+  .rename(newName);
 ```
 
 </TabItem>
@@ -548,16 +541,14 @@ const result = await agnost.storage(storageName).bucket(oldName).rename(newName)
 
 ```json
 {
-  "data": {
-    "_id": "623745881182562412d85ce0",
-    "name": "device-images",
-    "isPublic": true,
-    "createdAt": "2022-03-20T15:17:28.439Z",
-    "updatedAt": "2022-03-20T16:18:33.953Z",
-    "tags": [],
-    "userId": "62c14524cf074016b1045366"
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "device-images",
+  "isPublic": true,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {},
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 
@@ -584,11 +575,11 @@ and all objects (e.g., files) inside the bucket.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "device-images";
 
 // Deletes the `profile-images` bucket and all its contents.
-const { errors } = await agnost.storage(storageName).bucket(bucketName).delete()
+await agnost.storage(storageName).bucket(bucketName).delete();
 ```
 
 </TabItem>
@@ -617,11 +608,11 @@ You can empty the bucket by calling the `empty` method. It removes all objects
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Empties the `profile-images` bucket.
-const { errors } = await agnost.storage(storageName).bucket(bucketName).empty()
+await agnost.storage(storageName).bucket(bucketName).empty();
 ```
 
 </TabItem>
@@ -632,8 +623,7 @@ const { errors } = await agnost.storage(storageName).bucket(bucketName).empty()
 
 ### Add tag to bucket
 
-You can add your own tags to each bucket. This metadata can be used in
-expressions to filter buckets or store data specific to your application.
+You can add your own tags to each bucket.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
@@ -642,17 +632,17 @@ expressions to filter buckets or store data specific to your application.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "device-images";
 
 // Set a tag for a file
-const key = "category"
-const value = "documents"
+const key = "category";
+const value = "documents";
 
 const result = await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .setTag(key, value)
+  .setTag(key, value);
 ```
 
 </TabItem>
@@ -666,16 +656,14 @@ const result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62373bae161326736e4ffde2",
-    "name": "profile-images",
-    "isPublic": true,
-    "createdAt": "2022-03-20T14:35:26.814Z",
-    "updatedAt": "2022-03-20T16:13:20.206Z",
-    "tags": ["picture", "user", "profile"],
-    "userId": "62c14524cf074016b1045366"
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "device-images",
+  "isPublic": true,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": { "category": "documents" },
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 
@@ -688,13 +676,13 @@ Here you can find parameters for the `setTag` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p> |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ------------------------------------ |
-| 1   | key                          | string                            | Yes                              | A key of tag.                        |
-| 2   | value                        | any                               | Yes                              | A value of tag.                      |
+| 1   | key                          | string                            | Yes                              | Key (name) of tag.                        |
+| 2   | value                        | any                               | Yes                              | Value of tag.                      |
 
 ### Remove tag from bucket
 
-You can also remove tag (e.g., your custom metadata associated with your app
-storage buckets) from your buckets.
+You can also remove a tag (e.g., your custom metadata associated with your app
+storage buckets) from your bucket.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
@@ -703,14 +691,14 @@ storage buckets) from your buckets.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
-let key = "profile"
+const storageName = "default";
+const bucketName = "device-images";
+const key = "category";
 
 const result = await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .removeTag(key)
+  .removeTag(key);
 ```
 
 </TabItem>
@@ -724,16 +712,14 @@ const result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62373bae161326736e4ffde2",
-    "name": "profile-images",
-    "isPublic": true,
-    "createdAt": "2022-03-20T14:35:26.814Z",
-    "updatedAt": "2022-03-20T16:13:20.206Z",
-    "tags": ["picture", "user"],
-    "userId": "62c14524cf074016b1045366"
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "device-images",
+  "isPublic": true,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {},
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 
@@ -746,11 +732,11 @@ Here you can find parameters for the `removeTag` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                    |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ------------------------------------------------------- |
-| 1   | key                          | string                            | Yes                              | The name of the tag key to remove from bucket metadata. |
+| 1   | key                          | string                            | Yes                              | The name (key) of the tag key to remove from bucket metadata. |
 
 ### Remove all tags from file
 
-You can also remove all tags (e.g., your custom metadata associated with your
+You can remove all tags (e.g., your custom metadata associated with your
 bucket) from your bucket.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
@@ -760,15 +746,13 @@ bucket) from your bucket.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
-
-const key = "category"
+const storageName = "default";
+const bucketName = "device-images";
 
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .removeAllTags(key)
+  .removeAllTags();
 ```
 
 </TabItem>
@@ -782,21 +766,14 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": true,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:37:01.932Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality", "profile"]
-  },
-  "errors": null
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "device-images",
+  "isPublic": true,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {},
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 
@@ -815,18 +792,18 @@ single method call, instead of calling each individual update method separately.
 
 
 ```js
-let storageName = "c1-na"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "device-images";
 
 const tags = {
   category: "documents",
   author: "John Doe",
-}
+};
 
 const result = await agnost
   .storage(storageName)
   .bucket(bucketName)
-  .updateInfo("pictures", false, tags, true)
+  .updateInfo("pictures", false, tags, true);
 ```
 
 </TabItem>
@@ -840,16 +817,17 @@ const result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62373bae161326736e4ffde2",
-    "name": "pictures",
-    "isPublic": false,
-    "createdAt": "2022-03-20T14:35:26.814Z",
-    "updatedAt": "2022-03-20T16:13:20.206Z",
-    "tags": ["user", "profile", "pictures"],
-    "userId": "62c14524cf074016b1045366"
+  "id": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "name": "pictures",
+  "isPublic": false,
+  "createdAt": "2022-03-20T14:35:26.814Z",
+  "updatedAt": "2022-03-20T14:35:26.814Z",
+  "tags": {
+    "category": "documents",
+    "author": "John Doe",
   },
-  "errors": null
+  "userId": "62c14524cf074016b1045366",
 }
 ```
 

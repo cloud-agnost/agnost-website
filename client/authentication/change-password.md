@@ -20,11 +20,11 @@ You can change password of the user by calling the `changePassword` method.
 
 
 ```js
-let newPassword = "123456"
-let oldPassword = "123123456"
+const newPassword = "123456";
+const oldPassword = "123123456";
 
 // Change the oldPassword of the user with the newPassword
-const result = await agnost.auth.changePassword(newPassword, oldPassword)
+const result = await agnost.auth.changePassword(newPassword, oldPassword);
 ```
 
 </TabItem>

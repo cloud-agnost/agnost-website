@@ -19,8 +19,6 @@ can listen to the following user events.
 | :--------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | user:signin      | Triggered whenever a new user session is created.                                                                                                                                                                                                                                                     |
 | user:signout     | Triggered when a user session is deleted. If [signOutAll](/client/authentication/sessions#sign-out-a-session) or [signOutAllExceptCurrent](/client/authentication/sessions#sign-out-all-except-current) method is called then for each deleted sesssion a separate `user:signout` event is triggered. |
-| user:update      | Triggered whenever user data changes including password, email and phone number updates.                                                                                                                                                                                                              |
-| user:delete      | Triggered when the user data is deleted from the database.                                                                                                                                                                                                                                            |
 | user:pwdchange   | Triggered when the user password changes, either through direct password update or password reset.                                                                                                                                                                                                    |
 | user:emailchange | Triggered whenever the email of the user changes.                                                                                                                                                                                                                                                     |
 | user:phonechange | Triggered whenever the phone number of the user changes.                                                                                                                                                                                                                                              |
@@ -56,10 +54,6 @@ agnost.auth.onUserEvent((eventName, session) {
 
 
 :::note
-
-Please note that `user:update` and `user:delete` events are fired only when a
-specific user with a known \_id is updated or deleted in the database. For bulk
-user update or delete operations these events are not fired.
 
 An active user session is required (e.g., user needs to be logged in) to call
 this method.

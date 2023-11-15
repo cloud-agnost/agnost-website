@@ -22,8 +22,8 @@ You can change the phone number of the user by calling the `changePhone` method.
 
 
 ```js
-let currentPassword = "123456"
-let newPhone = "+17777777777"
+const currentPassword = "123456";
+const newPhone = "+17777777777";
 
 // Change phone number of the user
 const result = await agnost.auth.changePhone(currentPassword, newPhone)
@@ -110,8 +110,8 @@ the new phone number.
 
 
 ```js
-let newPhone = "+177777777777"
-let code = "504674"
+const newPhone = "+177777777777";
+const code = "504674";
 
 // Verify the new phone number using the verification code sent to the
 // new phone number over SMS and return the updated user data

@@ -12,12 +12,12 @@ import BrowserWindow from "@site/src/components/BrowserWindow"
 # Endpoints
 
 With Agnost Studio, you can define your RESTful endpoints and develop your
-business logic with using Agnost code editor.
+business logic using Agnost code editor.
 
 :::info
 
 The endpoint manager provides the methods to make **POST**, **PUT**, **GET** and
-**DELETE** requests to your app endpoints to run your cloud functions.
+**DELETE** requests to your app endpoints to run your serverless functions.
 
 :::
 
@@ -33,10 +33,10 @@ Optionally, you can provide query string parameters or headers in this request.
 
 
 ```js
-let orderId = "620949ee991edfba3ee644e7"
+const orderId = "620949ee991edfba3ee644e7";
 
 // Make a GET request to /orders/{orderId} endpoint
-const { data, errors } = await agnost.endpoint.get(`/orders/${orderId}`)
+const { data, errors } = await agnost.endpoint.get(`/orders/${orderId}`);
 ```
 
 </TabItem>
@@ -88,7 +88,7 @@ request.
 
 
 ```js
-let postId = "62094b43f7205e7d78082504"
+const postId = "62094b43f7205e7d78082504";
 
 // Make a POST request to /wallposts/{postId}/comments endpoint
 const { data, errors } = await agnost.endpoint.post(
@@ -98,7 +98,7 @@ const { data, errors } = await agnost.endpoint.post(
     comment:
       "Awesome product. Would be better if you could add tagging people in comments.",
   },
-)
+);
 ```
 
 </TabItem>
@@ -151,7 +151,7 @@ request.
 
 
 ```js
-let userId = "62094b734848b88ff50c2ab0"
+const userId = "62094b734848b88ff50c2ab0";
 
 // Make a PUT request to /users/{userId}/address
 const { data, errors } = await agnost.endpoint.put(`/users/${userId}/address`, {
@@ -160,7 +160,7 @@ const { data, errors } = await agnost.endpoint.put(`/users/${userId}/address`, {
   zipcode: "60610",
   state: "IL",
   country: "US",
-})
+});
 ```
 
 </TabItem>
@@ -213,13 +213,13 @@ request.
 
 
 ```js
-let postId = "62094b4dfcc106baba52c8ec"
-let commentId = "62094b66fc475bdd5a2bfa48"
+const postId = "62094b4dfcc106baba52c8ec";
+const commentId = "62094b66fc475bdd5a2bfa48";
 
 // Make a DELETE request to /wallposts/{postId}/comments/{commentId} endpoint
 const { data, errors } = await agnost.endpoint.delete(
   `/wallpost/${postId}/comments/${commentId}`,
-)
+);
 ```
 
 </TabItem>

@@ -31,10 +31,10 @@ similarly call the `leave` method to leave a channel.
 
 ```jsx
 // Join to a channel
-agnost.realtime.join("technology-chat")
+agnost.realtime.join("technology-chat");
 
 // Leave from a channel
-agnost.realtime.leave("technology-chat")
+agnost.realtime.leave("technology-chat");
 ```
 
 </TabItem>
@@ -54,9 +54,11 @@ Both `join` and `leave` methods have the same input parameters.
 
 :::note
 
-If the client library key is set to **enforce session**, an active user session
+If the realtime connection is set to **session required**, an active user session
 is **required** (e.g., user needs to be logged in) to call `join` and `leave`
 methods.
+
+You can customize the realtime properties of yoru app version through **Version Settings** → **Realtime**
 
 :::
 
@@ -85,7 +87,7 @@ agnost.realtime.updateProfile({
   username: "Luke Skywalker",
   profileImage: "https://myimagestorage.com/luke.jpg",
   status: "Available",
-})
+});
 ```
 
 </TabItem>
@@ -104,7 +106,7 @@ you cannot specify different profile data for different channels.
 
 #### Parameters
 
-Both `join` and `leave` methods have the same input parameters.
+`updateProfile` has the following input parameters.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                                                                                                                                                |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -113,7 +115,7 @@ Both `join` and `leave` methods have the same input parameters.
 
 :::note
 
-If the client library key is set to **enforce session**, an active user session
+If the realtime connection is set to **session required**, an active user session
 is **required** (e.g., user needs to be logged in) to call `updateProfile`
 method.
 
@@ -135,7 +137,7 @@ value provided in the response is the unique socket id of the channel member.
 
 ```jsx
 // Get list of `technology-chat` channel members
-let result = await agnost.realtime.getMembers("technology-chat")
+const result = await agnost.realtime.getMembers("technology-chat");
 ```
 
 </TabItem>
@@ -176,7 +178,7 @@ let result = await agnost.realtime.getMembers("technology-chat")
 
 :::note
 
-If the client library key is set to **enforce session**, an active user session
+If the realtime connection is set to **session required**, an active user session
 is **required** (e.g., user needs to be logged in) to call `getMembers` method.
 
 :::
@@ -207,8 +209,8 @@ agnost.realtime.onJoin((payload) => {
     payload.channel, //The name of the channel joined
     payload.message.id, //Socket id
     payload.message.data, //Joined member profile data
-  )
-})
+  );
+});
 
 // Listen to leave events
 agnost.realtime.onLeave((payload) => {
@@ -217,8 +219,8 @@ agnost.realtime.onLeave((payload) => {
     payload.channel, //The name of the channel left
     payload.message.id, //Socket id
     payload.message.data, //Left member profile data
-  )
-})
+  );
+});
 
 // Listen to member profile data update events
 agnost.realtime.onUpdate((payload) => {
@@ -227,8 +229,8 @@ agnost.realtime.onUpdate((payload) => {
     payload.channel, //The name of the channel the update message is broadcasted
     payload.message.id, //Socket id
     payload.message.data, // Member updated profile data
-  )
-})
+  );
+});
 ```
 
 </TabItem>

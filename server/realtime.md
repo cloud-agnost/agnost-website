@@ -13,12 +13,13 @@ import ilCss from "../src/css/illustration.module.css"
 
 Agnost server library allows you to send realtime messages to specific channels
 or broadcast to all connected clients. You can also get the list of members of a
-specific channel. You can use realtime capabilities of Agnost server library in
-your apps.
+specific channel.
+
+The realtime module of this library provides a couple of helper methods to send realtime messages from the API server of your app. For a detailed list of realtime features that you can use in your front-end apps please refer to [Client API Realtime](/client/category/realtime) documentation.
 
 ## Send message
 
-You can **send message** to the members of a specific channel or you can
+You can **send a message** to the members of a specific channel or you can
 **broadcast a message** to all users of your app independent of the channels the
 have joined.
 
@@ -35,7 +36,7 @@ agnost.realtime.send("technology-chat", "chat-message", {
   profileImage: "https://myimagestorage.com/luke.jpg",
   messageSentAt: "2021-08-16T11:03:21.406+00:00",
   message: "Let's have a Juma juice? I will be there in 10 minutes.",
-})
+});
 
 // Broadcast message to all app users
 agnost.realtime.broadcast("warning-message", {
@@ -44,7 +45,7 @@ agnost.realtime.broadcast("warning-message", {
   messageSentAt: "2021-08-16T11:10:20.745+00:00",
   message:
     "This is the last call for Alderaan citizens, you have 15 minutes to leave the planet.",
-})
+});
 ```
 
 </TabItem>
@@ -86,7 +87,7 @@ value provided in the response is the unique socket id of the channel member.
 
 ```jsx
 // Get list of `technology-chat` channel members
-let result = await agnost.realtime.getMembers("technology-chat")
+let result = await agnost.realtime.getMembers("technology-chat");
 ```
 
 </TabItem>
@@ -99,27 +100,24 @@ let result = await agnost.realtime.getMembers("technology-chat")
 
 
 ```json
-{
-  "data": [
-    {
-      "id": "sNZNwVxTQ-xerrDKAAAU",
-      "data": {
-        "username": "Luke Skywalker",
-        "profileImage": "https://myimagestorage.com/luke.jpg",
-        "status": "Available"
-      }
-    },
-    {
-      "id": "9VlzdovgcCeZ5yZzAAAO",
-      "data": {
-        "username": "Darth Vader",
-        "profileImage": "https://myimagestorage.com/vader.jpg",
-        "status": "Talking to Darth Sidious"
-      }
+[
+  {
+    "id": "sNZNwVxTQ-xerrDKAAAU",
+    "data": {
+      "username": "Luke Skywalker",
+      "profileImage": "https://myimagestorage.com/luke.jpg",
+      "status": "Available"
     }
-  ],
-  "errors": null
-}
+  },
+  {
+    "id": "9VlzdovgcCeZ5yZzAAAO",
+    "data": {
+      "username": "Darth Vader",
+      "profileImage": "https://myimagestorage.com/vader.jpg",
+      "status": "Talking to Darth Sidious"
+    }
+  }
+]
 ```
 
 </DetailedResponse>

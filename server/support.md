@@ -21,7 +21,7 @@ If you encounter a bug or issue, please open an issue on the
 Provide as much detail as possible, including:
 
 - Agnost version
-- Deployment environment (AWS EKS, Azure AKS, GCP GKE, On-Premise Kubernetes)
+- Deployment environment (AWS EKS, Azure AKS, GCP GKE, On-Premise Kubernetes, Minikube etc.)
 - Steps to reproduce the issue
 - Expected behavior
 - Actual behavior
@@ -92,4 +92,4 @@ a great way to contribute to the community.
 
 Follow us on social media for the latest updates and announcements about Agnost.
 
-- Twitter: [@Agnost](https://twitter.com/AgnostDev)
+- Twitter: [@AgnostDev](https://twitter.com/AgnostDev)

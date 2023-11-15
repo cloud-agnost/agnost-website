@@ -12,16 +12,18 @@ import DetailedResponse from "@site/src/components/DetailedResponse"
 
 Everything that you store in your app storage **must be contained in a bucket**.
 Buckets are the basic containers that hold your application data (i.e., files).
+You can use buckets to organize your data and control access to your data, but unlike directories and folders, **you cannot nest buckets**.
 
-- You can use buckets to organize your data and control access to your data, but
-  unlike directories and folders, **you cannot nest buckets**.
+### Create a bucket
 
-### Create bucket
-
-You can create a bucket by calling the `createBucket` method. It creates a new
+You can create a bucket by calling the `createBucket` method of your storage. It creates a new
 bucket with the specified name. You can specify additional information to store
 with each bucket using the **`tags`** which is a JSON object (e.g., key-value
 pairs).
+
+:::info
+You can define your storages through Agnost Studio for your app versions.
+:::
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
@@ -30,13 +32,13 @@ pairs).
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+let storageName = "default";
+let bucketName = "profile-images";
 
 // Creates a bucket named `profile-images` with default privacy setting of public,
 // meaning that when you add a file to a bucket and if the file did not specify
 // public or private setting, then it will be marked as publicly accessible through its URL
-let result = await agnost.storage(storageName).createBucket(bucketName)
+let result = await agnost.storage(storageName).createBucket(bucketName);
 ```
 
 </TabItem>
@@ -51,13 +53,13 @@ let result = await agnost.storage(storageName).createBucket(bucketName)
 ```json
 {
   "data": {
-    "_id": "62373bae161326736e4ffde2",
+    "id": "62373bae161326736e4ffde2",
     "name": "profile-images",
     "isPublic": true,
     "createdAt": "2022-03-20T14:35:26.814Z",
     "updatedAt": "2022-03-20T14:35:26.814Z",
     "userId": "611a45f9f3e7ec001950175f",
-    "tags": []
+    "tags": {}
   },
   "errors": null
 }
@@ -72,10 +74,10 @@ Here you can find parameters for the `createBucket` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                                                                                                                                  |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | name                         | string                            | Yes                              | The name of the bucket to create (case sensitive). **root** is a reserved name and cannot be used.                                                                    |
+| 1   | name                         | string                            | Yes                              | The name of the bucket to create (case sensitive).                                                                   |
 | 2   | isPublic                     | boolean                           | No                               | The default privacy setting that will be applied to the files uploaded to this bucket.                                                                                |
 | 3   | tags                         | Object                            | No                               | JSON object that contains key-value pairs of tags to be added to the bucket metadata.                                                                                 |
-| 4   | userId                       | string                            | No                               | The unique identifier of the user who created the bucket. The `userId` information is populated only when the bucket is created within the context of a user session. |
+| 4   | userId                       | string or number                            | No                               | The unique identifier of the user who created the bucket. |
 
 :::info
 
@@ -97,8 +99,8 @@ Buckets can be specified as **public** or **private**, which defines how the
 
 ### Get storage details
 
-You can get the storage details by calling the `getStats` method. It returns the
-overall information about your **App** cloud storage, including the total number
+You can get the storage details by calling the `getStats` method. It returns
+summary information about your app version's cloud storage, including the total number
 of buckets and files stored, total storage size in bytes and average, min and
 max file size in bytes.
 
@@ -109,9 +111,9 @@ max file size in bytes.
 
 
 ```js
-let storageName = "default"
-//Gets the storage details of the storage
-let result = await agnost.storage(storageName).getStats()
+let storageName = "default";
+// Gets the storage details of the storage
+let result = await agnost.storage(storageName).getStats();
 ```
 
 </TabItem>
@@ -125,15 +127,12 @@ let result = await agnost.storage(storageName).getStats()
 
 ```json
 {
-  "data": {
-    "objectsCount": 5,
-    "totalStorageSize": 428037,
-    "averageObjectSize": 85607,
-    "minObjectSize": 53951,
-    "maxObjectSize": 212233,
-    "bucketsCount": 2
-  },
-  "errors": null
+  "objectsCount": 5,
+  "totalStorageSize": 428037,
+  "averageObjectSize": 85607,
+  "minObjectSize": 53951,
+  "maxObjectSize": 212233,
+  "bucketsCount": 2
 }
 ```
 
@@ -152,19 +151,17 @@ search query.
 
 
 ```js
-let storageName = "default"
-// Returns the first 50 buckets in your app cloud storage
-// sorted by bucket creation date in descending order and
-// filtered by the specified query expression `isPublic`
-// equals to `true`
+const storageName = "default";
 
+// Returns the first 50 buckets whose name includes "profile" in your app cloud storage
+// sorted by bucket creation date in descending order and also returns pagination info
 let result = await agnost.storage(storageName).listBuckets({
-  search: "profile.png",
+  search: "profile",
   sort: { field: "createdAt", direction: "desc" },
   limit: 50,
   page: 1,
   returnCountInfo: true,
-})
+});
 ```
 
 </TabItem>
@@ -178,33 +175,33 @@ let result = await agnost.storage(storageName).listBuckets({
 
 ```json
 {
-  "data": {
-    "info": {
-      "count": 2,
-      "totalPages": 1,
-      "currentPage": 1,
-      "pageSize": 50
-    },
-    "data": [
-      {
-        "_id": "6233230ba1c88fcb1ad5919a",
-        "name": "profile-photos",
-        "isPublic": true,
-        "createdAt": "2022-03-17T12:01:16.118Z",
-        "updatedAt": "2022-03-17T12:01:16.118Z"
-      },
-      {
-        "_id": "62373bae161326736e4ffde2",
-        "name": "profile-images",
-        "isPublic": true,
-        "createdAt": "2022-03-20T14:35:26.814Z",
-        "updatedAt": "2022-03-20T14:35:26.814Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": []
-      }
-    ]
+  "info": {
+    "count": 2,
+    "totalPages": 1,
+    "currentPage": 1,
+    "pageSize": 50
   },
-  "errors": null
+  "data": [
+    {
+      "id": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "name": "profile-photos",
+      "isPublic": true,
+      "createdAt": "2022-03-17T12:01:16.118Z",
+      "updatedAt": "2022-03-17T12:01:16.118Z",
+       "tags": {}
+    },
+    {
+      "id": "bck-o0dlitj2x5id",
+      "storageId": "str-o0dlitj2x5id",
+      "name": "profile-images",
+      "isPublic": true,
+      "createdAt": "2022-03-20T14:35:26.814Z",
+      "updatedAt": "2022-03-20T14:35:26.814Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {}
+    }
+  ]
 }
 ```
 
@@ -213,7 +210,7 @@ let result = await agnost.storage(storageName).listBuckets({
 
 :::info
 
-It returns a list of buckets in your app cloud storage.
+It returns a list of buckets in your app cloud storage matching the search query.
 
 - If **returnCountInfo=true** in [BucketListOptions](#bucket-list-options), it
   returns an object which includes the count information and the matching
@@ -227,11 +224,7 @@ Here you can find parameters for the `listBuckets` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p> |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ------------------------------------ |
-
-
-| 1 | options | [BucketListOptions](#bucket-list-options) | No | Options to
-configure how buckets will be listed, primarily used to set pagination and
-sorting settings |
+| 1 | options | [BucketListOptions](#bucket-list-options) | No | Options to configure how buckets will be listed, primarily used to set pagination and sorting settings |
 
 ### List files
 
@@ -245,16 +238,16 @@ global search across all the files contained in all the buckets.
 
 
 ```js
-let storageName = "default"
-// Returns the list of files matching the search expression in the cloud storage
-// sorted by file upload date in ascending order
+const storageName = "default";
 
+// Returns the list of files that includes "avatar" in their name
+// sorted by file upload date in ascending order
 let result = await agnost.storage(storageName).listFiles({
-  search: "avatar.png",
+  search: "avatar",
   limit: 100,
   sort: { field: "uploadedAt", direction: "asc" },
   returnCountInfo: true,
-})
+});
 ```
 
 </TabItem>
@@ -268,45 +261,40 @@ let result = await agnost.storage(storageName).listFiles({
 
 ```json
 {
-  "data": {
-    "info": {
-      "count": 2,
-      "totalPages": 1,
-      "currentPage": 1,
-      "pageSize": 100
-    },
-    "data": [
-      {
-        "_id": "623741d545aba7a695579a18",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Rooby-avatar-new.png",
-        "size": 212233,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/623741d545aba7a695579a18",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:01:41.993Z",
-        "updatedAt": "2022-03-20T15:01:41.993Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["large", "high quality"]
-      },
-      {
-        "_id": "623741ac161326736e4ffde4",
-        "bucketId": "62373bae161326736e4ffde2",
-        "fileName": "Rooby-avatar-2.png",
-        "size": 53951,
-        "encoding": "7bit",
-        "mimeType": "image/png",
-        "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/623741ac161326736e4ffde4",
-        "isPublic": true,
-        "uploadedAt": "2022-03-20T15:01:00.916Z",
-        "updatedAt": "2022-03-20T15:01:00.916Z",
-        "userId": "611a45f9f3e7ec001950175f",
-        "tags": ["small", "low quality"]
-      }
-    ]
+  "info": {
+    "count": 2,
+    "totalPages": 1,
+    "currentPage": 1,
+    "pageSize": 100
   },
-  "errors": null
+  "data": [
+    {
+      "id": "fl-32fw342234ed",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Rooby-avatar-new.png",
+      "size": 212233,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:01:41.993Z",
+      "updatedAt": "2022-03-20T15:01:41.993Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {"size": "large", "quality": "high quality"}
+    },
+    {
+      "id": "fl-3fd34rdgg6345",
+      "bucketId": "bck-o5nnyhs19dgw",
+      "storageId": "str-o0dlitj2x5id",
+      "path": "Rooby-avatar-2.png",
+      "size": 53951,
+      "mimeType": "image/png",
+      "isPublic": true,
+      "uploadedAt": "2022-03-20T15:01:00.916Z",
+      "updatedAt": "2022-03-20T15:01:00.916Z",
+      "userId": "611a45f9f3e7ec001950175f",
+      "tags": {"size": "small", "quality": "low quality"}
+    }
+  ]
 }
 ```
 

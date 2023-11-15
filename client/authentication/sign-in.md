@@ -14,7 +14,7 @@ import BrowserWindow from "@site/src/components/BrowserWindow"
 
 You can log in an existing user by calling `signInWithEmail` method. To use an
 email and password based sign-in, the authentication provider must be
-**Altogic**, meaning a user with email and password credentials must exist in
+**Agnost**, meaning a user with email and password credentials must exist in
 the app database.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
@@ -24,12 +24,12 @@ the app database.
 
 
 ```js
-let email = "rooby@agnost.dev"
-let password = "12345%"
+let email = "rooby@agnost.dev";
+let password = "12345%";
 
 // Sign in user with email and password
 
-const result = await agnost.auth.signInWithEmail(email, password)
+const result = await agnost.auth.signInWithEmail(email, password);
 ```
 
 </TabItem>
@@ -56,25 +56,31 @@ const result = await agnost.auth.signInWithEmail(email, password)
   "session": {
     "userId": "6235e0eb25de47092f4d5300",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnZJZCI6I...",
+    "creationDtm": "2022-03-16T19:36:27.739Z",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": {
-        "family": "Other",
-        "major": "0",
-        "minor": "0",
-        "patch": "0"
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
       },
       "os": {
-        "family": "Mac OS X",
-        "major": "10",
-        "minor": "15",
-        "patch": "7"
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
       }
-    },
-    "accessGroupKeys": []
+    }
   },
   "errors": null
 }
@@ -85,8 +91,8 @@ const result = await agnost.auth.signInWithEmail(email, password)
 
 :::note
 
-By default email confirmation is **enabled** in your **App settings** →
-**Authentication** view of **Studio**.
+By default email confirmation is **enabled** in your **Version settings** →
+**Authentication** view of Studio.
 
 - If the email of the user has not been verified yet, this method will return an
   error object.
@@ -113,7 +119,7 @@ oAauth2 provider such as Google, Apple, Facebook, Twitter etc.
 
 You can log in an existing user by calling `signInWithPhone` method. To use the
 phone and password based sign-in, the authentication provider must be
-**Altogic**, meaning a user with phone and password credentials must exist in
+**Agnost**, meaning a user with phone and password credentials must exist in
 the app database.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
@@ -123,12 +129,12 @@ the app database.
 
 
 ```js
-let phone = "+15555555555"
-let password = "12345%"
+let phone = "+15555555555";
+let password = "12345%";
 
 // Sign in with phone number and password
 
-const result = await agnost.auth.signInWithPhone(phone, password)
+const result = await agnost.auth.signInWithPhone(phone, password);
 ```
 
 </TabItem>
@@ -155,25 +161,31 @@ const result = await agnost.auth.signInWithPhone(phone, password)
   "session": {
     "userId": "6235ee821182562412d85b25",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnZJZCI6IjY...",
+    "creationDtm": "2022-03-16T19:36:27.739Z",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": {
-        "family": "Other",
-        "major": "0",
-        "minor": "0",
-        "patch": "0"
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
       },
       "os": {
-        "family": "Mac OS X",
-        "major": "10",
-        "minor": "15",
-        "patch": "7"
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
       }
-    },
-    "accessGroupKeys": []
+    }
   },
   "errors": null
 }
@@ -184,8 +196,8 @@ const result = await agnost.auth.signInWithPhone(phone, password)
 
 :::note
 
-By default phone number authentication is **disabled** in your **App settings**
-→ **Authentication** view of **Studio**.
+By default phone number authentication is **disabled** in your **Version settings**
+→ **Authentication** view of Studio.
 
 If you would like to **enable** phone number authentication, you can visit
 **Authentication** → **Mobile Phone Authentication** view and enable phone
@@ -218,8 +230,8 @@ You need to make specific configuration at the provider to retrieve **client
 id** and **client secret** to use this method.
 
 Additionally, you need to add these **client id** and **client secret** values
-to your app's authentication settings using the **App settings** →
-**Authentication** → **Authentication Provider** view of the Designer.
+to your app's authentication settings using the **Version settings** →
+**Authentication** → **Providers** view of Studio.
 
 :::
 
@@ -230,12 +242,12 @@ to your app's authentication settings using the **App settings** →
 
 
 ```js
-let provider = "google"
-let redirectUrl = "http://localhost:3001/auth-redirect"
+const provider = "google";
+const redirectUrl = "http://localhost:3001/auth-redirect";
 
 // Sign in or sign up a user by using oAuth provider
 // Provider name can be "google", "facebook", "twitter", "apple", "github", "discord"
-agnost.auth.signInWithProvider(provider, redirectUrl)
+agnost.auth.signInWithProvider(provider, redirectUrl);
 ```
 
 </TabItem>
@@ -250,13 +262,12 @@ you can use to fetch the authentication grants (e.g., user and session data).
 
 :::tip
 
-You can define the **Redirect URL** in your **App settings** →
-**Authentication** view of Designer. Additionally you can override this value in
-your Environment details view for each environment.
+You can define the **Redirect URL** in your **Vesion settings** →
+**Authentication** view of Designer.
 
 :::
 
-<BrowserWindow url="http://localhost:3001/auth-redirect?status=200&access_token=0e55c6fa93ae4e8cbf6d57&action=oauth-signin"></BrowserWindow>
+<BrowserWindow url="http://localhost:3001/auth-redirect?status=200&access_token=at-0e55c6fa93ae4e8cbf6d57&action=oauth-signin"></BrowserWindow>
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
@@ -265,13 +276,13 @@ your Environment details view for each environment.
 
 
 ```js
-let accessToken = "0e55c6fa93ae4e8cbf6d57"
+const accessToken = "at-0e55c6fa93ae4e8cbf6d57";
 
 // after oAuth provider sign-in, you can get user and session data using the `access_token`
 // If no `access_token` specified as input, tries to retrieve the accessToken from the
 // browser url query string parameter named 'access_token'.
 
-const response = await agnost.auth.getAuthGrant(accessToken)
+const response = await agnost.auth.getAuthGrant(accessToken);
 ```
 
 </TabItem>
@@ -300,24 +311,29 @@ const response = await agnost.auth.getAuthGrant(accessToken)
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnZJZCI6IjYyMzA0Y...",
     "creationDtm": "2022-03-16T19:36:27.739Z",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": {
-        "family": "Other",
-        "major": "0",
-        "minor": "0",
-        "patch": "0"
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
       },
       "os": {
-        "family": "Mac OS X",
-        "major": "10",
-        "minor": "15",
-        "patch": "7"
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
       }
-    },
-    "accessGroupKeys": []
+    }
   },
   "errors": null
 }
@@ -347,12 +363,12 @@ You can send a magic link to the email address of the user by calling the
 
 
 ```js
-let email = "rooby@agnost.dev"
-let redirectURL = "http://localhost:3001/auth-redirect"
+const email = "rooby@agnost.dev";
+const redirectURL = "http://localhost:3001/auth-redirect";
 
 // sends magic link to the email address of the user
 
-const { errors } = await agnost.auth.sendMagicLinkEmail(email, redirectURL)
+const { errors } = await agnost.auth.sendMagicLinkEmail(email, redirectURL);
 ```
 
 </TabItem>
@@ -364,11 +380,11 @@ const { errors } = await agnost.auth.sendMagicLinkEmail(email, redirectURL)
 :::note
 
 This method works only if email confirmation is **enabled** in your **App
-settings** → **Authentication** view of **Studio** and if the user's email
+settings** → **Authentication** view of Studio and if the user's email
 address has already been verified.
 
-- If email confirmation is **disabled** in your **App settings** →
-  **Authentication** view of **Studio**, it returns an error.
+- If email confirmation is **disabled** in your **Version settings** →
+  **Authentication** view of Studio, it returns an error.
 - If the user's email has not been verified, it returns an error.
 
 :::
@@ -379,13 +395,12 @@ magic link and if the magic link verified successfully redirects the user to the
 
 :::tip
 
-You can define the **Redirect URL** in your **App settings** →
-**Authentication** view of Designer. Additionally you can override this value in
-your Environment details view for each environment.
+You can define the **Redirect URL** in your **Version settings** →
+**Authentication** view of Designer.
 
 :::
 
-<BrowserWindow url="http://localhost:3001/signin?status=200&access_token=6a0a412d42a750c85f1ef62e&action=magic-link"></BrowserWindow>
+<BrowserWindow url="http://localhost:3001/signin?status=200&access_token=at-6a0a412d42a750c85f1ef62e&action=magic-link"></BrowserWindow>
 
 You can use **Redirect URL** and this `access_token` to get authentication
 grants with `getAuthGrant` method, namely the **user** data and a new
@@ -398,13 +413,13 @@ grants with `getAuthGrant` method, namely the **user** data and a new
 
 
 ```js title="~ /page/auth-redirect.js"
-let accessToken = "6a0a412d42a750c85f1ef62e"
+const accessToken = "at-6a0a412d42a750c85f1ef62e";
 
 // after magic link verified, you can get user and session data using the `access_token`
 // If no `access_token` specified as input, tries to retrieve the accessToken from the
 // browser url query string parameter named 'access_token'.
 
-const result = await agnost.auth.getAuthGrant(accessToken)
+const result = await agnost.auth.getAuthGrant(accessToken);
 ```
 
 </TabItem>
@@ -431,26 +446,31 @@ const result = await agnost.auth.getAuthGrant(accessToken)
   "session": {
     "userId": "6234a7210b72592107523c6c",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlb...",
-    "creationDtm": "2022-03-18T16:35:13.702Z",
+    "creationDtm": "2022-03-16T19:36:27.739Z",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": {
-        "family": "Other",
-        "major": "0",
-        "minor": "0",
-        "patch": "0"
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
       },
       "os": {
-        "family": "Mac OS X",
-        "major": "10",
-        "minor": "15",
-        "patch": "7"
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
       }
-    },
-    "accessGroupKeys": []
+    }
   },
   "errors": null
 }
@@ -470,9 +490,9 @@ Here you can find parameters for the `sendMagicLinkEmail` method.
 
 :::tip
 
-You can customize **magic link message template** from **App settings** →
+You can customize **magic link message template** from **Version settings** →
 **Authentication** → **Message templates** → **Magic Link Message** view of the
-**Studio**.
+Studio.
 
 :::
 
@@ -490,11 +510,10 @@ You can send a sign in code by using `sendSignInCode` method over SMS. With OTP
 
 
 ```js
-let phoneNumber = "+15555555555"
+const phoneNumber = "+15555555555";
 
 // Send sign in SMS Code to the phone number of the user
-
-const { errors } = await agnost.auth.sendSignInCode(phoneNumber)
+const { errors } = await agnost.auth.sendSignInCode(phoneNumber);
 ```
 
 </TabItem>
@@ -506,7 +525,7 @@ const { errors } = await agnost.auth.sendSignInCode(phoneNumber)
 :::note
 
 This method works only if **mobile phone authentication** is **enabled** in your
-**App settings** → **Authentication** view of **Studio** and the user's phone
+**Version settings** → **Authentication** view of Studio and the user's phone
 number has already been verified.
 
 - If **mobile phone authentication** is **disabled**, it returns an error.
@@ -521,9 +540,9 @@ Agnost currently supports [Twilio](https://www.twilio.com),
 [MessageBird](https://www.messagebird.com/) and [Vonage](https://www.vonage.com)
 to send SMS.
 
-You can customize **verification sms message template** from **App settings** →
+You can customize **verification sms message template** from **Version settings** →
 **Authentication** → **Message templates** → **Verification SMS Message** view
-of the **Studio**.
+of the Studio.
 
 :::
 
@@ -548,7 +567,7 @@ password) by calling `signInWithCode` method.
 :::note
 
 This method works only if **mobile phone authentication** is **enabled** in your
-**App settings** → **Authentication** view of **Studio** and the user's phone
+**Version settings** → **Authentication** view of Studio and the user's phone
 number has already been verified.
 
 - If **mobile phone authentication** is **disabled**, it returns an error.
@@ -567,11 +586,11 @@ the phone.
 
 
 ```js
-let phone = "+15555555555"
-let smsCode = "123456"
+const phone = "+15555555555";
+const smsCode = "123456";
 
 // Sign in with SMS Code and phone number
-const result = await agnost.auth.signInWithCode(phone, smsCode)
+const result = await agnost.auth.signInWithCode(phone, smsCode);
 ```
 
 </TabItem>
@@ -598,16 +617,31 @@ const result = await agnost.auth.signInWithCode(phone, smsCode)
   "session": {
     "userId": "62332f6408302aa581626799",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "creationDtm": "2022-03-17T12:54:33.721Z",
+    "creationDtm": "2022-03-16T19:36:27.739Z",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": { "family": "Other", "major": "0", "minor": "0", "patch": "0" },
-      "os": { "family": "Mac OS X", "major": "10", "minor": "15", "patch": "7" }
-    },
-    "accessGroupKeys": []
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
+      },
+      "os": {
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
+      }
+    }
   },
   "errors": null
 }

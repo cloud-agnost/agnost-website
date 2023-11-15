@@ -14,15 +14,14 @@ import ilCss from "../src/css/illustration.module.css"
 ## Pre-requisites
 
 Agnost client library allows you to access the Agnost services from your
-web/mobile applications. In order to use the Agnost API library you need to
-create an app, deploy your app to an environment and a API key in Agnost.
+web/mobile applications. In order to use the Agnost client library you need to
+create an app, deploy your app version to its environment and create an API key in Agnost.
 
 :::info
 
-When you create an app, Agnost creates an environment for you, deploys your app
-to this environment and creates a master client key that you can customize later
-by default. You can access the all the required information (e.g., client key,
-base URL) to initialize the client library from the **Settings** view of you app
+When you create an app, Agnost creates a master version and an associated version environment for you, deploys your app
+to this environment, bud does not creates an API key. **You need to manually create your app API key.** You can access the all the required information (e.g., client key,
+base URL) to initialize the client library from the **Settings** view or the **Dashboard** view of your app version
 in **Agnost Studio**.
 
 :::
@@ -42,14 +41,14 @@ You can install the Agnost client library with package managers like
 
 
 ```shell
-npm install agnost
+npm install @agnost/client
 ```
 
 If you're using a bundler (like [webpack](https://webpack.js.org/)), you can
-import the Agnost and create your Agnost client instance. The creation of client
-library requires two required parameters; `envUrl` and `apiKey`. The `envUrl` is
+import Agnost and create your Agnost client instance. The creation of client
+library requires two required parameters; `baseUrl` and `apiKey`. The `baseUrl` is
 the base URL of the Agnost application environment where a version of the
-application is deployed and `apiKey` is the API key of your app.
+application is deployed and `apiKey` is the API key of your app version.
 
 </TabItem>
 
@@ -58,14 +57,14 @@ application is deployed and `apiKey` is the API key of your app.
 
 
 ```shell
-yarn add agnost
+yarn add @agnost/client
 ```
 
 If you're using a bundler (like [webpack](https://webpack.js.org/)), you can
 import the Agnost and create your Agnost client instance. The creation of client
-library requires two required parameters; `envUrl` and `apiKey`. The `envUrl` is
-the base URL of the Agnost application environment where a snapshot of the
-application is deployed and `apiKey` is the API key of your app.
+library requires two required parameters; `baseUrl` and `apiKey`. The `baseUrl` is
+the base URL of the Agnost application environment where a version of the
+application is deployed and `apiKey` is the API key of your app version.
 
 </TabItem>
 
@@ -80,17 +79,17 @@ application is deployed and `apiKey` is the API key of your app.
 
 
 ```js title=" ~ /src/agnost.js"
-import { createClient } from "agnost"
+import { createClient } from "@agnost/client";
 
 // Create a client for interacting with Agnost backend app
-// You need to provide `envUrl` and `apiKey` as input parameters
+// You need to provide `baseUrl` and `apiKey` as input parameters
 // Optionally, you can provide `apiKey`, `signInRedirect` and `realtime` parameters
 // in options. More details can be found in the Options section
 
-let envUrl = "http://my-cluster.com/env-myenvid"
-let apiKey = "f59c9ef3a53b40669c6a79a62593e153"
+let baseUrl = "https://my-cluster.com/env-myenvid";
+let apiKey = "ak-f59c9ef3a53b40669c6a79a62593e153";
 
-const agnost = createClient(envUrl, apiKey)
+const agnost = createClient(baseUrl, apiKey);
 ```
 
 ### CDN
@@ -99,7 +98,7 @@ To install with a CDN (content delivery network) add the following script to
 import Agnost client library.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/agnost"></script>
+<script src="https://cdn.jsdelivr.net/npm/@agnost/client"></script>
 ```
 
 Then you can use it from a global `agnost` variable:
@@ -107,8 +106,8 @@ Then you can use it from a global `agnost` variable:
 ```html
 <script>
   const { createClient } = agnost
-  //Create a client for interacting with Agnost backend app
-  //You need to provide `envUrl` and `apiKey` as input parameters
+  // Create a client for interacting with Agnost backend app
+  // You need to provide `baseUrl` and `apiKey` as input parameters
   const client = createClient(
     "http://my-cluster.com/env-myenvid",
     "f59c9ef3a53b40669b6a79a62593e153",
@@ -137,7 +136,7 @@ You can initialize the client library with `realtime`, `signInRedirect`, and
 import { createClient } from "agnost"
 
 // Create a client for interacting with Agnost backend app
-// You need to provide `envUrl` and `apiKey` as input parameters
+// You need to provide `baseUrl` and `apiKey` as input parameters
 // Optionally, you can also provide `signInRedirect` and `realtime` options
 
 let options = {
@@ -149,9 +148,9 @@ let options = {
     reconnectionDelay: 2000,
     timeout: 30000,
   },
-}
+};
 
-const agnost = createClient(envUrl, clientKey, options)
+const agnost = createClient(baseUrl, clientKey, options)
 ```
 
 :::info
@@ -176,7 +175,7 @@ Here you can find parameters for the `createClient` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                                                                |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------- |
-| 1   | envUrl                       | String                            | Yes                              | The base URL of the Agnost application environment where a snapshot of the application is deployed. |
+| 1   | baseUrl                       | String                            | Yes                              | The base URL of the Agnost application environment where a snapshot of the application is deployed. |
 | 2   | apiKey                       | String                            | Yes                              | The API key of the app                                                                              |
 | 3   | options                      | [ClientOptions](#client-options)  | No                               | Additional client library options.                                                                  |
 

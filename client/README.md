@@ -12,7 +12,7 @@ import DetailedResponse from "@site/src/components/DetailedResponse"
 
 # Overview
 
-This Client API documentation will guide you how to use the key modules of the
+This JavaScript Client API documentation will guide you how to use the key modules of the
 client library to integrate your Agnost backend apps with your frontends.
 
 ## Key modules
@@ -24,7 +24,7 @@ frontend applications.
   authentication process of your application users. Provides methods to manage
   users, sessions and authentication. You are free to design the way to
   authenticate your users and manage sessions in Agnost through defining your
-  custom services. However, by default Agnost provides **email**, **phone
+  custom data model and endpoints. However, by default Agnost provides **email**, **phone
   number** and **3rd party oAuth provider** based authentication to manage user
   accounts through the client library.
 - [**Cloud Storage**](/client/storage/) - Provides the methods to manage your
@@ -32,9 +32,9 @@ frontend applications.
   images etc. under buckets, which are the basic containers that hold your
   application data.
 - [**Endpoints**](/client/endpoint/) - Provides the methods to execute your app
-  backend services by making REST API requests to your app endpoints.
+  backend services by making REST API requests to your app endpoints. You can use any HTTP client to call your app endpoints, however, the client library provides conveniece methos to make GET, POST, PUT and DELETE method calls to your endpoints.
 - [**Realtime**](/client/realtime/channels/) - Allows realtime publish and
-  subscribe (pub/sub) messaging through websockets.Realtime makes it possible to
+  subscribe (pub/sub) messaging through websockets. Realtime makes it possible to
   open a two-way interactive communication session between the user's device
   (e.g., browser, smartphone) and a server. With realtime, you can send messages
   to a server and receive event-driven responses without having to poll the
@@ -64,7 +64,7 @@ each method. Please refer to the specific method's documentation for the
 
 ```js
 //Get user and session data using the accessToken
-const result = await agnost.auth.getAuthGrant(accessToken)
+const result = await agnost.auth.getAuthGrant(accessToken);
 ```
 
 </TabItem>
@@ -92,24 +92,30 @@ const result = await agnost.auth.getAuthGrant(accessToken)
     "userId": "6235e0eb25de47092f4d5300",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnZJZCI6I...",
     "userAgent": {
-      "family": "Chrome",
-      "major": "99",
-      "minor": "0",
-      "patch": "4844",
-      "device": {
-        "family": "Other",
-        "major": "0",
-        "minor": "0",
-        "patch": "0"
+      "ua": "",
+      "browser": {
+          "name": "",
+          "version": "",
+          "major": "" 
+      },
+      "engine": {
+          "name": "",
+          "version": ""
       },
       "os": {
-        "family": "Mac OS X",
-        "major": "10",
-        "minor": "15",
-        "patch": "7"
+          "name": "",
+          "version": ""
+      },
+      "device": {
+          "model": "",
+          "type": "",
+          "vendor": ""
+      },
+      "cpu": {
+          "architecture": ""
       }
-    },
-    "accessGroupKeys": []
+  },
+    "creationDtm": "2023-10-24T08:04:23.013+00:00"
   },
   "errors": null
 }
@@ -131,11 +137,8 @@ the list of errors occurred.
 
 
 ```js
-//Get cloud storage file metadata
-let result = await agnost.storage
-  .bucket("profile picture")
-  .file("profile1.png")
-  .getInfo()
+// Sign in using email and password
+let result = await agnost.auth.signInWithEmail("john@email.com", "password");
 ```
 
 </TabItem>
@@ -156,8 +159,8 @@ let result = await agnost.storage
     "items": [
       {
         "origin": "client_error",
-        "code": "bucket_not_found",
-        "message": "Cannot identify the bucket 'sdfsdf'"
+        "code": "invalid_credentials",
+        "message": "Invalid credentials. Email or password provided is invalid."
       }
     ]
   }

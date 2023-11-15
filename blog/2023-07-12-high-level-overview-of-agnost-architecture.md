@@ -120,7 +120,7 @@ backend applications.
 ### Agnost Platform Modules
 
 - **Platform-Core**: This Node.js application is the API server of the Agnost
-  cluster. Agnost Studio (a.k.a. Platform-Studio) is the platform's front end
+  cluster. Agnost Studio (a.k.a.. Platform-Studio) is the platform's front end
   that sends RESTful API requests to Platform-Core. This module handles cluster
   user registration, organization, app, and version creation, and for each
   version, management of data models, endpoints, cron jobs, message queues, and
@@ -174,7 +174,7 @@ backend applications.
   clients.
 - **API Server**: As briefly mentioned above, each version of an app developed
   in Agnost Cluster has its API Server. API Servers are created as a Knative
-  service, a.k.a serverless function. The API servers are responsible for
+  service, a.k.a. serverless function. The API servers are responsible for
   running the handler code for app endpoints and the handler code for message
   queues and cron jobs. They run in autoscale mode so that when the workload of
   the API server increases, new API Sever pods are created to handle increased

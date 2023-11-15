@@ -21,11 +21,12 @@ You can change email of the user by calling the `changeEmail` method.
 
 
 ```js
-let currentPassword = "123456"
-let newEmail = "rooby-new@agnost.dev"
+const currentPassword = "123456";
+const newEmail = "rooby-new@agnost.dev";
+const redirectUrl = "http://localhost:3001/auth-redirect";
 
-// Change email of the user
-const result = await agnost.auth.changeEmail(currentPassword, newEmail)
+// Change email of the user, email cofirmation is disabled not need for redirectUrl parameter
+const result = await agnost.auth.changeEmail(currentPassword, newEmail, redirectUrl);
 ```
 
 </TabItem>
@@ -59,7 +60,7 @@ const result = await agnost.auth.changeEmail(currentPassword, newEmail)
 :::info
 
 If email confirmation is **enabled** in your **App settings** →
-**Authentication** view of **Studio**
+**Authentication** view of Studio
 
 - It sends a confirmation email to the **new email address** with a link for the
   user to click and returns the current user's info.
@@ -71,12 +72,12 @@ If email confirmation is **enabled** in your **App settings** →
 
 :::
 
-<BrowserWindow url="http://localhost:3001/auth-redirect?access_token=0e55c6fa93ae4e8cb11b35&action=change-email"></BrowserWindow>
+<BrowserWindow url="http://localhost:3001/auth-redirect?access_token=at-0e55c6fa93ae4e8cb11b35&action=change-email"></BrowserWindow>
 
 :::note
 
 If email confirmation is **disabled** in your **App settings** →
-**Authentication** view of **Studio**, it immediately updates the user's email
+**Authentication** view of Studio, it immediately updates the user's email
 and returns back the updated user data.
 
 :::

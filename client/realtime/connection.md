@@ -36,10 +36,10 @@ If you manually disconnect the connection, the socket will not try to reconnect.
 
 ```jsx
 // Manually open the websocket connection
-agnost.realtime.open()
+agnost.realtime.open();
 
 // Manually close the websocket connection
-agnost.realtime.close()
+agnost.realtime.close();
 ```
 
 </TabItem>
@@ -63,10 +63,10 @@ identifier using the `getSocketId` method.
 ```jsx
 // Check if the websocke is successfully connected to the realtime server.
 // Returns true if the realtime socket is connected otherwise false
-if (agnost.realtime.isConnected()) console.log("Connected")
+if (agnost.realtime.isConnected()) console.log("Connected");
 
-// Get the unique identifier of the underlying websocket connection
-let socketId = agnost.realtime.getSocketId()
+// Get the unique identifier of the underlying websocket connection identifier
+const socketId = agnost.realtime.getSocketId();
 ```
 
 </TabItem>
@@ -96,22 +96,22 @@ listener functions.
 
 ```jsx
 // Listen to Connect
-agnost.realtime.onConnect(() => console.log("Connection established!"))
+agnost.realtime.onConnect(() => console.log("Connection established!"));
 
 // Listen to Disconnect
 agnost.realtime.onDisconnect((reason) => {
-  console.log("Disconnected due to", reason, agnost.realtime.getSocketId())
-})
+  console.log("Disconnected due to", reason, agnost.realtime.getSocketId());
+});
 
 // Listen to Reconnect attempt
 agnost.realtime.onReconnectAttempt((attemptNumber) =>
-  console.log("Reconnecting attempt#", attemptNumber),
-)
+  console.log("Reconnecting attempt#", attemptNumber);
+);
 
 // Listen to Connect error
 agnost.realtime.onError((error) =>
-  console.log("Connection error", error, error.data),
-)
+  console.log("Connection error", error, error.data);
+);
 ```
 
 </TabItem>

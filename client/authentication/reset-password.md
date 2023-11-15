@@ -19,8 +19,8 @@ send reset password email to a user by calling the `sendResetPwdEmail` method.
 
 :::note
 
-This method works only if email confirmation is **enabled** in your **App
-settings** → **Authentication** view of **Studio**.
+This method works only if email confirmation is **enabled** in your **Version
+settings** → **Authentication** view of Studio.
 
 - If the email of the user has not been verified yet, this method will return an
   error object.
@@ -34,11 +34,11 @@ settings** → **Authentication** view of **Studio**.
 
 
 ```js
-let email = "hello@agnost.dev"
-let redirectUrl = "http://localhost:3001/auth-redirect"
+const email = "hello@agnost.dev";
+const redirectUrl = "http://localhost:3001/auth-redirect";
 
 // Send reset password email
-const { errors } = await agnost.auth.sendResetPwdEmail(email, redirectUrl)
+const { errors } = await agnost.auth.sendResetPwdEmail(email, redirectUrl);
 ```
 
 </TabItem>
@@ -53,13 +53,12 @@ with an access token in a query string parameter named **access_token**.
 
 :::tip
 
-You can define the **Redirect URL** in your **App settings** →
-**Authentication** view of Studio. Additionally you can override this value in
-your Environment details view for each environment.
+You can define the **Redirect URL** in your **Version settings** →
+**Authentication** view of Studio.
 
 :::
 
-<BrowserWindow url="http://localhost:3001/auth-redirect?access_token=0e55c6fa93ae4e8cb11b35&action=reset-pwd"></BrowserWindow>
+<BrowserWindow url="http://localhost:3001/auth-redirect?access_token=at-0e55c6fa93ae4e8cb11b35&action=reset-pwd"></BrowserWindow>
 
 :::note
 
@@ -94,11 +93,11 @@ resets the password of the user by using the access token provided through the
 
 
 ```js
-let accessToken = "0e55c6fa93ae4e8cb11b35"
-let newPassword = "123456%"
+const accessToken = "at-0e55c6fa93ae4e8cb11b35";
+const newPassword = "123456%";
 
 // Reset password of the user with the `newPassword`
-const { errors } = await agnost.auth.resetPwdWithToken(accessToken, newPassword)
+const { errors } = await agnost.auth.resetPwdWithToken(accessToken, newPassword);
 ```
 
 </TabItem>
@@ -124,8 +123,8 @@ method.
 
 :::note
 
-This method works only if phone confirmation is **enabled** in your **App
-settings** → **Authentication** view of **Studio**.
+This method works only if phone confirmation is **enabled** in your **Version
+settings** → **Authentication** view of Studio.
 
 - If the phone number of the user has not been verified yet, this method will
   return an error object.
@@ -139,10 +138,10 @@ settings** → **Authentication** view of **Studio**.
 
 
 ```js
-let phone = "+15555555555"
+const phone = "+15555555555";
 
 // Send reset password email
-const { errors } = await agnost.auth.sendResetPwdCode(phone)
+const { errors } = await agnost.auth.sendResetPwdCode(phone);
 ```
 
 </TabItem>
@@ -181,12 +180,12 @@ resets the password of the user by using the SMS code provided through the
 
 
 ```js
-let phone = "+15555555555"
-let code = "432987"
-let newPassword = "123456%"
+const phone = "+15555555555";
+const code = "432987";
+const newPassword = "123456%";
 
 // Reset password of the user with the `newPassword`
-const { errors } = await agnost.auth.resetPwdWithCode(phone, code, newPassword)
+const { errors } = await agnost.auth.resetPwdWithCode(phone, code, newPassword);
 ```
 
 </TabItem>

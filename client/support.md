@@ -92,4 +92,4 @@ a great way to contribute to the community.
 
 Follow us on social media for the latest updates and announcements about Agnost.
 
-- Twitter: [@Agnost](https://twitter.com/AgnostDev)
+- Twitter: [@AgnostDev](https://twitter.com/AgnostDev)

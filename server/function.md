@@ -9,37 +9,37 @@ import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import DetailedResponse from "@site/src/components/DetailedResponse"
 
-# Function
+# Helper functions
 
-The agnost.func object provides a method called run that allows you to execute
+The Function object in the Agnost server side library provides a `run` method that allows you to execute
 custom helper functions. You can call this method with any number of parameters,
-but it's important to ensure that the parameter structure aligns with your
+but it is important to ensure that the parameter structure aligns with your
 helper function's parameter definitions.
+
+Helper functions are utility functions that can be called from your handler methods, middlewares and also other helper functions.
 
 ### Run a function
 
-You can use the `run` method to execute your custom helper functions. The `run`
-method takes the name of the function and the parameters of the function as
-parameters. The `run` method returns a promise that resolves to the response of
-the function execution.
+You can use the `run` method to execute your custom helper function. The `run`
+method takes the exact parameters of the function that you are calling, runs your helper function and returns a promise that resolves to the response of the function execution.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
 
 <TabItem value="javascript">
 
-
 ```js
-// Define your custom helper function parameters
-const param1 = "Hello"
-const param2 = "World"
+// Assuming that you have created a function called generateSlug in Agnost studio
+import { customAlphabet } from "nanoid";
 
-try {
-  const result = await agnost.func.run(param1, param2)
-  console.log("Function result:", result)
-} catch (error) {
-  console.error("Error executing custom function:", error)
-}
+const generateSlug = async (length) => {
+  // Generates a random slug
+  const alphabet = "0123456789abcdefghijklmnopqrstuvwxyz";
+  const nanoid = customAlphabet(alphabet, length);
+  return nanoid();
+};
+
+export default generateSlug;
 ```
 
 </TabItem>
@@ -48,27 +48,37 @@ try {
 </Tabs>
 
 
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
+
+<TabItem value="javascript">
+
+```js
+// You can call this function in any handler, middleware other function code
+import { agnost } from "@agnost/server";
+
+const endpointHandler = async (req, res) => {
+  const userData = req.body;
+  userData.slug = await agnost.func("generateSlug").run(16);
+
+  const result = await agnost.db("postgres").model("users").createOne(userData);
+  res.json(result);
+};
+
+export default endpointHandler;
+```
+
+</TabItem>
+
+
+</Tabs>
+
+
+
+
 #### Parameters
 
 Here are the parameters for the `run` method:
 
 | #   | Name    | Data Type | Required | Description                                                                            |
 | --- | ------- | --------- | -------- | -------------------------------------------------------------------------------------- |
-| 1   | ...args | any[]     | No       | Rest parameter that allows you to pass any number of arguments to the helper function. |
-
-<DetailedResponse title="Returns">
-
-
-- `Promise<any>`: If successful, the `run` method returns the output of the
-  helper function.
-
-</DetailedResponse>
-
-
-:::info
-
-This method is designed to execute custom code, enabling you to extend the
-functionality of your application. Make sure to pass the correct parameters to
-match your helper function's requirements.
-
-:::
+| 1   | ...args | any[]     | No       | The input parameters of the function (defined by the developer). |

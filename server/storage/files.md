@@ -14,7 +14,7 @@ import DetailedResponse from "@site/src/components/DetailedResponse"
 ### Get file info
 
 You can get file info by calling the `getInfo` method. It returns the basic
-metadata informaton of a file.
+metadata information of a file.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
@@ -23,16 +23,16 @@ metadata informaton of a file.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
-let fileName = "rooby-avatar.png"
+const storageName = "default";
+const bucketName = "profile-images";
+const fileName = "rooby-avatar.png";
 
 // Returns the metadata information about the file
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file(fileName)
-  .getInfo()
+  .getInfo();
 ```
 
 </TabItem>
@@ -46,21 +46,19 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "6237419e161326736e4ffde3",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/6237419e161326736e4ffde3",
-    "isPublic": false,
-    "uploadedAt": "2022-03-20T15:00:46.275Z",
-    "updatedAt": "2022-03-20T16:14:29.332Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": []
-  },
-  "errors": null
+  "id": "fl-234e3rwrwr",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "size": "small"
+  }
 }
 ```
 
@@ -78,16 +76,16 @@ whether the file exists or not and returns **true** if file exists, otherwise
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Checks whether the `rooby-avatar.png` file exists
-// in `profile-images`  bucket or not
+// in `profile-images` bucket or not
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .exists()
+  .exists();
 ```
 
 </TabItem>
@@ -96,24 +94,10 @@ let result = await agnost
 </Tabs>
 
 
-<DetailedResponse title="Example response">
+### Copy file
 
-
-```json
-{
-  "data": true,
-  "errors": null
-}
-```
-
-</DetailedResponse>
-
-
-### Copy file to bucket
-
-You can copy the file to another path by calling the `copyTo` method. If there
-already exists a file with the same name in destination path, it ensures the
-copied file name to be unique in its new destination.
+You can copy the file to another path by calling the `copyTo` method in the same bucket. If there
+already exists a file with the same name in destination path, it throws an error.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
@@ -122,16 +106,16 @@ copied file name to be unique in its new destination.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
-let toPath = "employee-images"
+const storageName = "default";
+const bucketName = "profile-images";
+const toPath = "archive/rooby-avatar.png";
 
 // Copies the file to another bucket
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .copyTo(toPath)
+  .copyTo(toPath);
 ```
 
 </TabItem>
@@ -145,21 +129,19 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379cfb0b72592107523e4a",
-    "bucketId": "62379ce345aba7a695579b49",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62379ce345aba7a695579b49/62379cfb0b72592107523e4a",
-    "isPublic": false,
-    "uploadedAt": "2022-03-20T21:30:35.609Z",
-    "updatedAt": "2022-03-20T21:30:35.609Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality"]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "archive/rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "size": "small"
+  }
 }
 ```
 
@@ -172,14 +154,13 @@ Here you can find parameters for the `copyTo` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>                |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | --------------------------------------------------- |
-| 1   | toPath                       | string                            | Yes                              | The new file path where this file will be moved to. |
+| 1   | toPath                       | string                            | Yes                              | The new file path where this file will be copied to. |
 
-### Move file to bucket
+### Move file
 
-You can move the file to another path by calling the `moveTo` method. The file
+You can move the file to another path by calling the `moveTo` method in the same bucket. The file
 will be removed from its current path and will be moved to its new path. If
-there already exists a file with the same name in destination path, it ensures
-the moved file name to be unique in its new destination.
+there already exists a file with the same name in destination path, it throws an error.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
@@ -188,16 +169,16 @@ the moved file name to be unique in its new destination.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
-let toPath = "employee-images"
+const storageName = "default";
+const bucketName = "profile-images";
+const toPath = "backup/rooby-avatar.png";
 
 // Moves the file to another bucket
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby.png")
-  .moveTo(toPath)
+  .moveTo(toPath);
 ```
 
 </TabItem>
@@ -211,21 +192,19 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379df1b9a84d607cd79016",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379df1b9a84d607cd79016",
-    "isPublic": false,
-    "uploadedAt": "2022-03-20T21:34:41.617Z",
-    "updatedAt": "2022-03-20T21:35:30.369Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality"]
-  },
-  "errors": null
+  "id": "fl-234e3rwrwr",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "backup/rooby-avatar.pn",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "size": "small"
+  }
 }
 ```
 
@@ -252,15 +231,15 @@ privacy of the file to **true**.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Makes the file public
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .makePublic()
+  .makePublic();
 ```
 
 </TabItem>
@@ -274,21 +253,19 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": true,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:37:01.932Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality"]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "size": "small"
+  }
 }
 ```
 
@@ -307,14 +284,14 @@ the privacy of the file to **false**.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Makes the file private
 let result = await agnost.storage
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .makePrivate()
+  .makePrivate();
 ```
 
 </TabItem>
@@ -328,21 +305,19 @@ let result = await agnost.storage
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": false,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:38:03.854Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality"]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": false,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "size": "small"
+  }
 }
 ```
 
@@ -351,8 +326,7 @@ let result = await agnost.storage
 
 ### Add tag to file
 
-You can add your own tags to each uploaded file. This metadata can be used in
-expressions to filter files or store data specific to your application.
+You can add your own tags to each uploaded file.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
 
@@ -361,17 +335,17 @@ expressions to filter files or store data specific to your application.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Set a tag for a file
-const key = "category"
-const value = "documents"
+const key = "quality"
+const value = "high"
 
 let result = await agnost.storage
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .setTag(key, value)
+  .setTag(key, value);
 ```
 
 </TabItem>
@@ -385,21 +359,20 @@ let result = await agnost.storage
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": true,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:37:01.932Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality", "picture", "user", "profile"]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "size": "small",
+    "quality": "high"
+  }
 }
 ```
 
@@ -412,8 +385,8 @@ Here you can find parameters for the `setTag` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p> |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ------------------------------------ |
-| 1   | key                          | string                            | Yes                              | A key of tag.                        |
-| 2   | value                        | any                               | Yes                              | A value of tag.                      |
+| 1   | key                          | string                            | Yes                              | Key (name) of tag.                        |
+| 2   | value                        | any                               | Yes                              | Value of tag.                      |
 
 ### Remove tag from file
 
@@ -427,16 +400,16 @@ from your files.
 
 
 ```js
-let storageName
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
-const key = "category"
+const key = "size"
 
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .removeTag(key)
+  .removeTag(key);
 ```
 
 </TabItem>
@@ -450,21 +423,19 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": true,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:37:01.932Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality", "profile"]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "quality": "high
+  }
 }
 ```
 
@@ -477,7 +448,7 @@ Here you can find parameters for the `removeTag` method.
 
 | #   | <p><strong>Name</strong></p> | <p><strong>Data type</strong></p> | <p><strong>Required</strong></p> | <p><strong>Description </strong></p>              |
 | --- | ---------------------------- | --------------------------------- | -------------------------------- | ------------------------------------------------- |
-| 1   | tag                          | string                            | Yes                              | A name of the tag to remove from file's metadata. |
+| 1   | tag                          | string                            | Yes                              | Name of the tag to remove from file's metadata. |
 
 ### Remove all tags from file
 
@@ -491,16 +462,16 @@ files) from your files.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
-const key = "category"
+const key = "quality"
 
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .removeAllTags(key)
+  .removeAllTags(key);
 ```
 
 </TabItem>
@@ -514,21 +485,17 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": true,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:37:01.932Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": ["low-quality", "profile"]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "rooby-avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": true,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {}
 }
 ```
 
@@ -547,20 +514,20 @@ single method call, instead of calling each individual update method separately.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 const tags = {
   category: "documents",
   author: "John Doe",
 }
 
-// Makes the `profile-images` bucket and contents public.
+// Renames the file, upddates it tags and marks it as private
 let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .updateInfo("avatar.png", false, tags)
+  .updateInfo("avatar.png", false, tags);
 ```
 
 </TabItem>
@@ -574,21 +541,20 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "rooby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": false,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:37:01.932Z",
-    "userId": "62c14524cf074016b1045366",
-    "tags": [{ "category": "documents", "author": "John Doe" }]
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "avatar.png",
+  "size": 212233,
+  "mimeType": "image/png",
+  "isPublic": false,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "category": "documents",
+    "author": "John Doe",
+  }
 }
 ```
 
@@ -608,8 +574,8 @@ Here you can find parameters for the `updateInfo` method.
 ### Replace file
 
 You can replace the file by calling the `replace` method. It keeps the name of
-the file but replaces file contents, size, encoding and mime-type with the newly
-uploaded file info and returns the metadata of the file after replacement.
+the file but replaces file contents, size and mime-type with the newly
+uploaded file info and returns the metadata of the file after replacement.  Please note that `FileStreamObject.path` or `FileDiskObject.path` data will be ignored since only the contents of the file is replaced not its path or name.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
@@ -618,13 +584,14 @@ uploaded file info and returns the metadata of the file after replacement.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
+
 const newFile = {
-  path: "path/to/my/file/filename.jpg",
+  path: "filename.png",
   mimeType: "image/png",
   size: 1024, // File size in bytes
-  stream: /* Readable stream of file contents */,
+  localPath: 'path/to/file/on/disk',
 };
 
 
@@ -633,7 +600,7 @@ let result = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("booby-avatar.png")
-  .replace(newFile)
+  .replace(newFile);
 ```
 
 </TabItem>
@@ -647,19 +614,20 @@ let result = await agnost
 
 ```json
 {
-  "data": {
-    "_id": "62379ba045aba7a695579b48",
-    "bucketId": "62373bae161326736e4ffde2",
-    "fileName": "booby-avatar.png",
-    "size": 53951,
-    "encoding": "7bit",
-    "mimeType": "image/png",
-    "publicPath": "https://c1-na.agnost.com/_storage/6233230ba1c88fcb1ad5919a/62373bae161326736e4ffde2/62379ba045aba7a695579b48",
-    "isPublic": false,
-    "uploadedAt": "2022-03-20T21:24:48.514Z",
-    "updatedAt": "2022-03-20T21:41:16.605Z"
-  },
-  "errors": null
+  "id": "fl-343rwsf324",
+  "bucketId": "bck-o5nnyhs19dgw",
+  "storageId": "str-o0dlitj2x5id",
+  "path": "booby-avatar.png",
+  "size": 456789,
+  "mimeType": "image/png",
+  "isPublic": false,
+  "uploadedAt": "2022-03-20T15:01:41.993Z",
+  "updatedAt": "2022-03-20T15:01:41.993Z",
+  "userId": "611a45f9f3e7ec001950175f",
+  "tags": {
+    "category": "documents",
+    "author": "John Doe",
+  }
 }
 ```
 
@@ -688,15 +656,15 @@ the bucket.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Deletes the file from the bucket
 let { errors } = await agnost
   .storage(storageName)
   .bucket(bucketName)
   .file("rooby-avatar.png")
-  .delete()
+  .delete();
 ```
 
 </TabItem>
@@ -704,9 +672,6 @@ let { errors } = await agnost
 
 </Tabs>
 
-
-Certainly! Here's the documentation for the Agnost Client Library method for
-"Create Read Stream" along with an example:
 
 ### Create Read Stream
 
@@ -721,32 +686,33 @@ a writable stream or listen to 'data' events to read the file's contents.
 
 
 ```js
-let storageName = "default"
-let bucketName = "profile-images"
+const storageName = "default";
+const bucketName = "profile-images";
 
 // Create a readable stream to download a file
 try {
   const fileStream = await agnost
     .storage(storageName)
     .bucket(bucketName)
-    .createReadStream()
+    .file("rooby-avatar.png")
+    .createReadStream();
 
   // Listen to 'data' events to read the file's contents
   fileStream.on("data", (chunk) => {
-    console.log("Received chunk of data:", chunk)
-  })
+    console.log("Received chunk of data:", chunk);
+  });
 
   // Handle 'end' event when the file has been fully read
   fileStream.on("end", () => {
-    console.log("File reading completed.")
-  })
+    console.log("File reading completed.");
+  });
 
   // Handle errors if any occur
   fileStream.on("error", (error) => {
-    console.error("Error reading file:", error)
-  })
+    console.error("Error reading file:", error);
+  });
 } catch (error) {
-  console.error("Error creating readable stream:", error)
+  console.error("Error creating readable stream:", error);
 }
 ```
 

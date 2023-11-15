@@ -14,7 +14,7 @@ import ilCss from "../../src/css/illustration.module.css"
 ## Send message
 
 You can **send message** to the members of a specific channel or you can
-**broadcast a message** to all users of your app independent of the channels the
+**broadcast a message** to all users of your app independent of the channels they
 have joined.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
@@ -30,7 +30,7 @@ agnost.realtime.send("technology-chat", "chat-message", {
   profileImage: "https://myimagestorage.com/luke.jpg",
   messageSentAt: "2021-08-16T11:03:21.406+00:00",
   message: "Let's have a Juma juice? I will be there in 10 minutes.",
-})
+});
 
 // Broadcast message to all app users
 agnost.realtime.broadcast("warning-message", {
@@ -39,7 +39,7 @@ agnost.realtime.broadcast("warning-message", {
   messageSentAt: "2021-08-16T11:10:20.745+00:00",
   message:
     "This is the last call for Alderaan citizens, you have 15 minutes to leave the planet.",
-})
+});
 ```
 
 </TabItem>
@@ -69,7 +69,7 @@ Here you can find parameters for the `broadcast` method.
 
 :::note
 
-If the client library key is set to **enforce session**, an active user session
+If the realtime connection is set to **session required**, an active user session
 is **required** (e.g., user needs to be logged in) to call `send` and
 `broadcast` methods.
 
@@ -83,8 +83,7 @@ methods.
 - The `on` method registers a new listener function for the given event.
 - The `onAny` method registers a new catch-all listener function. This listener
   function is triggered for all messages sent to this socket.
-- The `once` method adds a one-time listener function for the given event. The
-  next time the same event is triggered, this listener is removed and then
+- The `once` method adds a one-time listener function for the given event. When the event is triggered, this listener is removed and then
   invoked.
 
 <Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }]}>
@@ -100,6 +99,7 @@ agnost.realtime.on('chat-message', (payload) => {
     'Message received',
     payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
     payload.message  //The contents of the message
+  );
 });
 
 // Add a listener for all events
@@ -108,6 +108,7 @@ agnost.realtime.onAny((payload) => {
     'Message received',
     payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
     payload.message  //The contents of the message
+  );
 });
 
 // Add a listener to listen an event only once
@@ -116,6 +117,7 @@ agnost.realtime.once('chat-message', (payload) => {
     'Message received',
     payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
     payload.message  //The contents of the message
+  );
 });
 
 ```
@@ -161,27 +163,25 @@ You can stop listening to specific events or all events using the `off` and
 
 ```jsx
 const eventListener = (payload) => {
-    console.log(
-        'Message received',
-        payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
-        payload.message  //The contents of the message
-    });
+  console.log(
+    "Message received",
+    payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
+    payload.message //The contents of the message
+  );
 };
 
 // Add a listener for `chat-message` events
-agnost.realtime.on('chat-message', eventListener);
+agnost.realtime.on("chat-message", eventListener);
 
 // Remove a listener for `chat-message` events
-agnost.realtime.off('chat-message', eventListener);
-
-
+agnost.realtime.off("chat-message", eventListener);
 
 const allEventsListener = (payload) => {
-    console.log(
-        'Message received',
-        payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
-        payload.message  //The contents of the message
-    });
+  console.log(
+    "Message received",
+    payload.channel, //The name of the channel if the message is sent to a channel otherwise it is `null`
+    payload.message //The contents of the message
+  );
 };
 
 // Add a listener for all events
@@ -226,7 +226,7 @@ name.
 
 ```jsx
 // Add a listener for `chat-message` events
-let listeners = agnost.realtime.getListeners("chat-message")
+const listeners = agnost.realtime.getListeners("chat-message")
 ```
 
 </TabItem>
