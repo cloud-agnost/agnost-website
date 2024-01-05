@@ -2,6 +2,9 @@
 sidebar_position: 11
 ---
 
+import ilCss from "../../src/css/illustration.module.css"
+import ImageSwitcher from "@theme/ImageSwitcher"
+
 # Monitoring and Logging
 
 In Agnost, monitoring and logging are essential aspects of maintaining the
@@ -14,10 +17,34 @@ robust tools for effective monitoring and troubleshooting.
 Agnost offers a comprehensive solution for inspecting and monitoring endpoints,
 allowing you to gain insights into how users interact with your applications:
 
+:::note
+
+To inspect endpoints, navigate to the **`Endpoints`** section and select the
+**`View Logs`** button.
+
+- **Reminder:** In order to inspect endpoints, you must first enable the
+  **`Log Executions`** setting for your desired endpoints.
+
+:::
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/endpoint-logs-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/endpoint-logs.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
 - **View Request and Response Pair:** For each endpoint, you can access detailed
   information, including the HTTP method, status, and response time. This data
   enables you to identify suspicious activity, troubleshoot issues, and
   understand user interactions.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/view-log-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/view-log.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
 ## Request/Response Logs
 
@@ -33,17 +60,44 @@ Agnost's logging capabilities make it easy to filter and inspect requests:
   application's performance thoroughly. The logs provide valuable insights that
   help you pinpoint issues and optimize your application.
 
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/log-details-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/log-details.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={480}
+/>
+
 ## Monitor Database
 
-Agnost offers database monitoring capabilities:
+Agnost offers database monitoring capabilities, allowing you to monitor your
+database usage and allocation:
+
+To monitor your database, navigate to the **`Database`** and select the
+**`View Data`** button.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/view-data-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/view-data.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
 - **View Database Usage:** Monitor your database usage in real-time. Agnost
   allows you to analyze database performance, usage, and capacity consumption.
   Easily view database usage for your models and take actions to optimize
   efficiency.
 
-- **Database Allocation:** Stay informed about your database's allocation,
-  helping you manage and allocate resources efficiently.
+- **Inspect Database Tables:** Inspect your database tables and view detailed
+  information about each table, including the number of rows, size, and
+  allocation. This data helps you identify trends and patterns impacting
+  performance.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/view-records-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/view-records.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
 ## Storage
 
@@ -54,10 +108,24 @@ Agnost enables you to monitor your storage usage:
   object size metrics (min/max/avg). This information helps you manage your
   storage resources effectively.
 
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/view-storage-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/view-storage.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
+
 ## Inspect and Monitor Message Queues
 
 Agnost offers advanced capabilities for inspecting and monitoring message
 queues:
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/view-mq-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/view-mq.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
 - **Real-time Monitoring:** Monitor and analyze all of your messaging queues in
   real-time. Agnost's intuitive interface simplifies navigation through queues,
@@ -76,6 +144,13 @@ queues:
 ## Inspect and Monitor Scheduled Tasks
 
 Agnost provides robust tools for inspecting and monitoring scheduled tasks:
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/view-cron-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/view-cron.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
 - **Scheduled Task Insights:** Easily monitor and inspect your application's
   scheduled tasks. Agnost's Watcher feature offers detailed information about

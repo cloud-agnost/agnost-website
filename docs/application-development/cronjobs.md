@@ -63,7 +63,7 @@ a new cron job.
   lightImageSrc="/img/docs/application-development/create-cronjob-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/create-cronjob.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 ### 3. Coding the Task Handler
@@ -94,9 +94,9 @@ const cronJobHandler = async () => {
 export default cronJobHandler
 ```
 
-In this example, we're using Javascript to create a simple cron job that runs
-every day at 5:00 AM. The task handler logs the execution time of the cron job
-to the console.
+In this example, we're using Javascript to create a simple cron job that runs at
+every 12:00 AM, Monday through Friday. The task handler logs the execution time
+of the cron job to the console.
 
 :::note
 

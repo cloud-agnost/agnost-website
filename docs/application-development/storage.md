@@ -45,8 +45,8 @@ In the Storage section, you'll have the option to **'+ Create new Storage'** to
 define a new storage instance.
 
 <ImageSwitcher
-  lightImageSrc="/img/docs/application-development/storage-details-l.png?text=LightMode"
-  darkImageSrc="/img/docs/application-development/storage-details.png?text=DarkMode"
+  lightImageSrc="/img/docs/application-development/create-bucket-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-bucket.png?text=DarkMode"
   className={ilCss.illustration__md}
   width={820}
 />
@@ -64,6 +64,13 @@ your new storage instance:
   Storage, or MinIO.
 
 - Click the **'Save'** button to create the storage instance.
+
+<ImageSwitcher
+  lightImageSrc="/img/docs/application-development/storage-details-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/storage-details.png?text=DarkMode"
+  className={ilCss.illustration__md}
+  width={820}
+/>
 
 ### 3. Managing Storage Resources
 
@@ -85,8 +92,8 @@ Click on the name of the storage resource where you want to create a bucket.
 This will take you to the page for that specific storage resource.
 
 <ImageSwitcher
-  lightImageSrc="/img/docs/application-development/create-bucket-l.png?text=LightMode"
-  darkImageSrc="/img/docs/application-development/create-bucket.png?text=DarkMode"
+  lightImageSrc="/img/docs/application-development/create-buckets-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-buckets.png?text=DarkMode"
   className={ilCss.illustration__md}
   width={820}
 />

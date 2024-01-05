@@ -27,6 +27,10 @@
 }
 .illustration__noBorder {
   height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
 }
 
 .illustration__styledRight {

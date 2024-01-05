@@ -16,7 +16,7 @@ guide you through the steps to create and use functions effectively.
 
 ### Step 1: Create a New Function
 
-1. Click the **+** icon located in the header of your Agnost interface.
+1. Click the **`+`** icon located in the header of your Agnost interface.
 2. From the dropdown menu, select **Function**.
 
 <ImageSwitcher

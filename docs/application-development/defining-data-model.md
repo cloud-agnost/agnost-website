@@ -45,7 +45,7 @@ In the Database section, you'll have the option to **Create a new database**.
   lightImageSrc="/img/docs/application-development/adding-database-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/adding-database.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 Then click on the **Create** button to create your new database. Agnost will
@@ -164,7 +164,7 @@ provides an intuitive interface for adjusting these settings.
   lightImageSrc="/img/docs/application-development/field-properties-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/field-properties.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 After defining your data model with the appropriate field types and properties,

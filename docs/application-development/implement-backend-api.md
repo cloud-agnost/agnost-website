@@ -79,7 +79,7 @@ new API endpoint:
   lightImageSrc="/img/docs/application-development/example-endpoint-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/example-endpoint.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 ### 3. Configure Endpoint Options
@@ -120,7 +120,7 @@ section.
   lightImageSrc="/img/docs/application-development/rate-limiter-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/rate-limiter.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 ### 5. Adding Middleware
@@ -140,7 +140,7 @@ To add middleware to your API, navigate to the **MIDDLEWARES** section.
   lightImageSrc="/img/docs/application-development/middleware-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/middleware.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 ### 6. Write the Handler Code
@@ -166,7 +166,7 @@ handler code, such as database operations, caching, queuing, etc.
   lightImageSrc="/img/docs/application-development/endpoint-handler-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/endpoint-handler.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={720}
 />
 
 Here's an example of a handler code that adds a new movie to the "movies"
@@ -204,7 +204,7 @@ the endpoint.
   lightImageSrc="/img/docs/application-development/testing-endpoint-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/testing-endpoint.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={480}
 />
 
 Agnost Studio ensures a seamless experience in implementing backend APIs by

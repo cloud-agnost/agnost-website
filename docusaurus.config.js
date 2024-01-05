@@ -165,6 +165,11 @@ const config = {
             position: "left",
           }, */
           {
+            href: "/docs/category/installation-and-setup",
+            label: "Installation",
+            position: "left",
+          },
+          {
             type: "doc",
             docId: "intro",
             position: "left",
@@ -188,11 +193,11 @@ const config = {
             label: "Server",
           },
           { to: "/blog", label: "Blog", position: "left" },
-
           {
             href: "https://github.com/cloud-agnost",
-            label: "GitHub",
             position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
           },
         ],
       },

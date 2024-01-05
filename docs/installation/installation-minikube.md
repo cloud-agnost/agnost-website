@@ -140,6 +140,10 @@ helm install agnost cloud-agnost/base
 # 🌍  If you have installed your cluster locally you can access Agnost Studio at http://localhost
 ```
 
+Congratulations! You have now successfully set up Agnost Studio and your local
+development environment, allowing you to develop and deploy applications with
+ease.
+
 <!--
 ## Step 3: Install Agnost Studio
 
@@ -191,7 +195,3 @@ npm run dev
 #   ➜  press h to show help
 
 ``` -->
-
-Congratulations! You have now successfully set up Agnost Studio and your local
-development environment, allowing you to develop and deploy applications with
-ease.
