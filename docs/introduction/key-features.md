@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Key Features
+# Platform Features
 
 Agnost is a Kubernetes development platform that simplifies the process of
 building and deploying applications. Agnost offers a wide range of features that
@@ -12,13 +12,13 @@ section explores the key features of Agnost and how they benefit developers.
 ## Database
 
 Agnost offers a versatile database support system, accommodating various
-database options such as MSSQL, Oracle, MongoDB, MySQL, or PostgreSQL.
+database options such as MongoDB, MySQL, or PostgreSQL.
 Developers can seamlessly integrate their existing database or choose preferred
 database technology, enabling flexible and compatible data management solutions.
 
 ## Storage
 
-Agnost seamlessly integrates with prominent cloud storage providers, including
+Agnost integrates with prominent cloud storage providers, including
 AWS S3, GCP Cloud Storage, Azure Blob Storage, and MinIO. Developers gain access
 to efficient and scalable storage solutions, enabling optimized data access and
 storage while ensuring data redundancy for reliability.
@@ -32,7 +32,7 @@ database loads and improving application responsiveness.
 
 ## Message Queues
 
-Agnost supports standard message queuing systems like RabbitMQ and Kafka,
+Agnost supports standard message queuing systems like RabbitMQ and Kafka (coming soon),
 facilitating reliable communication between microservices. Asynchronous
 communication ensures seamless data exchange, benefiting applications built on
 event-driven architectures.
@@ -47,18 +47,9 @@ collaborative functionalities.
 ## Authentication
 
 Security is paramount, and Agnost offers an array of authentication methods,
-including Single-sign On, LDAP and Active Directory, and Social Login. These
+including Email, Phone Number based and Social Logins. These
 authentication options ensure secure and seamless user authentication,
 safeguarding user data and application resources.
-
-:::caution Enterprise Version Exclusive
-
-The LDAP, Active Directory, and Single-sign On (SSO) authentication methods
-mentioned above are exclusively available in the enterprise version of Agnost.
-Please ensure you have the appropriate licensing and access to unlock these
-advanced authentication features for your application.
-
-:::
 
 ## Cronjobs
 
@@ -88,7 +79,7 @@ ease.
 
 Developers can customize backend environments with ease using Agnost. From
 setting up MySQL, PostgreSQL, MongoDB, and Redis databases to configuring
-RabbitMQ and Kafka message brokers, and even implementing cronjobs and real-time
+RabbitMQ message brokers, and even implementing cronjobs and real-time
 features, Agnost consolidates all essential components into one unified
 platform. This streamlined approach empowers developers to fine-tune their
 environments and optimize their applications efficiently.
@@ -100,9 +91,8 @@ for developers to work with strongly-typed data and maintain code consistency
 throughout their projects. This feature enhances code quality and reduces the
 likelihood of type-related errors.
 
-## Full Control over Serverless Functions
+## Full Control over your API Servers
 
-Agnost empowers developers with full control over serverless functions, allowing
-them to efficiently manage and deploy serverless components within their
-applications. With Agnost, you can harness the benefits of serverless
-architecture while maintaining flexibility and customization in your functions.
+Agnost empowers developers with full control over your API servers, allowing
+them to efficiently manage and deploy their apps with ease. With Agnost, you can harness the benefits of serverless
+architecture while maintaining flexibility and customization in your app backends.

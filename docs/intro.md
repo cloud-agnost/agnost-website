@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Welcome
+# Home
 
 Welcome to the official documentation for Agnost, the **next-generation platform
 for building, deploying, and managing your cloud-native applications!**
@@ -21,21 +21,18 @@ Whether you are a beginner getting started with cloud-native development or an
 experienced developer looking to leverage the power of Agnost, you will find the
 information you need here.
 
-## Getting Started
+## Installtion & Setup
 
-If you're new to Agnost, we recommend starting with the
-[**Getting Started**](/docs/installation/installation-minikube.md) guide. This
+Learn how to install and customize Agnost using on a Kubernetes cluster through
+[**Installtion & Setup**](/docs/installation/installation-minikube.md) guide. This
 guide will walk you through the installation process, setting up your
-environment, and creating your first Agnost application.
+cluster, and creating your first Agnost application.
 
 ## Architecture Overview
 
 For a deeper understanding of Agnost, the
 [**Architecture Overview**](/docs/introduction/architecture-overview.md) section
-covers key topics like microservices, serverless architecture, containerization,
-and Kubernetes. You'll also learn how to deploy your applications to various
-environments including Amazon Web Services, Microsoft Azure, Google Cloud
-Platform, and on-premise servers.
+covers key topics like Agnost cluster platform components and engine workers and execution engines (aka API servers).
 
 ## Application Development
 
@@ -47,6 +44,6 @@ implementing real-time functionality, and much more.
 
 This documentation is a work in progress, and we're constantly working to
 improve and expand it. If you have any questions, feedback, or suggestions,
-please feel free to reach out to us.
+please feel free to reach out to us by visiting our [**Github repository**](https://github.com/cloud-agnost/agnost-community).
 
 Let's start building great things with Agnost!

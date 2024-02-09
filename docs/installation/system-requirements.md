@@ -27,6 +27,9 @@ following minimum requirements:
   application containers. You can download Docker
   [here](https://docs.docker.com/get-docker/).
 
+- **Minikube:** If you plan to run Agnost in your local computer using Minikube then you may also need to install Minikube. You can install Minikube
+  from [here](https://minikube.sigs.k8s.io/docs/start/).
+
 - **Kubernetes:** Kubernetes 1.24 or later. Kubernetes is the platform where
   your applications will be deployed. Instructions for installing Kubernetes can
   be found [here](https://kubernetes.io/docs/setup/).

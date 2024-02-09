@@ -4,16 +4,12 @@ sidebar_position: 2
 
 # Installation - Minikube
 
-Agnost offers a simplified installation process that can be executed with a few
-commands. Before proceeding with the installation, ensure your system fulfills
-the [system requirements](/docs/installation/system-requirements).
-
 ## Prerequisites
 
 Before you begin, ensure that you have the following software installed:
 
-- [Docker](https://docs.docker.com/get-docker/): Utilized to build and manage
-  your application containers.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop): Ensure you
+  have Docker Desktop installed and running.
 - [Kubernetes](https://kubernetes.io/docs/setup/): The platform where your
   applications will be deployed.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): A
@@ -23,175 +19,163 @@ Before you begin, ensure that you have the following software installed:
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/): Minikube is a tool that
   enables you to run Kubernetes locally.
 
-## Step 1: Set Up Your Local Development Environment
-
-Before deploying your application with Agnost, ensure that you have set up your
-local development environment correctly. Follow these additional steps:
-
-1. **Start Minikube with the following resource specifications:**
+## Minikube Configuration
+On minikube, if you haven't done already, you need to enable ingress, volumesnapshots, and csi-hostpath-driver addons:
 
 ```bash
 minikube start --cpus=4 --memory 8192
-
-# Output:
-# 😄  minikube v1.31.2 on Darwin 13.3 (arm64)
-# ✨  Automatically selected the docker driver
-# 📌  Using Docker Desktop driver with root privileges
-# 👍  Starting control plane node minikube in cluster minikube
-# 🚜  Pulling base image ...
-# 💾  Downloading Kubernetes v1.27.4 preload ...
-#     > preloaded-images-k8s-v18-v1...:  327.74 MiB / 327.74 MiB  100.00% 6.99 Mi
-#     > gcr.io/k8s-minikube/kicbase...:  404.50 MiB / 404.50 MiB  100.00% 6.29 Mi
-# 🔥  Creating docker container (CPUs=4, Memory=8192MB) ...
-# 🐳  Preparing Kubernetes v1.27.4 on Docker 24.0.4 ...
-#     ▪ Generating certificates and keys ...
-#     ▪ Booting up control plane ...
-#     ▪ Configuring RBAC rules ...
-# 🔗  Configuring bridge CNI (Container Networking Interface) ...
-# 🔎  Verifying Kubernetes components...
-#     ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
-# 🌟  Enabled addons: storage-provisioner, default-storageclass
-# 🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
-```
-
-2. **Enable the Ingress addon for Minikube:**
-
-```bash
+## output:
+#...
+#🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 minikube addons enable ingress
+## output:
+#...
+#🔎  Verifying ingress addon...
+#🌟  The 'ingress' addon is enabled
 
-# Output:
-# 💡  ingress is an addon maintained by Kubernetes. For any concerns contact minikube on GitHub.
-# You can view the list of minikube maintainers at: https://github.com/kubernetes/minikube/blob/master/OWNERS
-# 💡  After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
-#     ▪ Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407
-#     ▪ Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407
-#     ▪ Using image registry.k8s.io/ingress-nginx/controller:v1.8.1
-# 🔎  Verifying ingress addon...
-#  	🌟  The 'ingress' addon is enabled
+minikube addons enable volumesnapshots
+minikube addons enable csi-hostpath-driver
+
+minikube addons disable storage-provisioner
+minikube addons disable default-storageclass
+
+kubectl patch storageclass csi-hostpath-sc -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}, "allowVolumeExpansion":true}'
 ```
 
-3. **Start a Minikube tunnel to expose services to the host machine:**
+## Chart installation
 
-```bash
-minikube tunnel
-
-# Output:
-# ✅  Tunnel successfully started
-
-# 📌  NOTE: Please do not close this terminal as this process must stay alive for the tunnel to be accessible ...
-
-# 🏃  Starting tunnel for service kourier.
-# ❗  The service/ingress engine-realtime-ingress requires privileged ports to be exposed: [80 443]
-# 🔑  sudo permission will be asked for it.
-# ❗  The service/ingress env-2a6tuaenfqw1-ingress requires privileged ports to be exposed: [80 443]
-# 🏃  Starting tunnel for service engine-realtime-ingress.
-# 🔑  sudo permission will be asked for it.
-# 🏃  Starting tunnel for service env-2a6tuaenfqw1-ingress.
-# ❗  The service/ingress platform-core-ingress requires privileged ports to be exposed: [80 443]
-# 🔑  sudo permission will be asked for it.
-# ❗  The service/ingress platform-sync-ingress requires privileged ports to be exposed: [80 443]
-# 🔑  sudo permission will be asked for it.
-# 🏃  Starting tunnel for service platform-core-ingress.
-# 🏃  Starting tunnel for service platform-sync-ingress.
-# ❗  The service/ingress studio-ingress requires privileged ports to be exposed: [80 443]
-# 🔑  sudo permission will be asked for it.
-# 🏃  Starting tunnel for service studio-ingress.
-```
-
-## Step 2: Install Agnost
-
-1. **Add the Agnost Helm repository:**
+Add the repo and continue with your Kubernetes Platform's documentation:
 
 ```bash
 helm repo add cloud-agnost https://cloud-agnost.github.io/charts
-
-# Output:
-"cloud-agnost" has been added to your repositories
+helm repo update
 ```
 
-2. **Install Agnost Helm chart:**
+Before installation, if you need to update configuration parametes of the installation, you can configure the settings based on base [values.yaml](https://github.com/cloud-agnost/charts/blob/master/base/values.yaml).
+
+
+Then run the below command to install Agnost:
 
 ```bash
-helm install agnost cloud-agnost/base
-
-# Output:
-# NAME: agnost
-# LAST DEPLOYED: Tue Sep 26 15:57:17 2023
-# NAMESPACE: default
-# STATUS: deployed
-# REVISION: 1
-# TEST SUITE: None
-# NOTES:
-# 👍  Agnost community cluster installation has started!
-# ⏳  It might take 5-10 minutes to complete the required deployments. Please check your cluster deployment status by running:
-
-#     kubectl get pods
-
-# 💡  Below is your cluster information. Please keep this information in a safe place.
-# 💡  You will need "Cluster Access Token" to finalize the cluster set-up through Agnost Studio which is installed in your Kubernetes cluster.
-
-# Cluster ID            : cls-zdktvyowd1
-# Cluster Access Token  : at-bjuqekzaewgjrkhevmgxbutwtw8
-# Engine Access Token   : at-z25balv3yw4hamzyognlmmdmmyo
-# Platform Access Token : mt-djcnzvj3eeb3byvht09tywr1mcq
-
-# 📣  As a next step, you need to finalize your cluster set-up by creating your user account through Agnost Studio.
-# 📣  To launch Agnost Studio, type the URL or IP address of your cluster on your browser (e.g., http(s)://<your cluster URL or IP>).
-# 🌍  If you have installed your cluster locally you can access Agnost Studio at http://localhost
+# Install the chart on Kubernetes. If you have followed above installation steps we have already enabled ingress so no need to install it again.
+helm upgrade --install agnost cloud-agnost/base --set ingress-nginx.enabled=false
 ```
 
-Congratulations! You have now successfully set up Agnost Studio and your local
-development environment, allowing you to develop and deploy applications with
-ease.
+:::tip
+The above command installs Agnost on the `default` namespace (or on your current context) and `operators` namespace to install 3rd party software operators.
 
-<!--
-## Step 3: Install Agnost Studio
+You can add `--namespace <namespace-name>` and `--create-namespace` options to install Agnost to a different namespace.
+:::
 
-1. **Clone the Agnost Studio repository:**
+
+Check the pods status, make sure that mongodb, rabbitmq, and redis are running:
+It takes around 5 minutes (depending on your local resources and internet connection)
 
 ```bash
-git clone https://github.com/cloud-agnost/agnost-community.git
+$> kubectl get pods -n default
+NAME                                           READY   STATUS    RESTARTS      AGE
+engine-monitor-deployment-6d5569878f-nrg7q     1/1     Running   0             8m8s
+engine-realtime-deployment-955f6c77b-2wx52     1/1     Running   0             8m8s
+engine-scheduler-deployment-775879f956-fq4sc   1/1     Running   0             8m8s
+engine-worker-deployment-76d94cd4c9-9hsjc      1/1     Running   0             8m8s
+minio-594ff4f778-hvk4t                         1/1     Running   0             8m8s
+mongodb-0                                      2/2     Running   0             7m57s
+platform-core-deployment-5f79d59868-9jrbm      1/1     Running   0             8m8s
+platform-sync-deployment-7c8bf79df6-h2prc      1/1     Running   0             8m8s
+platform-worker-deployment-868cb59558-rv86h    1/1     Running   0             8m8s
+rabbitmq-server-0                              1/1     Running   0             7m49s
+redis-master-0                                 1/1     Running   0             8m8s
+studio-deployment-7fdccfc77f-pxsfj             1/1     Running   0             8m8s
 ```
 
-2. **Navigate to the 'k8s' folder inside the 'agnost-community' directory:**
+Then you can reach your app via the IP address of your ingress:
 
 ```bash
-cd agnost-community/k8s
+# get the IP address of the Ingress --> EXTERNAL-IP field
+$> kubectl get svc -n ingress-nginx
+NAME                              TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                      AGE
+agnost-ingress-nginx-controller   LoadBalancer   10.245.185.76   192.168.49.2     80:30323/TCP,443:31819/TCP   7m1s
+
+# or to get it via script:
+kubectl get svc -n ingress-nginx -o jsonpath='{.items[].status.loadBalancer.ingress[].ip}'
 ```
 
-3. **Start the Skaffold development environment:**
+Then open your browser and access to the IP address (`http://192.168.49.2/studio` for the given example above) or go to `http://localhost/studio` to launch Agnost Studio.
+
+:::tip
+If you are accessling the Agnost Studio through localhost, please make sure that `minikube tunnel` is up and running. To activate the tunnel, run the following command:
+```bash
+minikube tunnel
+```
+:::
+
+## Chart Customization
+
+Here is the [helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) in how to customize the installation.
+
+In a nutshell, you have 2 options:
+
+1. Set the value on the command line, e.g.:
 
 ```bash
-skaffold dev
+helm upgrade --install agnost cloud-agnost/base \
+             --set ingress-nginx.enabled=false
 ```
 
-4. **Open a new terminal and navigate to the 'studio' folder inside the
-   'agnost-community' directory:**
+2. Create a values file with the changes you want to have:
 
-```bash
-cd agnost-community/studio
+```yaml
+# my-values.yaml
+ingress-nginx:
+  enabled: false
+
+minio:
+  mode: distributed
+  replicas: 4
 ```
 
-5. **Install the required dependencies:**
+Then, provide it on the command line:
 
 ```bash
-npm install
+helm upgrade --install agnost cloud-agnost/base -f my-values.yaml
 ```
 
-6. **Run Agnost Studio in development mode:**
+Here are the values you can configure:
 
-```bash
-npm run dev
-
-# Output:
-
-# > studio@0.0.0 dev
-# > vite
-
-#   VITE v4.3.9  ready in 305 ms
-
-#   ➜  Local:   http://localhost:4000/
-#   ➜  Network: http://192.168.1.102:4000/
-#   ➜  press h to show help
-
-``` -->
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| ingress-nginx.enabled | bool | `true` | install ingress-nginx |
+| ingress-nginx.controller.service.externalTrafficPolicy | string | `"Local"` | This needs to be local for knative ingress work properly |
+| ingress-nginx.controller.autoscaling.enabled | bool | `true` | Enable/Disable autoscaling for ingress-nginx |
+| ingress-nginx.controller.autoscaling.minReplicas | int | `1` | Minimum ingress-nginx replicas when autoscaling is enabled |
+| ingress-nginx.controller.autoscaling.maxReplicas | int | `10` | Maximum ingress-nginx replicas when autoscaling is enabled |
+| ingress-nginx.controller.autoscaling.targetCPUUtilizationPercentage | int | `80` | Target CPU Utilization for ingress-nginx replicas when autoscaling is enabled |
+| ingress-nginx.controller.autoscaling.targetMemoryUtilizationPercentage | int | `80` | Target Memory Utilization for ingress-nginx replicas when autoscaling is enabled |
+| ingress-nginx.controller.resources | object | `{"requests":{"cpu":"100m","memory":"200Mi"}}` | resources for the ingress-nginx controller |
+| ingress-nginx.platform | string | `""` | Platform running the ingress, annotations needed for Elastic Kubernetes Service (AWS), Azure Kubernetes Service and Digital Ocean Kubernetes Possible values: [ AKS, DOKS, EKS ] |
+| cert-manager.namespace | string | `"cert-manager"` | namespace for cert-manager installation |
+| cert-manager.startupapicheck.enabled | bool | `false` | no need for pre checks |
+| minio.mode | string | `"standalone"` | deployment mode: standalone or distributed |
+| minio.replicas | int | `1` | number of replicas. 1 for standalone, 4 for distributed |
+| minio.persistence.size | string | `"100Gi"` | Storage size for MinOP |
+| minio.resources.requests.memory | string | `"256Mi"` | Memory requests for MinIO pods |
+| minio.users | list | `[]` | Username, password and policy to be assigned to the user Default policies are [readonly|readwrite|writeonly|consoleAdmin|diagnostics] |
+| minio.buckets | list | `[]` | Initial buckets to create |
+| mongodbcommunity.storage.dataVolumeSize | string | `"20Gi"` | Storage size for data volume |
+| mongodbcommunity.storage.logVolumeSize | string | `"4Gi"` | Storage size for logs volume |
+| redis.master.persistence.size | string | `"2Gi"` | Storage size for the redis instance |
+| redis.architecture | string | `"standalone"` | Redis deployment type: standalone or replication |
+| engine.monitor.resources | object | `{}` | resources for the engine-monitor deployment |
+| engine.realtime.hpa | object | `{"targetCpuUtilization":90}` | horizantal pod autoscaler configuration for the engine-realtime deployment |
+| engine.realtime.resources | object | `{"requests":{"cpu":"100m"}}` | resources for the engine-realtime deployment |
+| engine.scheduler.resources | object | `{}` | resources for the engine-scheduler deployment |
+| engine.worker.hpa | object | `{"targetCpuUtilization":90}` | horizantal pod autoscaler configuration for the engine-worker deployment |
+| engine.worker.resources | object | `{"requests":{"cpu":"200m"}}` | resources for the engine-worker deployment |
+| platform.core.hpa | object | `{"targetCpuUtilization":90}` | horizantal pod autoscaler configuration for the platform-core deployment |
+| platform.core.resources | object | `{"requests":{"cpu":"200m"}}` | resources for the platform-core deployment |
+| platform.sync.hpa | object | `{"targetCpuUtilization":90}` | horizantal pod autoscaler configuration for the platform-sync deployment |
+| platform.sync.resources | object | `{"requests":{"cpu":"100m"}}` | resources for the platform-sync deployment |
+| platform.worker.hpa | object | `{"targetCpuUtilization":90}` | horizantal pod autoscaler configuration for the platform-worker deployment |
+| platform.worker.resources | object | `{"requests":{"cpu":"50m"}}` | resources for the platform-worker deployment |
+| studio.hpa | object | `{"targetCpuUtilization":90}` | horizantal pod autoscaler configuration for the studio deployment |
+| studio.resources | object | `{"requests":{"cpu":"100m"}}` | resources for the studio deployment |

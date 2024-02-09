@@ -56,14 +56,6 @@ Dockerfiles or Kubernetes manifests - Agnost takes care of this for you.
   on-premises Kubernetes clusters, Agnost provides a consistent and
   user-friendly experience.
 
-:::note
-
-By offering a hassle-free deployment process and real-time code updates, Agnost
-simplifies the development and deployment workflow, making it an ideal choice
-for developers looking to boost productivity and efficiency.
-
-:::
-
 ### Managing Your Application
 
 Once your application is deployed, Agnost provides tools for monitoring,
