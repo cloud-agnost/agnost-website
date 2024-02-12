@@ -43,8 +43,6 @@ Agnost support team directly at support@agnost.dev. Be sure to provide detailed
 information about your issue and your environment to help the support team
 understand and resolve your issue as quickly as possible.
 
-Here are the ways you can join the Agnost community:
-
 ## Contributing to Agnost
 
 Agnost is an open-source project, and we welcome contributions from the

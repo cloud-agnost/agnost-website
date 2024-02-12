@@ -43,8 +43,6 @@ Agnost support team directly at support@agnost.dev. Be sure to provide detailed
 information about your issue and your environment to help the support team
 understand and resolve your issue as quickly as possible.
 
-Here are the ways you can join the Agnost community:
-
 ## Contributing to Agnost
 
 Agnost is an open-source project, and we welcome contributions from the
@@ -61,9 +59,9 @@ on a specific issue, please comment on the issue to let others know you're
 working on it.
 
 Before you start coding, please review the
-[contributing guidelines](https://github.com/cloud-agnost/agnost-community/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/cloud-agnost/agnost-community/blob/master/CONTRIBUTING.md)
 and
-[code of conduct](https://github.com/cloud-agnost/agnost-community/CODE_OF_CONDUCT.md)
+[code of conduct](https://github.com/cloud-agnost/agnost-community/blob/master/CODE_OF_CONDUCT.md)
 to understand the project's development process and expectations.
 
 ### Improve Documentation
