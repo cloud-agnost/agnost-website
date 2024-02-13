@@ -68,7 +68,7 @@ const Form = () => {
         <div className={coCss.contact__form__form__block}>
           <InputText id="email" isRequired register={register} />
           <button className={coCss.contact__form__submit__button} type="submit">
-            Get Notified
+            Tell me more!
           </button>
         </div>
 
