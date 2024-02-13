@@ -25,8 +25,8 @@ Agnost application:
 - You'll need to enter the name of application. Click **`OK`** when you're done.
 
 <ImageSwitcher
-  lightImageSrc="/img/docs/application-development/create_app_1_l.png?text=LightMode"
-  darkImageSrc="/img/docs/application-development/create_app_1_d.png?text=DarkMode"
+  lightImageSrc="/img/docs/application-development/create_app_1-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create_app_1.png?text=DarkMode"
   className={ilCss.illustration__md}
   width={480}
 />
@@ -67,7 +67,7 @@ Agnost application:
   lightImageSrc="/img/docs/application-development/create-version-copy-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/create-version-copy.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={480}
+  width={580}
 />
 
 4. **Develop Your Application:** Once you've set up your organization,

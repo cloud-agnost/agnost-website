@@ -24,7 +24,7 @@ Navigate to the **`Members`** tab within the **Settings** section of Agnost.
   lightImageSrc="/img/docs/manage-organizations/invite-members-l.png?text=LightMode"
   darkImageSrc="/img/docs/manage-organizations/invite-members.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={620}
+  width={720}
 />
 
 ### 2. Provide Member Details
@@ -69,7 +69,7 @@ been sent but not yet accepted.
   lightImageSrc="/img/docs/manage-organizations/pending-invitations-l.png?text=LightMode"
   darkImageSrc="/img/docs/manage-organizations/pending-invitations.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={620}
+  width={720}
 />
 
 ## Transferring Organization Ownership

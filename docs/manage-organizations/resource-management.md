@@ -59,7 +59,7 @@ databases.
   lightImageSrc="/img/docs/application-development/conn-existing-resource-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/conn-existing-resource.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={640}
+  width={720}
 />
 
 Agnost will guide you through configuring your application to use it by
@@ -75,7 +75,7 @@ configurations for the new resource.
   lightImageSrc="/img/docs/application-development/create-new-resource-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/create-new-resource.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={640}
+  width={720}
 />
 
 This includes specifying connection information, access credentials, and any
@@ -127,8 +127,8 @@ existing MongoDB resource using the Agnost user interface:
    connect to. Select "MongoDB" from the list of available resource types.
 
 <ImageSwitcher
-  lightImageSrc="/img/docs/application-development/adding-resource-x-l.png?text=LightMode"
-  darkImageSrc="/img/docs/application-development/adding-resource-x.png?text=DarkMode"
+  lightImageSrc="/img/docs/application-development/conn-existing-resource-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/conn-existing-resource.png?text=DarkMode"
   className={ilCss.illustration__md}
   width={820}
 />

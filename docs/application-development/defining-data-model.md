@@ -97,7 +97,7 @@ for your new model:
   lightImageSrc="/img/docs/application-development/model-name-l.png?text=LightMode"
   darkImageSrc="/img/docs/application-development/model-name.png?text=DarkMode"
   className={ilCss.illustration__md}
-  width={820}
+  width={520}
 />
 
 ### 3. Add Fields to the Model
