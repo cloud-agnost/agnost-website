@@ -81,8 +81,8 @@ available in your Agnost environment. You can manage these cache servers by
 clicking on their names.
 
 <ImageSwitcher
-  lightImageSrc="/img/docs/application-development/cache-list-l.png?text=LightMode"
-  darkImageSrc="/img/docs/application-development/cache-list.png?text=DarkMode"
+  lightImageSrc="/img/docs/application-development/create-cache-l.png?text=LightMode"
+  darkImageSrc="/img/docs/application-development/create-cache.png?text=DarkMode"
   className={ilCss.illustration__md}
   width={820}
 />
