@@ -117,7 +117,7 @@ matching objects are found, an empty array is returned.
 const users = await agnost
 	.db("mydb")
 	.model("users")
-	.findOne(
+	.findMany(
 		{ $and: [{ $includes: ["name", "john"] }, { $gt: ["profile.age", 18] }] },
 		{
 			select: ["id", "name", "email", "profile.age", "profile.nickname"],
