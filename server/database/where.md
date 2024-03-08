@@ -114,6 +114,8 @@ Below is the list of functions currently supported in Agnost that you can use in
 | `$and`        | `BooleanValue[]`                                             | Performs logical AND operation.                              | ***✓*** |  ***✓***   | ***✓*** |
 | `$eq`         | `[leftOperand: AnyValue, rightOperand: AnyValue]`            | Checks equality of two values.                               | ***✓*** |  ***✓***   | ***✓*** |
 | `$exists`     | `AnyValue or [value: AnyValue]`                              | Checks if the value exists or not. **For SQL databases this function expects a subquery as its parameter.** | ***✓*** |  ***✓***   | ***✓*** |
+| `$isnull`     | `AnyValue or [value: AnyValue]`                              | Checks if the value is null or not. | ***✓*** |  ***✓***   | ***✓*** |
+| `$isnotnull`  | `AnyValue or [value: AnyValue]`                              | Checks if the value is NOT null or not. | ***✓*** |  ***✓***   | ***✓*** |
 | `$gt`         | `[firstValue: NumericValue, secondValue: NumericValue]`      | Checks whether the first value is greater than the second value. | ***✓*** |  ***✓***   | ***✓*** |
 | `$gte`        | `[firstValue: NumericValue, secondValue: NumericValue]`      | Checks whether the first value is greater than or equal to the second value. | ***✓*** |  ***✓***   | ***✓*** |
 | `$in`         | `[value: AnyValue, arrayOfValues: ArrayValue]`               | Checks whether the value is in an array.                     | ***✓*** |  ***✓***   | ***✓*** |
