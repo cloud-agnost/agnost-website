@@ -165,7 +165,7 @@ The Agnost client library can be installed via npm or Yarn.
 
 
 ```bash
-npm install agnost
+npm install @agnost/client
 ```
 
 </TabItem>
@@ -175,7 +175,7 @@ npm install agnost
 
 
 ```bash
-yarn install agnost
+yarn install @agnost/client
 ```
 
 </TabItem>
