@@ -133,7 +133,7 @@ You can initialize the client library with `realtime`, `signInRedirect`, and
 
 
 ```js
-import { createClient } from "agnost"
+import { createClient } from "@agnost/client"
 
 // Create a client for interacting with Agnost backend app
 // You need to provide `baseUrl` and `apiKey` as input parameters

@@ -21,10 +21,10 @@ Whether you are a beginner getting started with cloud-native development or an
 experienced developer looking to leverage the power of Agnost, you will find the
 information you need here.
 
-## Installtion & Setup
+## Installation & Setup
 
 Learn how to install and customize Agnost using on a Kubernetes cluster through
-[**Installtion & Setup**](/docs/installation/installation-minikube.md) guide. This
+[**Installation & Setup**](/docs/installation/installation-minikube.md) guide. This
 guide will walk you through the installation process, setting up your
 cluster, and creating your first Agnost application.
 
