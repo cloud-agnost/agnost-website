@@ -23,7 +23,7 @@ can listen to the following user events.
 | user:emailchange | Triggered whenever the email of the user changes.                                                                                                                                                                                                                                                     |
 | user:phonechange | Triggered whenever the phone number of the user changes.                                                                                                                                                                                                                                              |
 
-<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" }, { label: "Dart", value: "dart" } ]}>
+<Tabs defaultValue="javascript" groupId="dev" values={[ { label: "Javascript", value: "javascript" } ]}>
 
 
 <TabItem value="javascript">
@@ -33,18 +33,6 @@ can listen to the following user events.
 agnost.auth.onUserEvent((eventName, session) =>
   console.log("User event", eventName, session),
 )
-```
-
-</TabItem>
-
-
-<TabItem value="dart">
-
-
-```dart
-agnost.auth.onUserEvent((eventName, session) {
-  print('User event  $eventName, $session');
-});
 ```
 
 </TabItem>

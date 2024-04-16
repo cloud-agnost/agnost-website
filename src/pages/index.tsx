@@ -1395,9 +1395,9 @@ const WhyAgnost = () => {
                   <path
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="32"
                     d="M256 64C132.3 64 32 164.2 32 287.9a223.18 223.18 0 0056.3 148.5c1.1 1.2 2.1 2.4 3.2 3.5a25.19 25.19 0 0037.1-.1 173.13 173.13 0 01254.8 0 25.19 25.19 0 0037.1.1l3.2-3.5A223.18 223.18 0 00480 287.9C480 164.2 379.7 64 256 64z"
                   ></path>
                   <line
@@ -1407,9 +1407,9 @@ const WhyAgnost = () => {
                     y2="160"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-miterlimit="10"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="32"
                   ></line>
                   <line
                     x1="416"
@@ -1418,9 +1418,9 @@ const WhyAgnost = () => {
                     y2="288"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-miterlimit="10"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="32"
                   ></line>
                   <line
                     x1="128"
@@ -1429,9 +1429,9 @@ const WhyAgnost = () => {
                     y2="288"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-miterlimit="10"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="32"
                   ></line>
                   <line
                     x1="165.49"
@@ -1440,9 +1440,9 @@ const WhyAgnost = () => {
                     y2="174.86"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-miterlimit="10"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="32"
                   ></line>
                   <line
                     x1="346.51"
@@ -1451,9 +1451,9 @@ const WhyAgnost = () => {
                     y2="174.86"
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-miterlimit="10"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="32"
                   ></line>
                 </svg>
               </motion.div>
