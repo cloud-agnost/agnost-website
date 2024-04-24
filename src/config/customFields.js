@@ -14,7 +14,7 @@ module.exports = {
   serverlessUrl: "https://www.agnost.dev",
   helmVersion: "0.11.0",
   linkedInUrl: "https://www.linkedin.com/company/agnost/",
-  oneLiner: "Agnost - Open-source Kubernetes Development Platform",
+  oneLiner: "Agnost - Open-source App Development Platform",
   slackUrl: `https://slack.${consts.domain}`,
   stackoverflowUrl: "https://stackoverflow.com/questions/tagged/agnost",
   twitterUrl: "https://twitter.com/agnostdev",
@@ -32,7 +32,7 @@ module.exports = {
   productionUrl: "https://agnost.dev",
   tagLine:
     "Your kubernetes based cloud native application platform. Agnost is a platform that helps you to deploy your applications on kubernetes with ease.",
-  title: "Agnost - Open-source Kubernetes Development Platform",
+  title: "Agnost - Open-source App Development Platform",
   organizationName: "agnost",
   projectName: "agnost",
   copyright: `Copyright © ${new Date().getFullYear()} Agnost | All rights reserved`,

@@ -64,7 +64,7 @@ Developers often had to rely on multiple frameworks, libraries, and services,
 resulting in complex and fragmented architectures.
 
 Driven by the desire to simplify and streamline backend development, we set out
-to create Agnost — Open-source Kubernetes Development Platform. Our mission is
+to create Agnost — Open-source App Development Platform running on Kubernetes clusters. Our mission is
 to empower developers with a unified platform that not only addresses their
 technical requirements but also enhances their productivity and enjoyment in the
 development process with mitigating the vendor lock-in risk.
@@ -144,7 +144,7 @@ simplify backend application development.
 
 > Features and Capabilities
 
-Agnost is a comprehensive open-source Kubernetes development platform that
+Agnost is a comprehensive open-source app development platform that
 brings together all the essential components required to build scalable and
 secure backend applications. It offers a unified solution, eliminating the need
 to integrate multiple frameworks, libraries, and services. Let's explore the key
@@ -323,7 +323,7 @@ and how they enable scalability, high availability, security, and more.
 
 > **Empowering Developers to Innovate**
 
-Agnost, the open-source Kubernetes development platform, is revolutionizing
+Agnost, the open-source app development platform, is revolutionizing
 backend development by empowering developers to innovate with ease. By providing
 a unified solution encompassing an application server, database integration,
 authentication, queues, caching, cron-jobs, real-time capabilities, and a

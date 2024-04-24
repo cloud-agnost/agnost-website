@@ -77,7 +77,7 @@ const Footer = () => {
             height={30}
             width={120}
             src="/img/logo_dark.svg"
-            title="Agnost | Open-source Kubernetes Development Platform"
+            title="Agnost | Open-source App Development Platform"
           />
           <p className={footerStyles.footer__tagline}>
             Agnost is an <strong>open-source kubernetes </strong>

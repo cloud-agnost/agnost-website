@@ -35,7 +35,7 @@ import TabItem from "@theme/TabItem"
 
 In the rapidly evolving world of software development, the quest for more
 efficient, secure, and scalable solutions is never-ending. Agnost is **an
-open-source Kubernetes Development Platform** designed to simplify the backend
+open-source App Development Platform** designed to simplify the backend
 development process, offering an all-in-one solution that includes an
 application server, database, authentication, queues, cache, cronjobs, and
 real-time capabilities. Today, we're diving into one of the key modules of

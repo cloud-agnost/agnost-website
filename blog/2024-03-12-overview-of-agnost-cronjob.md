@@ -34,7 +34,7 @@ import TabItem from "@theme/TabItem"
 </head>
 
 In the realm of backend development, automating recurring tasks is pivotal for
-application efficiency. Agnost, an open-source Kubernetes development platform,
+application efficiency. Agnost, an open-source app development platform,
 offers a robust cronjob feature to streamline task management. This guide dives
 deep into Agnost's cronjob functionality, providing insights, best practices,
 and practical examples. Whether you're new to cronjobs or seeking optimization,
