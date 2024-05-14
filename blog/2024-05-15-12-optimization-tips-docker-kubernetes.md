@@ -316,11 +316,6 @@ security.
 - **Refactor as Needed**: Simplify and remove unnecessary layers, update base
   images, and improve scripting to maintain efficiency.
 
-Absolutely! Monitoring is a crucial aspect of managing Docker containers in a
-Kubernetes environment, ensuring that your deployments are performing optimally
-and are stable. Here’s how to integrate robust monitoring practices into your
-Docker and Kubernetes strategy.
-
 ### 11. Implementing Effective Monitoring and Logging
 
 :::tip **Why It Matters**
@@ -425,12 +420,6 @@ application’s availability or user experience.
 - **Set Up Automated Responses**: Where possible, set up automated responses to
   common issues. For example, auto-scaling based on traffic or restarting
   containers that consistently use too much memory.
-
-By integrating these monitoring and logging practices, you ensure that your
-Kubernetes and Docker environments are not only optimized but also resilient and
-ready to handle the complexities of production deployments. This comprehensive
-monitoring setup provides the visibility needed to maintain high performance and
-availability of your applications.
 
 ### Conclusion
 
